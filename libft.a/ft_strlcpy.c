@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:20:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/17 19:07:02 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/17 16:42:51 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/17 17:41:41 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char    *ft_strnstr(char *str, char *to_find, int len)
+size_t ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int     i;
-	int     c;
+    int	i;
 
 	i = 0;
-	if (*to_find == '\0')
-		return (str);
-	while (str[i] != '\0' && i < len)
+	while (dest[i] != '\0' && i < size - 1)
 	{
-		c = 0;
-		while (str[i + c] == to_find[c] && str[i + c] != '\0')
-			c++;
-		if (to_find[c] == '\0')
-			return (&str[i]);
+		if (dest[i] < src[i] || dest[i] > src[i])
+		{
+			return (dest[i] - src[i]);
+		}
 		i++;
 	}
-	return (0);
+	return (dest[i] - src[i]);
 }
-/*
+/* 
 #include <stdio.h>
-int     main()
+int	main()
 {
-	char    str[] = "eliminaCOPIAelimina";
-	char    find[] = "P";
-	printf("%s", ft_strnstr(str, find, 9));
+	printf("%ld", ft_strlcpy("Hello", "Hello1", 5));
+	printf("\n%ld", ft_strlcpy("Hello", "He", 6));
+	printf("\n%ld", ft_strlcpy("He", "Hello", 2));
+	printf("\n%ld\n", ft_strlcpy("Hello", "Hello", 3));
 } */

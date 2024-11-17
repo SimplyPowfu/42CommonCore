@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:33:43 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/17 16:23:29 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/17 16:43:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include <string.h>
 
-void *ft_memmove(void *dest, void *src, unsigned int len)
+void *ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char *dest1 = dest;
-	unsigned char *src1 = src;
-	unsigned int i = 0;
+    int i;
+	const char *str;
+	char *cpy;
 
-	while(i < len)
+	i = 0;
+	str = src;
+	cpy = dest;
+	while(str[i] != '\0')
 	{
-		dest1[i] = src1[i];
+		cpy[i] = str[i];
 		i++;
 	}
+	return (cpy);
 }
 /*
-int main()
+#include <stdio.h>
+
+int main(void)
 {
-	char str[] = "Hello, World!";
-	ft_memmove(str + 7, str, 5);
-	printf("%s\n", str);
-}*/
+    char source[] = "This is the source string";
+    char target[] = "Cringe";
+  printf( "%s\n", target );
+  ft_memcpy( target, source, sizeof(source));
+  printf( "%s\n", target );
+} */

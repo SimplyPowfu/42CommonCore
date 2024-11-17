@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:33:43 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/17 18:12:57 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/17 18:48:48 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include <string.h>
 
-void *ft_memmove(void *dest, void *src, unsigned int len)
+char *ft_strchr(const char *str, int c)
 {
-	unsigned char *dest1 = dest;
-	unsigned char *src1 = src;
-	unsigned int i = 0;
+    int i;
 
-	while(i < len)
-	{
-		dest1[i] = src1[i];
-		i++;
-	}
+    i = 0;
+    while(str[i] != '\0')
+    {
+        if(str[i] == (char)c)
+        {
+            return ((char *)&str[i]);
+        }
+        i++;
+    }
+    return (NULL);
 }
-/*
+/* 
+#include <stdio.h>
 int main()
 {
-	char str[] = "Hello, World!";
-	ft_memmove(str + 7, str, 5);
-	printf("%s\n", str);
-}*/
+    const char *str = "Ciao, mondo!";
+    char to_find = 'o';
+    char *result = ft_strchr(str, to_find);
+    printf("%s", result);
+} */

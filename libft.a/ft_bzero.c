@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:33:43 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/14 17:09:53 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/14 17:16:34 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include <string.h>
 
-void *ft_memmove(void *dest, void *src, unsigned int len)
+void ft_bzero(void *s, size_t n)
 {
-	unsigned char *dest1 = dest;
-	unsigned char *src1 = src;
-	unsigned int i = 0;
-
-	while(i < len)
-	{
-		dest1[i] = src1[i];
-		i++;
-	}
+    char *p = s;
+    while(n--)
+    {
+        *p++ = 0;
+    }
 }
-/*
-int main()
-{
-	char str[] = "Hello, World!";
-	ft_memmove(str + 7, str, 5);
-	printf("%s\n", str);
-}*/
+/* 
+#include <stdio.h>
+#include <strings.h>
+
+int main() {
+    char buffer[10];
+    ft_bzero(buffer, sizeof(buffer));    
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", buffer[i]);
+    }
+    return 0;
+} */

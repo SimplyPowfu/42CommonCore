@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:33:43 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/14 16:40:44 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/14 16:46:09 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+#include <string.h>
 
-void *ft_memmove(void *dest, void *src, unsigned int len)
+size_t ft_strlen(const char *s)
 {
-	unsigned char *dest1 = dest;
-	unsigned char *src1 = src;
-	unsigned int i = 0;
+    int i;
 
-	while(i < len)
-	{
-		dest1[i] = src1[i];
-		i++;
-	}
+    i = 0;
+    while(s[i] != '\0')
+    {
+        i++;
+    }
+    return (i);
 }
-/*
-int main()
-{
-	char str[] = "Hello, World!";
-	ft_memmove(str + 7, str, 5);
-	printf("%s\n", str);
-}*/

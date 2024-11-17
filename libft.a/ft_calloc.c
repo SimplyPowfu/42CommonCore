@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/14 16:19:00 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/17 19:08:42 by ecarbona         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
-#include <stdio.h>
 
 void *ft_calloc(unsigned int num, unsigned int size)
 {
@@ -18,7 +29,7 @@ void *ft_calloc(unsigned int num, unsigned int size)
 
     return (void *)arr;
 }
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -43,4 +54,4 @@ int main() {
     free(arr);
 
     return 0;
-}
+}*/
