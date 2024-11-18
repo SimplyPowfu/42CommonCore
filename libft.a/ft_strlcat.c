@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:43:46 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/17 18:37:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:33:39 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ size_t ft_strlcat(char *dest, const char *src, size_t size)
 
 	i = 0;
 	while (dest[i] != '\0')
-	{
 		i++;
-	}
 	j = 0;
 	while (src[j] != '\0' && j < size - 1)
 	{
@@ -32,16 +30,11 @@ size_t ft_strlcat(char *dest, const char *src, size_t size)
 	dest[i] = '\0';
 	return (i);
 }
-/* 
-#include <stdio.h>
-#include <string.h>
-int main() {
-    char dest[20] = "Ciao, ";
-    const char *src = "come va?";
-    
-    printf("%ld\n", ft_strlcat(dest, src, sizeof(dest)));
-    
-    printf("%s\n", dest);  // Output: "Ciao, come va?"
-    
-    return 0;
-} */
+// #include <stdio.h>
+// #include <bsd/string.h>
+// int main() {
+//     char dest[20] = "Ciao, ";
+//     const char *src = "come va?";
+//     printf("%ld\n", ft_strlcat(dest, src, sizeof(dest)));
+//     printf("%s\n", dest);
+// }

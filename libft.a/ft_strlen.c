@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:40:44 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:46:09 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:49:20 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t ft_strlen(const char *s)
+size_t  ft_strlen(const char *s)
 {
     int i;
 
     i = 0;
-    while(s[i] != '\0')
-    {
+    while (s[i] != '\0')
         i++;
-    }
     return (i);
 }

@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:01:45 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/17 18:04:19 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:36:31 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char ft_toupper(char c)
 {
 	if (c >= 'a' && c <= 'z')
-	{
 		return (c - 32);
-	}
 	return (c);
 }
-
-/* #include <stdio.h>
-int main()
-{
-    printf("%c", ft_toupper('l'));
-} */
+// #include <stdio.h>
+// #include <ctype.h>
+// int main()
+// {
+//     printf("%c", ft_toupper('l'));
+// }

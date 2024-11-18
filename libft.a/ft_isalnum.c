@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:22:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:34:38 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:48:56 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <ctype.h>
+#include <stdio.h>
 
 int ft_isalnum(int c)
 {
@@ -18,3 +21,9 @@ int ft_isalnum(int c)
 	}
 	return (0);
 }
+/*
+int main()
+{
+	printf("%d\n", isalnum('='));
+	printf("%d\n", ft_isalnum('-'));
+}*/

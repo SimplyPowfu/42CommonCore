@@ -3,36 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:42:51 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/17 17:41:41 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:42:12 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t ft_strlcpy(char *dest, const char *src, size_t size)
+size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    int	i;
+	size_t	i;
+	size_t j;
 
+	j = 0;
+	while(src[j] != '\0')
+		j++;
 	i = 0;
-	while (dest[i] != '\0' && i < size - 1)
+	while(i < size - 1)
 	{
-		if (dest[i] < src[i] || dest[i] > src[i])
-		{
-			return (dest[i] - src[i]);
-		}
+		dst[i] = src[i];
 		i++;
 	}
-	return (dest[i] - src[i]);
+	dst[i] = '\0';
+	return (j);
 }
-/* 
-#include <stdio.h>
-int	main()
-{
-	printf("%ld", ft_strlcpy("Hello", "Hello1", 5));
-	printf("\n%ld", ft_strlcpy("Hello", "He", 6));
-	printf("\n%ld", ft_strlcpy("He", "Hello", 2));
-	printf("\n%ld\n", ft_strlcpy("Hello", "Hello", 3));
-} */
+// #include <stdio.h>
+// #include <bsd/string.h>
+// int main()
+// {
+//     char src[] = "Hello, world!";
+//     char dst[10]; // Buffer di dstinazione di dimensione 10
+//     size_t len = ft_strlcpy(dst, src, sizeof(dst));
+//     printf("Dst: %s\n", dst);
+//     printf("Length: %zu\n", len);
+//     return 0;
+// }

@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:37:59 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:39:19 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:49:01 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <ctype.h>
+#include <stdio.h>
 
 int ft_isprint(char c)
 {
@@ -18,3 +21,9 @@ int ft_isprint(char c)
 	}
 	return (0);
 }
+/*
+int main()
+{
+	printf("%d\n", isprint(' '));
+	printf("%d\n", ft_isprint('\n'));
+}*/

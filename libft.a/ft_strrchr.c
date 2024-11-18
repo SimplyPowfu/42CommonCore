@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:47:06 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/17 18:54:33 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:43:22 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char *ft_strrchr(const char *str, int c)
     int i;
 
     i = 0;
-    while(str[i] != '\0')
+    while (str[i] != '\0')
         i++;
-    while(i > 0)
+    while (i > 0)
     {
         if(str[i] == (char)c)
         {
@@ -29,7 +29,6 @@ char *ft_strrchr(const char *str, int c)
     }
     return (NULL);
 }
-/*  
 #include <stdio.h>
 int main()
 {
@@ -37,4 +36,4 @@ int main()
     char to_find = 'n';
     char *result = ft_strrchr(str, to_find);
     printf("%s", result);
-} */
+}

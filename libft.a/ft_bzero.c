@@ -3,27 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:09:53 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 17:16:34 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 18:04:57 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void ft_bzero(void *s, size_t n)
-{
-    char *p = s;
-    while(n--)
-    {
-        *p++ = 0;
-    }
-}
-/* 
-#include <stdio.h>
 #include <strings.h>
 
+void    ft_bzero(void *s, size_t n)
+{
+    char    *p;
+
+    p = s;
+    while (n--)
+        *p++ = 0;
+}
+
+#include <stdio.h>
 int main() {
     char buffer[10];
     ft_bzero(buffer, sizeof(buffer));    
@@ -31,4 +29,4 @@ int main() {
         printf("%d ", buffer[i]);
     }
     return 0;
-} */
+}

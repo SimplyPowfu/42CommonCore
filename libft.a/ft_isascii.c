@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:35:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:37:23 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:14:10 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <ctype.h>
+#include <stdio.h>
 
 int ft_isascii(int c)
 {
@@ -18,3 +21,9 @@ int ft_isascii(int c)
 	}
 	return (0);
 }
+/*
+int main()
+{
+	printf("%d\n", isascii(' '));
+	printf("%d\n", ft_isascii('\n'));
+}*/

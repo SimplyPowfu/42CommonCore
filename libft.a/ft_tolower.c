@@ -3,18 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:04:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/17 18:05:33 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:37:23 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char ft_tolower(char c)
 {
 	if (c >= 'A' && c <= 'Z')
-	{
 		return (c + 32);
-	}
 	return (c);
 }
+// #include <stdio.h>
+// #include <ctype.h>
+// int main()
+// {
+//     printf("%c", ft_tolower('L'));
+// }

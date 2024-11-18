@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:45:39 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/17 18:47:49 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 18:18:37 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int	ft_atoi(char *str)
 	}
 	return (atoi * min);
 }
-/* 
+
 #include <stdlib.h>
 #include <stdio.h>
 int	main()
 {
-	char str[] = "-123abc456";
+	char str[] = "92233720368547750011"; //-1
 	printf("%d\n", atoi(str));
 	printf("%d\n", ft_atoi(str));
-} */
+}

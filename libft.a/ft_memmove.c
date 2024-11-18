@@ -3,32 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/14 16:33:43 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/18 19:35:17 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 
-void *ft_memmove(void *dest, void *src, unsigned int len)
+void *ft_memmove(void *dst, const void *src, size_t n)
 {
-	unsigned char *dest1 = dest;
-	unsigned char *src1 = src;
-	unsigned int i = 0;
+	int	i;
+	char *dest;
+	const char *str;
 
-	while(i < len)
+	i = 0;
+	dest = dst;
+	str = src;
+	if(dst <= src)
 	{
-		dest1[i] = src1[i];
-		i++;
+		while(n--)
+		{
+			dest[i] = str[i];
+			i++;
+		}
 	}
+	else
+	{
+		while(i + 1 <= n )
+		{
+			n--;
+			dest[n] = str[n];
+		}
+	}
+	return (dest);
 }
-/*
-int main()
-{
-	char str[] = "Hello, World!";
-	ft_memmove(str + 7, str, 5);
-	printf("%s\n", str);
-}*/
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char buffer[20] = "Ciao mondo!!!!!!!!";
+    ft_memmove(buffer + 5, buffer, 0);
+    printf("Buffer: %s\n", buffer);
+    return 0;
+}
