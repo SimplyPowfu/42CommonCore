@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:16 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 17:55:10 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 19:13:46 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,16 @@ int	ft_memcmp(void *dest, void *src, unsigned int len)
 	}
 	return (0);
 }
+// int main() {
+// 	char str1[] = "Hello";
+// 	char str2[] = "Hello, World!";
 
-int main() {
-	char str1[] = "Hello";
-	char str2[] = "Hello, World!";
-	
-	int result = ft_memcmp(str1, str2, 5);  // Confronta i primi 5 byte
-
-	if (result == 0) {
-		printf("I primi 5 caratteri sono uguali.\n");
-	} else {
-		printf("I primi 5 caratteri sono diversi.\n");
-	}
-	printf("%d\n", result);
-	return 0;
-}
+// 	int result = ft_memcmp(str1, str2, 5);  // Confronta i primi 5 byte
+// 	if (result == 0) {
+// 		printf("I primi 5 caratteri sono uguali.\n");
+// 	} else {
+// 		printf("I primi 5 caratteri sono diversi.\n");
+// 	}
+// 	printf("%d\n", result);
+// 	return 0;
+// }
