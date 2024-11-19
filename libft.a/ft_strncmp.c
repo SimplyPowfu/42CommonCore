@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:58:03 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 11:27:01 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:44:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s1[i] != '\0' && i < n - 1)

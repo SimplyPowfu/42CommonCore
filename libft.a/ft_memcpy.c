@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:23:29 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:23:03 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:41:09 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int			i;
+	size_t		i;
 	const char	*str;
 	char		*cpy;
 

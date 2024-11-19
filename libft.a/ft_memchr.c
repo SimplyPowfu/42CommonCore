@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:55:58 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:19:52 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:33:58 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 void	*ft_memchr(const void *ptr, int c, size_t n)
 {
-	int		i;
-	char	*str;
+	size_t		i;
+	char		*str;
 
 	str = (char *)ptr;
 	i = 0;
-	while (str[i] != '\0')
+	while ((str[i] != '\0') && (i < n - 1))
 	{
 		if (str[i] == (char)c)
 		{

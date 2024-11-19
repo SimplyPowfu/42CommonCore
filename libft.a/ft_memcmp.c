@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:16 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:21:59 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:55:10 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_memcmp(void *dest, void *src, unsigned int len)
 	}
 	return (0);
 }
-/*
+
 int main() {
 	char str1[] = "Hello";
 	char str2[] = "Hello, World!";
@@ -45,4 +45,4 @@ int main() {
 	}
 	printf("%d\n", result);
 	return 0;
-}*/
+}

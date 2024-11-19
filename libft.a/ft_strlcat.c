@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:43:46 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:40:25 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:44:22 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (dest[i] != '\0')

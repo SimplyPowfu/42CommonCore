@@ -6,23 +6,13 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:14:51 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:38:52 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:43:01 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-		i++;
-	return (i);
-}
-
-char	*ft_strcpy(char *dest, const char *src)
+static char	*ft_strcpy(char *dest, const char *src)
 {
 	int	i;
 

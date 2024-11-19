@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:24:58 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:53:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	int			i;
+	size_t		i;
 	char		*dest;
 	const char	*str;
 
