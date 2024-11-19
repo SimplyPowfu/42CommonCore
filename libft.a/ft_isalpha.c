@@ -6,12 +6,13 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:14:00 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 16:48:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:14:43 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 #include <stdio.h>
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

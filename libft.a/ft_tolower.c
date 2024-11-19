@@ -6,11 +6,13 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:04:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 17:37:23 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:52:36 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char ft_tolower(char c)
+#include "libft.h"
+
+char	ft_tolower(char c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);

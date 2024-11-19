@@ -6,22 +6,23 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:42:51 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 17:42:12 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:42:17 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t j;
+	size_t	j;
 
 	j = 0;
-	while(src[j] != '\0')
+	while (src[j] != '\0')
 		j++;
 	i = 0;
-	while(i < size - 1)
+	while (i < size - 1)
 	{
 		dst[i] = src[i];
 		i++;

@@ -6,16 +6,17 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:20:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 16:49:20 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:46:06 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-char    *ft_strnstr(char *str, char *to_find, int len)
+char	*ft_strnstr(char *str, char *to_find, int len)
 {
-	int     i;
-	int     c;
+	int	i;
+	int	c;
 
 	i = 0;
 	if (*to_find == '\0')
@@ -31,11 +32,10 @@ char    *ft_strnstr(char *str, char *to_find, int len)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-int     main()
-{
-	char    str[] = "eliminaCOPIAelimina";
-	char    find[] = "P";
-	printf("%s", ft_strnstr(str, find, 9));
-} */
+// #include <stdio.h>
+// int     main()
+// {
+// 	char    str[] = "eliminaCOPIAelimina";
+// 	char    find[] = "P";
+// 	printf("%s", ft_strnstr(str, find, 9));
+// }

@@ -6,12 +6,13 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:20:04 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 16:49:10 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:27:35 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-void ft_putchar_fd (char c, int fd)
+
+void	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
 }

@@ -6,17 +6,18 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:23:29 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 17:00:58 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:23:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	int			i;
 	const char	*str;
-	char	*cpy;
+	char		*cpy;
 
 	i = 0;
 	str = src;

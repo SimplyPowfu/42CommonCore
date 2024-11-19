@@ -6,14 +6,15 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:35:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 17:14:10 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:15:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
 #include <stdio.h>
+#include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 	{

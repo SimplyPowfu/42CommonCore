@@ -6,15 +6,16 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:43:46 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 17:33:39 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:40:25 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
-size_t ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-    int	i;
+	int	i;
 	int	j;
 
 	i = 0;

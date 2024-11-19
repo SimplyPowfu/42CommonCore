@@ -6,26 +6,26 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:12:57 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 17:42:31 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 10:30:58 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-char    *ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (str[i] == (char)c)
-        {
-            return ((char *)&str[i]);
-        }
-        i++;
-    }
-    return (NULL);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == (char)c)
+		{
+			return ((char *)&str[i]);
+		}
+		i++;
+	}
+	return (NULL);
 }
 // #include <stdio.h>
 // int main()

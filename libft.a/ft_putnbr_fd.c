@@ -6,15 +6,16 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:20:14 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/18 16:49:14 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:26:15 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char c;
+	char	c;
+
 	if (n < 0)
 	{
 		write (fd, "-", 1);
