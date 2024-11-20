@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 17:09:53 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/20 13:41:22 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/20 16:05:39 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/20 16:44:28 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*p;
+	char	*dest;
 
-	p = s;
-	while (n--)
-		*p++ = 0;
+	dest = (char *)malloc(len);
+	ft_memcpy(dest, &s[start], len);
+	return (dest);
 }
 // #include <stdio.h>
-// int main() {
-//     char buffer[] = "ciao";
-//     ft_bzero(buffer, sizeof(buffer));    
-//     for (int i = 0; i < sizeof(buffer) - 1; i++) {
-//         printf("%d ", buffer[i]);
-//     }
+// int main()
+// {
+//     char sorgente[] = "Ciao, Mondo!";
+//     printf("%s\n", ft_substr(sorgente, 6, 5));
 //     return 0;
 // }

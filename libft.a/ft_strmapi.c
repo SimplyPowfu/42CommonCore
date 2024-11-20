@@ -1,43 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 16:42:51 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/20 16:17:16 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/20 18:03:18 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/20 18:48:06 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	j;
+	char			*str;
+	unsigned int	i;
 
-	j = 0;
-	while (src[j] != '\0')
-		j++;
 	i = 0;
-	while (i < size - 1)
+	str = (char *)malloc(ft_strlen(s) + 1);
+	if (!str || !s)
+		return (NULL);
+	while (s[i])
 	{
-		dst[i] = src[i];
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (j);
+	return (str);
 }
 // #include <stdio.h>
-// #include <bsd/string.h>
+// char ft_mytoupper(unsigned int i, char c)
+// {
+//     (void)i;
+//     if (c >= 'a' && c <= 'z')
+//     {
+//         return c - 'a' + 'A';
+//     }
+//     return c;
+// }
 // int main()
 // {
-//     char src[] = "Hello, world!";
-//     char dst[10]; // Buffer di dstinazione di dimensione 10
-//     size_t len = ft_strlcpy(dst, src, sizeof(dst));
-//     printf("Dst: %s\n", dst);
-//     printf("Length: %zu\n", len);
-//     return 0;
+// 	char str[] = "ciao";
+// 	printf("%s", ft_strmapi(str, ft_mytoupper));
 // }

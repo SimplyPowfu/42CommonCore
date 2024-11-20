@@ -6,20 +6,20 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:00 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:13:12 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:18:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-void	*ft_calloc(unsigned int num, unsigned int size)
+void	*ft_calloc(size_t num, size_t size)
 {
-	unsigned int	*arr;
-	unsigned int	i;
+	size_t	*arr;
+	size_t	i;
 
 	i = 0;
-	arr = (unsigned int *)malloc(num * size);
+	arr = (size_t *)malloc(num * size);
 	if (arr == NULL)
 		return (NULL);
 	while (i < num)
@@ -34,22 +34,17 @@ void	*ft_calloc(unsigned int num, unsigned int size)
 // int main() {
 //     int *arr;
 //     size_t num_elements = 5;
-
 //     // Alloca memoria per un array di 5 interi
 //     arr = (int *)ft_calloc(num_elements, sizeof(int));
-
 //     if (arr == NULL) {
 //         printf("Errore di allocazione memoria\n");
 //         return 1;
 //     }
-
 //     // Stampa i valori dell'array (dovrebbero essere tutti zero)
 //     for (size_t i = 0; i < num_elements; i++) {
 //         printf("arr[%zu] = %d\n", i, arr[i]);
 //     }
-
 //     // Libera la memoria
 //     free(arr);
-
 //     return 0;
 // }

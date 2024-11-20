@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:20:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:46:06 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:12:28 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ char	*ft_strnstr(char *str, char *to_find, int len)
 // int     main()
 // {
 // 	char    str[] = "eliminaCOPIAelimina";
-// 	char    find[] = "P";
-// 	printf("%s", ft_strnstr(str, find, 9));
+// 	char    find[] = "PIA";
+// 	printf("%s", ft_strnstr(str, find, 13));
 // }
