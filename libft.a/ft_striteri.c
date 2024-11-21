@@ -6,9 +6,11 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:30:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/20 18:48:20 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 10:21:26 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

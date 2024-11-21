@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:46:37 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 10:28:24 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 10:47:12 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ void	*ft_memset(void *ptr, int value, size_t num)
 	}
 	return (ptr);
 }
-/*
-#include <stdio.h>
-int main() {
-	char buffer[10];
-	ft_memset(buffer, '0', sizeof(buffer));
+// #include <stdio.h>
+// int main() {
+// 	char buffer[10];
+// 	ft_memset(buffer, '0', sizeof(buffer));
 
-	printf("Buffer dopo memset: %s\n", buffer);
-	return 0;
-}*/
+// 	printf("Buffer dopo memset: %s\n", buffer);
+// 	return 0;
+// }

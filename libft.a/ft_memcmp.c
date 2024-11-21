@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:16 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 19:13:46 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:13:56 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include <stdio.h>
 #include "libft.h"
 
-int	ft_memcmp(void *dest, void *src, unsigned int len)
+int	ft_memcmp(const void *dest, const void *src, size_t len)
 {
-	unsigned char	*dest1;
-	unsigned char	*src1;
-	unsigned int	i;
+	const char	*dest1;
+	const char	*src1;
+	size_t		i;
 
 	dest1 = dest;
 	src1 = src;

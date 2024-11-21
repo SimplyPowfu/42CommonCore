@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 16:53:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 10:46:57 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 // #include <stdio.h>
 // int main() {
 //     char buffer[20] = "Ciao mondo!!!!!!!!";
-//     ft_memmove(buffer + 5, buffer, 0);
-//     printf("Buffer: %s\n", buffer);
+//     printf("Buffer: %s\n", (char *)ft_memmove(NULL, NULL, 0));
 //     return 0;
 // }

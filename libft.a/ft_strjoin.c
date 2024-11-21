@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:45:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/20 18:29:42 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:02:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*dest;
 
 	dest = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+	if (!dest)
+		return (NULL);
 	dest = ft_strncat(dest, s1, s2, sizeof(dest));
 	return (dest);
 }

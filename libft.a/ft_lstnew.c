@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 16:23:29 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 10:47:18 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/21 12:43:03 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/21 17:56:22 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t		i;
-	const char	*str;
-	char		*cpy;
+	t_list	*nodo;
 
-	i = 0;
-	str = src;
-	cpy = dest;
-	while (i < n)
-	{
-		cpy[i] = str[i];
-		i++;
-	}
-	return (cpy);
+	nodo = (t_list *)malloc(sizeof(t_list));
+	if (!nodo)
+		return (NULL);
+	nodo->content = content;
+	nodo->next = NULL;
+	return (nodo);
 }
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char source[] = "This is the source string";
-// 	char target[] = "cringe";
-// 	printf( "%s\n", (char *)ft_memcpy( NULL, NULL, 0));
-// }

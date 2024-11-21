@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/17 16:23:29 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 10:47:18 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/21 13:04:38 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/21 17:56:31 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t		i;
-	const char	*str;
-	char		*cpy;
-
-	i = 0;
-	str = src;
-	cpy = dest;
-	while (i < n)
+	while (lst && lst->next)
 	{
-		cpy[i] = str[i];
-		i++;
+		lst = lst->next;
 	}
-	return (cpy);
+	return (lst);
 }
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char source[] = "This is the source string";
-// 	char target[] = "cringe";
-// 	printf( "%s\n", (char *)ft_memcpy( NULL, NULL, 0));
-// }

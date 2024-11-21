@@ -6,13 +6,13 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:45:39 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 19:06:11 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 10:23:21 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	atoi;

@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:09:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/20 18:02:15 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:14:57 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	j = 0;
 	dest = (char *)malloc(ft_strlen(s1) - (ft_set(s1, set) * ft_strlen(set)));
+	if (!dest)
+		return (NULL);
 	while (s1[i] != '\0')
 	{
 		c = 0;
@@ -54,6 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		j++;
 		i++;
 	}
+	dest[j] = '\0';
 	return (dest);
 }
 // #include <stdio.h>

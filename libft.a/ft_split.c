@@ -6,13 +6,13 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:04:59 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/19 19:14:14 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:55:52 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_wrld(char const *s, char c)
+static int	ft_count_wrld(char const *s, char c)
 {
 	int		wrld;
 	size_t	i;
@@ -28,7 +28,7 @@ int	ft_count_wrld(char const *s, char c)
 	return (wrld);
 }
 
-char	*ft_strndup(const char *s, size_t n)
+static char	*ft_strndup(const char *s, size_t n)
 {
 	char	*ptr;
 	size_t	len_s;
@@ -51,9 +51,10 @@ char	**ft_split(char const *s, char c)
 
 	wrld = ft_count_wrld(s, c);
 	tab = (char **) malloc(sizeof(char *) * (wrld + 1));
-	if (tab == NULL)
+	if (tab == NULL || s == NULL)
 		return (NULL);
 	i = 0;
+	end = 0;
 	while (i < wrld)
 	{
 		while (s[end] != c)
@@ -67,3 +68,14 @@ char	**ft_split(char const *s, char c)
 	tab[i] = NULL;
 	return (tab);
 }
+// int main()
+// {
+// 	char str1[] = "Ciao come va?";
+//     char **split1 = ft_split(str1, ' ');
+// 	int i = 0;
+//     while (split1[i] != NULL)
+// 	{
+//         printf("%s\n", split1[i]);
+//         i++;
+//     }
+// }
