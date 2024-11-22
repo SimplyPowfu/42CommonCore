@@ -6,13 +6,13 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:45:39 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 10:23:21 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:45:53 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	atoi;
@@ -21,19 +21,19 @@ int	ft_atoi(const char *str)
 	i = 0;
 	atoi = 0;
 	min = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
-	if (str[i] == '+' || str[i] == '-')
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (str[i] == '-')
+		if (nptr[i] == '-')
 		{
 			min = -min;
 		}
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		atoi = ((atoi * 10) + (str[i] - 48));
+		atoi = ((atoi * 10) + (nptr[i] - 48));
 		i++;
 	}
 	return (atoi * min);
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str)
 // #include <stdio.h>
 // int	main()
 // {
-// 	char str[] = "42"; //-1 92233720368547750011
-// 	printf("%d\n", atoi(str));
-// 	printf("%d\n", ft_atoi(str));
+// 	char nptr[] = "42"; //-1 92233720368547750011
+// 	printf("%d\n", atoi(nptr));
+// 	printf("%d\n", ft_atoi(nptr));
 // }

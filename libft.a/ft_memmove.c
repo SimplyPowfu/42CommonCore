@@ -6,27 +6,27 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 10:46:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 15:02:36 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t		i;
-	char		*dest;
+	char		*dst;
 	const char	*str;
 
 	i = 0;
-	dest = dst;
+	dst = dest;
 	str = src;
-	if (dst <= src)
+	if (dest <= src)
 	{
 		while (n--)
 		{
-			dest[i] = str[i];
+			dst[i] = str[i];
 			i++;
 		}
 	}
@@ -35,10 +35,10 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		while (i + 1 <= n)
 		{
 			n--;
-			dest[n] = str[n];
+			dst[n] = str[n];
 		}
 	}
-	return (dest);
+	return (dst);
 }
 // #include <stdio.h>
 // int main() {

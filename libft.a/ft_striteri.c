@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 18:30:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 12:06:40 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 15:12:11 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char			*str;
 	unsigned int	i;
 
 	i = 0;
-	str = (char *)malloc(ft_strlen(s) + 1);
-	if (!s)
-		return ;
 	while (s[i])
 	{
-		f(i, &s[i]);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:23:29 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 10:47:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 15:01:57 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 // {
 // 	char source[] = "This is the source string";
 // 	char target[] = "cringe";
-// 	printf( "%s\n", (char *)ft_memcpy( NULL, NULL, 0));
+// 	printf( "%s\n", (char *)ft_memcpy( target, source, 12));
 // }

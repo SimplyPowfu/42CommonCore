@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:45:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 12:02:03 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 15:17:14 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // #include <stdio.h>
 // int main()
 // {
-// 	char *str = "Ciao";
+// 	char *str = "Ciao ";
 // 	char *str1 = "Mondo";
 // 	printf("%s", ft_strjoin(str, str1));
 // }

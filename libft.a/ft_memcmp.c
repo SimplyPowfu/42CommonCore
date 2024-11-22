@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:16 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 12:13:56 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 14:58:51 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #include <stdio.h>
 #include "libft.h"
 
-int	ft_memcmp(const void *dest, const void *src, size_t len)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const char	*dest1;
-	const char	*src1;
+	const char	*s11;
+	const char	*s21;
 	size_t		i;
 
-	dest1 = dest;
-	src1 = src;
+	s11 = s1;
+	s21 = s2;
 	i = 0;
-	while (i < len)
+	while (i < n)
 	{
-		if (dest1[i] != src1[i])
-			return (dest1[i] - src1[i]);
+		if (s11[i] != s21[i])
+			return (s11[i] - s21[i]);
 		i++;
 	}
 	return (0);
@@ -36,11 +36,10 @@ int	ft_memcmp(const void *dest, const void *src, size_t len)
 // 	char str2[] = "Hello, World!";
 
 // 	int result = ft_memcmp(str1, str2, 5);  // Confronta i primi 5 byte
-// 	if (result == 0) {
+// 	if (result == 0)
 // 		printf("I primi 5 caratteri sono uguali.\n");
-// 	} else {
+// 	else
 // 		printf("I primi 5 caratteri sono diversi.\n");
-// 	}
 // 	printf("%d\n", result);
 // 	return 0;
 // }
