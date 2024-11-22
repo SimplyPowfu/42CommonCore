@@ -3,66 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:09:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 15:26:36 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:45:12 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_set(char const *str, char const *to_find)
+char	*ft_strtrim(const char *s1, char const *set)
 {
-	int			i;
-	int			c;
-	static int	count;
+	char		*dest;
+	size_t		start;
+	size_t		end;
 
-	i = 0;
-	c = 0;
-	count = 0;
-	while (str[i] != '\0')
-	{
-		while (str[i + c] == to_find[c] && str[i + c] != '\0')
-			c++;
-		if (to_find[c] == '\0')
-			count++;
-		c = 0;
-		i++;
-	}
-	return (count);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char	*dest;
-	int		i;
-	int		c;
-	int		j;
-
-	i = 0;
-	j = 0;
-	dest = (char *)malloc(ft_strlen(s1) - (ft_set(s1, set) * ft_strlen(set)));
-	if (!dest)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		c = 0;
-		while (s1[i + c] == set[c] && s1[i + c] != '\0')
-			c++;
-		if (set[c] == '\0')
-			i += ft_strlen(set);
-		dest[j] = s1[i];
-		j++;
-		i++;
-	}
-	dest[j] = '\0';
+	start = 0;
+	end = strlen(s1) - 1;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		++start;
+	while (s1[end] && ft_strchr(set, s1[end]))
+		--end;
+	dest = ft_substr(s1, start, end - start + 1);
 	return (dest);
 }
 // #include <stdio.h>
 // int main()
 // {
-// 	char *str = "Ciao Mondoao";
-// 	char *set = "a";
+// 	const char *str = "Ciao Mondoi";
+// 	const char *set = "ciao";
 // 	printf("%s", ft_strtrim(str, set));
 // }
