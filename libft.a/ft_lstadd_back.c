@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:00:08 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/21 19:16:04 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:02:20 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	temp->next = new;
 	new->next = NULL;
 }
-
 // int main()
 // {
 // 	t_list *head;
