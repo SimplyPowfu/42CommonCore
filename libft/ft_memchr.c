@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:55:58 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 14:58:05 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:34:25 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 // #include <stdio.h>
 // int main() {
 //     const char buffer[] = "Ciao, mondo!";
-//     unsigned char byte_to_find = 'o';
+//     unsigned char byte_to_find = '1';
 //     void *result = ft_memchr(buffer, byte_to_find, sizeof(buffer));
 //     printf("%p\n", result);
 // }

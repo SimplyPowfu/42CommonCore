@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 17:09:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 17:10:56 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:28:45 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ char	*ft_strtrim(const char *s1, char const *set)
 	size_t		start;
 	size_t		end;
 
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
 	start = 0;
 	end = strlen(s1) - 1;
 	while (s1[start] && ft_strchr(set, s1[start]))

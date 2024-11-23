@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:12:57 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 15:05:52 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/23 16:10:17 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strchr(const char *str, int c)
 		}
 		i++;
 	}
+	if (c == 0)
+		return ((char *)&str[i]);
 	return (NULL);
 }
 // #include <stdio.h>
@@ -32,6 +34,6 @@ char	*ft_strchr(const char *str, int c)
 // {
 //     const char *str = "Ciao, mondo!";
 //     char to_find = 'o';
-//     char *result = ft_strchr(str, to_find);
+//     char *result = ft_strchr(str, 0);
 //     printf("%s", result);
 // }
