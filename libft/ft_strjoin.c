@@ -6,34 +6,11 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:45:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/23 16:17:45 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/24 17:56:06 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*ft_strncat(char *dst, const char *dest,
-						const char *src, unsigned int nb)
-{
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	while (dest[i] != '\0')
-	{
-		dst[i] = dest[i];
-		i++;
-	}
-	j = 0;
-	while (src[j] != '\0' && j < nb)
-	{
-		dst[i] = src[j];
-		i++;
-		j++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -42,7 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	dest = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (!dest)
 		return (NULL);
-	dest = ft_strncat(dest, s1, s2, sizeof(dest));
+	ft_strlcpy(dest, s1, ft_strlen(s1) + 1);
+	ft_strlcat(dest, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
 	return (dest);
 }
 // #include <stdio.h>

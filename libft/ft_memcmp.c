@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:16 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/23 15:47:47 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/24 16:47:47 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const char	*s11;
-	const char	*s21;
-	size_t		i;
+	const unsigned char	*s11;
+	const unsigned char	*s21;
+	size_t				i;
 
 	s11 = s1;
 	s21 = s2;

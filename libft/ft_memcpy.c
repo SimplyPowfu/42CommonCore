@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:23:29 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 15:01:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/24 16:25:01 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	str = src;
 	cpy = dest;
+	if (!dest && !src)
+		return (dest);
 	while (i < n)
 	{
 		cpy[i] = str[i];

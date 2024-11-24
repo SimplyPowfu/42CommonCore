@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:47:06 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/23 16:13:11 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/24 16:43:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (s[i] != '\0')
 		i++;
-	while (i > 0)
+	while (i >= 0)
 	{
 		if (s[i] == (char)c)
-		{
 			return ((char *)&s[i]);
-		}
 		i--;
 	}
 	if (c == 0)
