@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:20:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/24 17:14:00 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/24 21:51:46 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	c;
 
 	i = 0;
-	if (len == 0)
-		return (NULL);
 	if (*little == 0)
 		return ((char *)big);
+	if (len == 0)
+		return (NULL);
 	while (big[i] != '\0' && i <= len)
 	{
 		c = 0;
@@ -36,7 +36,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // #include <stdio.h>
 // int     main()
 // {
-// 	char    str[] = "eliminaCOPIAelimina";
-// 	//char    find[] = "PIA";
-// 	printf("%s", ft_strnstr(str, 0, 10));
+// 	char    str[] = "oh no not the empty string !";
+// 	char    find[] = "";
+// 	printf("%s", ft_strnstr(str, find, 0));
 // }
