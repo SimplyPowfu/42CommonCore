@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:04:59 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/24 19:00:14 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:17:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ static char	*ft_strndup(const char *s, size_t n)
 	return (ptr);
 }
 
+static void	ft_remove(char **tab, int wrld)
+{
+	while (wrld >= 0)
+		free(tab[wrld--]);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
@@ -61,7 +67,7 @@ char	**ft_split(char const *s, char c)
 			end++;
 		tab[wrld] = ft_strndup(&s[start], end - start);
 		if (!tab[wrld])
-			return (NULL);
+			return (ft_remove(tab, wrld), NULL);
 		wrld++;
 	}
 	tab[wrld] = NULL;
