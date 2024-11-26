@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr_un.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 10:48:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/26 10:53:09 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/26 16:21:45 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/26 16:25:28 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libft.h"
+#include <unistd.h>
 
-# include <stdlib.h>
-# include <string.h>
-# include <stdio.h>
-
-
-
-#endif
+void	ft_putnbr_un(unsigned int n)
+{
+	char	c;
+	if (n > 9)
+		ft_putnbr_un(n / 10);
+	c = (n % 10) + 48;
+	write (1, &c, 1);
+}

@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:20:14 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/26 16:21:24 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/26 10:48:01 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/26 15:21:22 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef PRINTF_H
+# define PRINTF_H
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	char	c;
+int		ft_printf(const char *n, ...);
+void	ft_putbase(unsigned int nbr, char *base);
 
-	if (n < 0)
-	{
-		write (fd, "-", 1);
-		if (n == -2147483648)
-		{
-			write (fd, "2147483648", 10);
-			return ;
-		}
-		n = -n;
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-	}
-	c = (n % 10) + 48;
-	write (fd, &c, 1);
-}
+# include <unistd.h>
+# include <stdarg.h>
+# include "libft/libft.h"
+
+
+#endif
