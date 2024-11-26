@@ -4,7 +4,7 @@ LIBFTDIR = libft/
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 
-FILE = ft_printf.c ft_putbase.c
+FILE = ft_printf.c ft_putbase.c ft_putbase_long.c
 
 OBJ = $(FILE:.c=.o)
 

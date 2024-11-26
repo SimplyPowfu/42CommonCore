@@ -15,6 +15,7 @@
 
 int		ft_printf(const char *n, ...);
 void	ft_putbase(unsigned int nbr, char *base);
+void	ft_putbase_long(unsigned long nbr, char *base);
 
 # include <unistd.h>
 # include <stdarg.h>

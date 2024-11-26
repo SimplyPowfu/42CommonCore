@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:39:15 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/26 17:30:20 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/26 19:36:38 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ static int	ft_check_arg(const char *input, va_list arg, int *i)
 		return (ft_putchar_fd(va_arg(arg, int), 1), *i += 1, 0);
 	else if (input[*i + 1] == 's')
 		return(ft_putstr_fd(va_arg(arg, char*), 1), *i += 1, 0);
-	// else if (input[*i + 1] == 'p')
-	// 	ft_putstr_fd(va_arg(arg, void *));
+	else if (input[*i + 1] == 'p')
+		{
+			write (1, "0x", 2);
+			return(ft_putbase_long((unsigned long)va_arg(arg, void*),
+			"0123456789abcdef"), *i += 1, 0);
+		}
 	else if (input[*i + 1] == 'd' || input[*i + 1] == 'i')
 		return(ft_putnbr_fd(va_arg(arg, int), 1), *i += 1, 0);
 	else if (input[*i + 1] == 'u')
@@ -53,15 +57,10 @@ int ft_printf(const char *input, ...)
 
 int main()
 {
-	// int i;
-	// i = 011;
-	// ft_printf("d:%x \ni:%i\nu:%u\n", 11, i, -2543);
 	int x = -42;
     int *p = &x;
-    
-    // Stampiamo l'indirizzo di p
-    printf("%x\n", x);  // (void*) è il tipo generico per puntatori
-	ft_printf("%x\n", x);
+    printf("%d", printf("%p\n", p));
+	ft_printf("%p\n", p);
 
     return 0;
 }
