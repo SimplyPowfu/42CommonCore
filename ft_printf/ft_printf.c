@@ -6,11 +6,11 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:39:15 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 14:39:30 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:45:50 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_check_arg(const char *input, va_list *arg, int *i, int *len)
 {
@@ -77,6 +77,5 @@ int	ft_printf(const char *input, ...)
 // 	ft_printf("%d\n", ft_printf("%X\n", 42424242));
 // 	printf("%d\n", printf("%%42\n"));
 // 	ft_printf("%d\n", ft_printf("%%42\n"));
-
 //     return 0;
 // }
