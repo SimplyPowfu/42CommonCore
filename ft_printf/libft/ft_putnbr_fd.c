@@ -6,30 +6,37 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:20:14 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/26 16:21:24 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:26:24 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n)
 {
-	char	c;
+	int		temp;
+	char	*array;
+	char	*base;
+	int		i;
 
-	if (n < 0)
+	base = "0123456789";
+	temp = n;
+	i = 0;
+	while (temp > 0)
 	{
-		write (fd, "-", 1);
-		if (n == -2147483648)
-		{
-			write (fd, "2147483648", 10);
-			return ;
-		}
-		n = -n;
+		temp /= 10;
+		i++;
 	}
-	if (n > 9)
+	array = malloc(sizeof(char) * (i + 1));
+	array[i] = '\0';
+	while (n > 0)
 	{
-		ft_putnbr_fd(n / 10, fd);
+		array[--i] = base[n % 10];
+		n = n / 10;
 	}
-	c = (n % 10) + 48;
-	write (fd, &c, 1);
+	while (array[i])
+		write (1, &array[i++], 1);
+	free (array);
+	return (i);
 }

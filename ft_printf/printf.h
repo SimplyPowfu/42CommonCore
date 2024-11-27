@@ -13,13 +13,12 @@
 #ifndef PRINTF_H
 # define PRINTF_H
 
-int		ft_printf(const char *n, ...);
-void	ft_putbase(unsigned int nbr, char *base);
-void	ft_putbase_long(unsigned long nbr, char *base);
-
 # include <unistd.h>
 # include <stdarg.h>
 # include "libft/libft.h"
 
+int	ft_printf(const char *n, ...);
+int	ft_putbase(unsigned long n, char *base);
+int	ft_putbase_long(unsigned long n);
 
 #endif
