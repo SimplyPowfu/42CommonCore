@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:39:15 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 14:45:50 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:44:54 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@ int	ft_printf(const char *input, ...)
 	va_end(arg);
 	return (len);
 }
+
+// int main()
+// {
+// 	int x = -42;
+// 	int *p = &x;
+// 	printf("%d\n", printf(" %p ", p));
+// 	ft_printf("%d\n", ft_printf(" %p ", p));
+// }
 // int main()
 // {
 // 	int x = -42;

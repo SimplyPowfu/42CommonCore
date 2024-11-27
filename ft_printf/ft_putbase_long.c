@@ -6,11 +6,22 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:08:37 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 14:45:20 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:48:07 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	ft_check(unsigned long n)
+{
+	if (!n)
+	{
+		write (1, "(nil)", 5);
+		return (5);
+	}
+	write(1, "0x", 2);
+	return (2);
+}
 
 int	ft_putbase_long(unsigned long n)
 {
@@ -19,16 +30,15 @@ int	ft_putbase_long(unsigned long n)
 	char			*base;
 	int				i;
 
-	write(1, "0x", 2);
 	base = "0123456789abcdef";
 	temp = n;
-	i = 0;
+	i = ft_check(n);
 	while (temp > 0)
 	{
 		temp /= 16;
 		i++;
 	}
-	array = malloc(sizeof(char) * (i + 1));
+	array = malloc(sizeof(char *) * (i + 1));
 	array[i] = '\0';
 	while (n > 0)
 	{
@@ -38,5 +48,5 @@ int	ft_putbase_long(unsigned long n)
 	while (array[i])
 		write (1, &array[i++], 1);
 	free (array);
-	return (i + 2);
+	return (i);
 }

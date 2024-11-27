@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_conv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 10:48:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 19:21:09 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/27 19:07:31 by ecarbona          #+#    #+#             */
+/*   Updated: 2024/11/27 19:45:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+int	ft_conv(int i, int n, char *base)
+{
+	char	*array;
+	int		b;
 
-int	ft_printf(const char *n, ...);
-int	ft_putbase(unsigned long n, char *base);
-int	ft_putbase_long(unsigned long n);
-int	ft_conv(int i, int n, char *base);
-
-#endif
+	b = ft_strlen(base);
+	array = malloc(sizeof(char) * (i + 1));
+	array[i] = '\0';
+	while (n > 0)
+	{
+		array[--i] = base[n % b];
+		n = n / b;
+	}
+	while (array[i])
+		write (1, &array[i++], 1);
+	free (array);
+	return (i);
+}
