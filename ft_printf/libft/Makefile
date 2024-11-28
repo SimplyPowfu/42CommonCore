@@ -16,18 +16,18 @@ OBJ_BONUS = ${SRC_BONUS:.c=.o}
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 bonus: $(OBJ) $(OBJ_BONUS)
-	@ar rc $(NAME) $(OBJ_BONUS) $(OBJ)
+	ar rc $(NAME) $(OBJ_BONUS) $(OBJ)
 
 %.o: %.c
-	@${CC} -c ${CFLAGS} -I. $< -o $@
+	${CC} -c ${CFLAGS} -I. $< -o $@
 
 clean:
-	@rm -rf $(OBJ) $(OBJ_BONUS)
+	rm -rf $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all

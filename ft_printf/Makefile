@@ -11,11 +11,11 @@ OBJ = $(FILE:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	@ cp $(LIBFT) $(NAME)
+	@cp $(LIBFT) $(NAME)
 	@ar rc $(NAME) $(OBJ)
 
-$(LIBFT): 
-	@$(MAKE) bonus -C $(LIBFTDIR)
+$(LIBFT): $(LIBFTDIR)
+	@$(MAKE) -C $(LIBFTDIR)
 
 %.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
@@ -31,13 +31,4 @@ fclean: clean
 
 re: fclean all
 
-run: re
-	@clear
-	@$(CC) $(FLAGS) ft_printf.c libftprintf.a
-	@./a.out
-
-val:	
-	@clear
-	@echo "runnig program with valgrind..."
-	@$(CC) $(FLAGS) ft_printf.c libftprintf.a
-	@valgrind --leak-check=yes --track-origins=yes ./a.out
+.PHONY:		all clean fclean re
