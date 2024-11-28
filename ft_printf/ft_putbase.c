@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putbase.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:26:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/28 00:54:14 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:27:20 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putbase(unsigned long n)
+int	ft_putbase(unsigned long n, char *base)
 {
 	unsigned long	temp;
 	int				i;
@@ -26,5 +26,5 @@ int	ft_putbase(unsigned long n)
 		temp /= 16;
 		i++;
 	}
-	return (ft_conv(i, n, "0123456789abcdef"));
+	return (ft_conv(i, n, base));
 }

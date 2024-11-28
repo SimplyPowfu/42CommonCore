@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:39:15 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/28 01:00:41 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:28:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	ft_check_arg(const char *input, va_list *arg, int *i, int *len)
 	else if (input[*i + 1] == 'u')
 		*len += ft_putnbr_un(va_arg(*arg, int));
 	else if (input[*i + 1] == 'x')
-		*len += ft_putbase(va_arg(*arg, unsigned int));
+		*len += ft_putbase(va_arg(*arg, unsigned int), "0123456789abcdef");
 	else if (input[*i + 1] == 'X')
-		*len += ft_putbase(va_arg(*arg, unsigned int));
+		*len += ft_putbase(va_arg(*arg, unsigned int), "0123456789ABCDEF");
 	else if (input[*i + 1] == '%')
 		*len += ft_putchar_fd('%', 1);
 	return ((*i)++, 1);
