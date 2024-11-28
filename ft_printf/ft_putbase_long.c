@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putbase_long.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:08:37 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 19:48:07 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/27 23:53:02 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,8 @@ static int	ft_check(unsigned long n)
 int	ft_putbase_long(unsigned long n)
 {
 	unsigned long	temp;
-	char			*array;
-	char			*base;
 	int				i;
 
-	base = "0123456789abcdef";
 	temp = n;
 	i = ft_check(n);
 	while (temp > 0)
@@ -38,15 +35,5 @@ int	ft_putbase_long(unsigned long n)
 		temp /= 16;
 		i++;
 	}
-	array = malloc(sizeof(char *) * (i + 1));
-	array[i] = '\0';
-	while (n > 0)
-	{
-		array[--i] = base[n % 16];
-		n = n / 16;
-	}
-	while (array[i])
-		write (1, &array[i++], 1);
-	free (array);
-	return (i);
+	return (ft_conv(i, n, "0123456789abcdef"));
 }

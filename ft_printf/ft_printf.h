@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:48:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 19:21:09 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/28 00:52:56 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include "libft/libft.h"
 
 int	ft_printf(const char *n, ...);
-int	ft_putbase(unsigned long n, char *base);
+int	ft_putbase(unsigned long n);
 int	ft_putbase_long(unsigned long n);
-int	ft_conv(int i, int n, char *base);
+int	ft_conv(int i, unsigned long n, char *base);
 
 #endif

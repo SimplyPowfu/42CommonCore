@@ -33,7 +33,6 @@ re: fclean all
 
 run: re
 	@clear
-	@echo "runnig program..."
 	@$(CC) $(FLAGS) ft_printf.c libftprintf.a
 	@./a.out
 

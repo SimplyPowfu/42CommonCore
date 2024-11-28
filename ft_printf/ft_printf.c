@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:39:15 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 19:44:54 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/28 01:00:41 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "ft_printf.h"
 
 static int	ft_check_arg(const char *input, va_list *arg, int *i, int *len)
@@ -27,9 +28,9 @@ static int	ft_check_arg(const char *input, va_list *arg, int *i, int *len)
 	else if (input[*i + 1] == 'u')
 		*len += ft_putnbr_un(va_arg(*arg, int));
 	else if (input[*i + 1] == 'x')
-		*len += ft_putbase(va_arg(*arg, unsigned int), "0123456789abcdef");
+		*len += ft_putbase(va_arg(*arg, unsigned int));
 	else if (input[*i + 1] == 'X')
-		*len += ft_putbase(va_arg(*arg, unsigned int), "0123456789ABCDEF");
+		*len += ft_putbase(va_arg(*arg, unsigned int));
 	else if (input[*i + 1] == '%')
 		*len += ft_putchar_fd('%', 1);
 	return ((*i)++, 1);
@@ -60,8 +61,9 @@ int	ft_printf(const char *input, ...)
 // {
 // 	int x = -42;
 // 	int *p = &x;
-// 	printf("%d\n", printf(" %p ", p));
-// 	ft_printf("%d\n", ft_printf(" %p ", p));
+// 	int d = -2147483648;
+// 	printf("%d\n", printf(" %x ", 0));
+// 	ft_printf("%d\n", ft_printf(" %x ", 0));
 // }
 // int main()
 // {

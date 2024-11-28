@@ -3,37 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putbase.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:26:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/27 18:26:00 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/11/28 00:54:14 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putbase(unsigned long n, char *base)
+int	ft_putbase(unsigned long n)
 {
 	unsigned long	temp;
-	char			*array;
 	int				i;
 
 	temp = n;
 	i = 0;
+	if (n == 0)
+		return (write (1, "0", 1), 1);
 	while (temp > 0)
 	{
 		temp /= 16;
 		i++;
 	}
-	array = malloc(sizeof(char) * (i + 1));
-	array[i] = '\0';
-	while (n > 0)
-	{
-		array[--i] = base[n % 16];
-		n = n / 16;
-	}
-	while (array[i])
-		write (1, &array[i++], 1);
-	free (array);
-	return (i);
+	return (ft_conv(i, n, "0123456789abcdef"));
 }
