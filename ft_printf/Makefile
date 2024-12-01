@@ -2,7 +2,7 @@ NAME = libftprintf.a
 LIBFT = libft/libft.a
 LIBFTDIR = libft/
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 FILE = ft_printf.c ft_putbase.c ft_putbase_long.c ft_conv.c
 
@@ -23,7 +23,6 @@ $(LIBFT): $(LIBFTDIR)
 clean:
 	@$(MAKE) clean -C $(LIBFTDIR)
 	@rm -rf $(OBJ)
-	@clear
 
 fclean: clean
 	@rm -rf $(NAME)
