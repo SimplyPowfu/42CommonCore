@@ -23,7 +23,6 @@ $(LIBFT): $(LIBFTDIR)
 clean:
 	@$(MAKE) clean -C $(LIBFTDIR)
 	@rm -rf $(OBJ)
-	@clear
 
 fclean: clean
 	@rm -rf $(NAME)
