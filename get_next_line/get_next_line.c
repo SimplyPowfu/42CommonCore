@@ -12,39 +12,86 @@
 
 #include "get_next_line.h"
 
-char	*store(char *buffer, ssize_t bytes_read) //store
+static int	ft_read(int fd, char **str, char *buffer)
 {
-	char	*str;
-	int		i;
+	int		bytes_read;
+	char	*tmp;
 
-	str = NULL;
-	i = 0;
-	while (bytes_read != 0)
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	if (bytes_read < 0 || buffer == NULL)
 	{
-		str = ft_memcpy(str, buffer);
-		return (str);
+		free(*str);
+		*str = NULL;
+		return (-1);
 	}
-	return (str);
+	if (bytes_read == 0)
+		return (bytes_read);
+	tmp = ft_strjoin(*str, buffer);
+	*str = tmp;
+	return (bytes_read);
 }
 
-char	*get_next_line(int fd) //read
+static void	get_result(char **str, char **result)
 {
-	static char buffer[BUFFER_SIZE];
-	ssize_t bytes_read;
-	char *string;
+	int		i;
+	char	*diff;
+
+	diff = ft_strchr(*str, '\n');
+	result = malloc(ft_strlen(*str) - ft_strlen(diff));
+	i = 0;
+	while(*str[i] != '\n' && *str[i] != '\0')
+	{
+		*result[i] = *str[i];
+		i++;
+	}
+	*result[i] = '\0';
+}
+
+static void	del_string(char **str)
+{
+	char	*newStatic;
+	char	*diff;
+
+	diff = ft_strchr(*str, '\n');
+	newStatic = malloc(ft_strlen(diff));
+	newStatic = ft_strchr(*str, '\n');
+	newStatic[ft_strlen(newStatic) + 1] = '\0'; 
+	free(*str);
+	*str = newStatic;
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*string;
+	char		*result;
+	char		*buffer;
+	int			bytes_read;
+
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	//buffer = malloc(sizeof(BUFFER_SIZE));
-	// if (!buffer)
-	// 	return (NULL);
-	bytes_read = read(fd, buffer, sizeof(buffer));
-	string = buffer;
-	return (string);
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (!buffer)
+		return NULL;
+	bytes_read = 1;
+	while (ft_strchr(string, '\n') == NULL && bytes_read > 0)
+		bytes_read = ft_read(fd, &string, buffer);
+	free(buffer);
+	if (bytes_read == -1)
+		return (NULL);
+	if (!string)
+		return (NULL);
+	get_result(&string, &result);
+	del_string(&string);
+	return (result);
 }
 
 int main()
 {
 	int	fd = open("filefd.txt", O_RDONLY);
+	char *line = get_next_line(fd);
 	printf("%d\n", fd);
-	printf("%s", get_next_line(fd));
+	printf("%s", line);
+	free (line);
+	close (fd);
+	return (0);
 }
