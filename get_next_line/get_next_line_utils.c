@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:38 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/01 18:48:43 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/08 21:51:06 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);
@@ -27,7 +29,7 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str)
 	{
 		if (str[i] == (char)c)
 		{
@@ -78,13 +80,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	}
 	r = str;
-	while (*s1 != '\0')
+	while (s1 && *s1 != '\0')
 	{
 		*str = *s1;
 		s1++;
 		str++;
 	}
-	while (*s2 != '\0')
+	while (s2 && *s2 != '\0')
 	{
 		*str = *s2;
 		str++;

@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/01 19:32:55 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/08 21:40:05 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_read(int fd, char **str, char *buffer)
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read < 0 || buffer == NULL)
 	{
-		free(*str);
+		//free(*str);
 		*str = NULL;
 		return (-1);
 	}
@@ -55,8 +55,8 @@ static void	del_string(char **str)
 	diff = ft_strchr(*str, '\n');
 	newStatic = malloc(ft_strlen(diff));
 	newStatic = ft_strchr(*str, '\n');
-	newStatic[ft_strlen(newStatic) + 1] = '\0'; 
-	free(*str);
+	//newStatic[ft_strlen(newStatic) + 1] = '\0'; 
+	//free(*str);
 	*str = newStatic;
 }
 
@@ -75,7 +75,7 @@ char	*get_next_line(int fd)
 	bytes_read = 1;
 	while (ft_strchr(string, '\n') == NULL && bytes_read > 0)
 		bytes_read = ft_read(fd, &string, buffer);
-	free(buffer);
+	//free(buffer);
 	if (bytes_read == -1)
 		return (NULL);
 	if (!string)
@@ -91,7 +91,7 @@ int main()
 	char *line = get_next_line(fd);
 	printf("%d\n", fd);
 	printf("%s", line);
-	free (line);
+	//free (line);
 	close (fd);
 	return (0);
 }
