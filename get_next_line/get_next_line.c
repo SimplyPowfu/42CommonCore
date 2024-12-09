@@ -28,6 +28,7 @@ static int	ft_read(int fd, char **str, char *buffer)
 		return (bytes_read);
 	tmp = ft_strjoin(*str, buffer);
 	*str = tmp;
+	//free (buffer);
 	return (bytes_read);
 }
 
@@ -37,14 +38,14 @@ static void	get_result(char **str, char **result)
 	char	*diff;
 
 	diff = ft_strchr(*str, '\n');
-	result = malloc(ft_strlen(*str) - ft_strlen(diff));
+	*result = malloc(ft_strlen(*str) - ft_strlen(diff));
 	i = 0;
-	while(*str[i] != '\n' && *str[i] != '\0')
+	while((*str)[i] != '\n' && (*str)[i] != '\0')
 	{
-		*result[i] = *str[i];
+		(*result)[i] = (*str)[i];
 		i++;
 	}
-	*result[i] = '\0';
+	(*result)[i] = '\0';
 }
 
 static void	del_string(char **str)
