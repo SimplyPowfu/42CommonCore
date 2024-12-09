@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:38 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/08 21:51:06 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/09 19:14:55 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,18 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	while (str)
+	if (s == NULL)
+		return (NULL);
+	while (*s != '\0')
 	{
-		if (str[i] == (char)c)
-		{
-			i++;
-			return ((char *)&str[i]);
-		}
-		i++;
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
-	if (c == 0)
-		return ((char *)&str[i]);
+	if (*s == '\0' && c == '\0')
+		return ((char *)s);
 	return (NULL);
 }
 
@@ -51,10 +47,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	str = (char *)malloc(len * sizeof(char));
-	if (str == NULL)
-	{
+	if (!str)
 		return (NULL);
-	}
 	r = str;
 	while (s1 && *s1 != '\0')
 	{

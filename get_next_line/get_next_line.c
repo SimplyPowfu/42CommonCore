@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/08 21:40:05 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/09 19:38:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ static int	ft_read(int fd, char **str, char *buffer)
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read < 0 || buffer == NULL)
 	{
-		//free(*str);
+		free(*str);
 		*str = NULL;
 		return (-1);
 	}
 	if (bytes_read == 0)
 		return (bytes_read);
 	tmp = ft_strjoin(*str, buffer);
+	free (*str);
 	*str = tmp;
-	//free (buffer);
 	return (bytes_read);
 }
 
@@ -39,8 +39,10 @@ static void	get_result(char **str, char **result)
 
 	diff = ft_strchr(*str, '\n');
 	*result = malloc(ft_strlen(*str) - ft_strlen(diff));
+	if (!result)
+		return ;
 	i = 0;
-	while((*str)[i] != '\n' && (*str)[i] != '\0')
+	while ((*str)[i] != '\n' && (*str)[i] != '\0')
 	{
 		(*result)[i] = (*str)[i];
 		i++;
@@ -50,15 +52,19 @@ static void	get_result(char **str, char **result)
 
 static void	del_string(char **str)
 {
-	char	*newStatic;
+	char	*new_static;
 	char	*diff;
 
 	diff = ft_strchr(*str, '\n');
-	newStatic = malloc(ft_strlen(diff));
-	newStatic = ft_strchr(*str, '\n');
-	//newStatic[ft_strlen(newStatic) + 1] = '\0'; 
-	//free(*str);
-	*str = newStatic;
+	new_static = malloc(ft_strlen(diff));
+	new_static = ft_strchr(*str, '\n');
+	free(*str);
+	*str = new_static;
+	if (**str == 0)
+	{
+		free(*str);
+		*str = NULL;
+	}
 }
 
 char	*get_next_line(int fd)
@@ -72,14 +78,14 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-		return NULL;
+		return (NULL);
 	bytes_read = 1;
 	while (ft_strchr(string, '\n') == NULL && bytes_read > 0)
 		bytes_read = ft_read(fd, &string, buffer);
-	//free(buffer);
+	free(buffer);
 	if (bytes_read == -1)
 		return (NULL);
-	if (!string)
+	if (ft_strlen(string) == 0)
 		return (NULL);
 	get_result(&string, &result);
 	del_string(&string);
@@ -91,8 +97,8 @@ int main()
 	int	fd = open("filefd.txt", O_RDONLY);
 	char *line = get_next_line(fd);
 	printf("%d\n", fd);
-	printf("%s", line);
-	//free (line);
+	printf("%s\n", line);
+	free (line);
 	close (fd);
 	return (0);
 }
