@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/09 19:38:42 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:40:32 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ static void	del_string(char **str)
 	char	*diff;
 
 	diff = ft_strchr(*str, '\n');
+	if(!diff)
+	{
+		free(*str);
+		*str = NULL;
+		return ;
+	}
 	new_static = malloc(ft_strlen(diff));
 	new_static = ft_strchr(*str, '\n');
 	free(*str);
