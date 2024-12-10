@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/10 17:40:32 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:55:46 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static int	ft_read(int fd, char **str, char *buffer)
 	int		bytes_read;
 	char	*tmp;
 
+	ft_bzero(buffer, BUFFER_SIZE + 1);
 	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read < 0 || buffer == NULL)
 	{
@@ -34,15 +35,17 @@ static int	ft_read(int fd, char **str, char *buffer)
 
 static void	get_result(char **str, char **result)
 {
-	int		i;
+	size_t	i;
+	size_t	len;
 	char	*diff;
 
 	diff = ft_strchr(*str, '\n');
-	*result = malloc(ft_strlen(*str) - ft_strlen(diff));
+	len = ft_strlen(*str) - ft_strlen(diff) + 2;
+	*result = malloc(len);
 	if (!result)
 		return ;
 	i = 0;
-	while ((*str)[i] != '\n' && (*str)[i] != '\0')
+	while (i < len - 1)
 	{
 		(*result)[i] = (*str)[i];
 		i++;
@@ -52,20 +55,26 @@ static void	get_result(char **str, char **result)
 
 static void	del_string(char **str)
 {
-	char	*new_static;
-	char	*diff;
+	char	*nl;
+	char	*tmp;
+	size_t	i;
+	size_t	j;
 
-	diff = ft_strchr(*str, '\n');
-	if(!diff)
+	nl = ft_strchr(*str, '\n');
+	if (!nl)
 	{
 		free(*str);
 		*str = NULL;
 		return ;
 	}
-	new_static = malloc(ft_strlen(diff));
-	new_static = ft_strchr(*str, '\n');
+	tmp = malloc((ft_strlen(nl)) * sizeof(char));
+	i = 0;
+	j = ft_strlen(*str) - ft_strlen(nl) + 1;
+	while (j < ft_strlen(*str))
+		tmp[i++] = (*str)[j++];
+	tmp[i] = '\0';
 	free(*str);
-	*str = new_static;
+	*str = tmp;
 	if (**str == 0)
 	{
 		free(*str);
@@ -82,9 +91,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer = malloc(BUFFER_SIZE + 1);
-	if (!buffer)
-		return (NULL);
+	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	bytes_read = 1;
 	while (ft_strchr(string, '\n') == NULL && bytes_read > 0)
 		bytes_read = ft_read(fd, &string, buffer);
@@ -98,13 +105,14 @@ char	*get_next_line(int fd)
 	return (result);
 }
 
-int main()
-{
-	int	fd = open("filefd.txt", O_RDONLY);
-	char *line = get_next_line(fd);
-	printf("%d\n", fd);
-	printf("%s\n", line);
-	free (line);
-	close (fd);
-	return (0);
-}
+// int main()
+// {
+// 	int	fd = open("filefd.txt", O_RDONLY);
+// 	char *line;
+// 	line = get_next_line(fd);
+// 	printf("%d\n", fd);
+// 	printf("%s\n", line);
+// 	free (line);
+// 	close (fd);
+// 	return (0);
+// }

@@ -6,11 +6,23 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:38 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/09 19:14:55 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:06:04 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		*((unsigned char *)s + i) = '\0';
+		i++;
+	}
+}
 
 size_t	ft_strlen(const char *s)
 {

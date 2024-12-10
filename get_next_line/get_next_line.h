@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/09 18:52:00 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:06:06 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_bzero(void *s, size_t n);
 
 #endif
