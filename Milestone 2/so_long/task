@@ -1,0 +1,2 @@
+studiare mlx - minilibx-linux.tgz (flags -lmlx -lXext -lX11 -lm)
+convert sprite.xpm, maps.ber
