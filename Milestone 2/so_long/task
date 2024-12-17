@@ -1,0 +1,4 @@
+studiare mlx - minilibx-linux.tgz (flags -lmlx -lXext -lX11 -lm)
+convert sprite.xpm(40x40), maps.ber
+- how to use maps.ber and add sprites
+- how to use sprite.xpm, add sprites and add anim.
