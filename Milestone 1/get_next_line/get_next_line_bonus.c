@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:48:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/11 13:54:36 by ecarbona         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:09:01 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,21 @@ static void	get_result(char **str, char **result)
 
 static void	del_string(char **str)
 {
-	char	*nl;
 	char	*tmp;
 	size_t	i;
 	size_t	j;
 
-	nl = ft_strchr(*str, '\n');
-	if (!nl)
+	if (!ft_strchr(*str, '\n'))
 	{
 		free(*str);
 		*str = NULL;
 		return ;
 	}
-	tmp = malloc((ft_strlen(nl)) * sizeof(char));
+	tmp = malloc((ft_strlen(ft_strchr(*str, '\n'))) * sizeof(char));
+	if (!tmp)
+		return ;
 	i = 0;
-	j = ft_strlen(*str) - ft_strlen(nl) + 1;
+	j = ft_strlen(*str) - ft_strlen(ft_strchr(*str, '\n')) + 1;
 	while (j < ft_strlen(*str))
 		tmp[i++] = (*str)[j++];
 	tmp[i] = '\0';
