@@ -1,0 +1,12 @@
+cc test.c -Lmlx -lmlx -lXext -lX11 -lm add_texture.c -Lmlx -lmlx -lXext -lX11 -lm
+
+tutte le text devono essere 40x40
+
+check maps:
+
+i lati devono essere solo 1
+la P deve essere 1
+la E deve essere 1
+la P deve poter raggiungere la E attraverso gli 0
+nessun carattere indesiderato
+nessuna linea vuota

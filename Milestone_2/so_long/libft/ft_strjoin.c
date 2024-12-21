@@ -14,19 +14,27 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dest;
+	char		*str;
+	char		*r;
+	size_t		len;
 
-	dest = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!dest)
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	str = (char *)malloc(len * sizeof(char));
+	if (!str)
 		return (NULL);
-	ft_strlcpy(dest, s1, ft_strlen(s1) + 1);
-	ft_strlcat(dest, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
-	return (dest);
+	r = str;
+	while (s1 && *s1 != '\0')
+	{
+		*str = *s1;
+		s1++;
+		str++;
+	}
+	while (s2 && *s2 != '\0')
+	{
+		*str = *s2;
+		str++;
+		s2++;
+	}
+	*str = '\0';
+	return (r);
 }
-// #include <stdio.h>
-// int main()
-// {
-// 	char *str = "Ciao ";
-// 	char *str1 = "Mondo";
-// 	printf("%s", ft_strjoin(str, str1));
-// }

@@ -14,18 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p;
+	size_t	i;
 
-	p = s;
-	while (n--)
-		*p++ = 0;
+	i = 0;
+	while (i < n)
+	{
+		*((unsigned char *)s + i) = '\0';
+		i++;
+	}
 }
-// #include <stdio.h>
-// int main() {
-//     char buffer[] = "ciao";
-//     ft_bzero(buffer, sizeof(buffer));    
-//     for (int i = 0; i < sizeof(buffer) - 1; i++) {
-//         printf("%d ", buffer[i]);
-//     }
-//     return 0;
-// }
