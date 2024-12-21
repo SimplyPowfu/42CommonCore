@@ -1,0 +1,32 @@
+/* XPM */
+static char *_3d25fd8bf8c4b40ab2c9d88a918cfedqdZk0ZWimekOjh9w[] = {
+/* columns rows colors chars-per-pixel */
+"212 18 8 1 ",
+"  c None",
+". c #071B1B",
+"X c #592C83",
+"o c #5A2C83",
+"O c #7C23BC",
+"+ c #9A44D7",
+"@ c #AA63DE",
+"# c #BE86E7",
+/* pixels */
+"                                                                                                       oooooo                                                                                                       ",
+"                                                                                                     oo+@####oo                                                                                                     ",
+"                                                                       oooooo                       o++@######@o                                                                                                    ",
+"                                                                      o+@####o                     o++@########@o                      oooooo                                                                       ",
+"                                                                     o+@#####@o                    o+@#########@o                    oo+@####oo                                                                     ",
+"       oooooo                                                       o++#######@o                   o+@###..#..##o                   o++@######@o                       oooooo                                       ",
+"     oo+@####oo                                                     o+@#######@o                   o+@###..#..##o                  o++@########@o                    oo+@####oo                         ooooo       ",
+"    o++@######@o                      oooooooo                      o+@##..#..#o                   o+@##########o                  o+@#########@o                   o++@######@o                      oo@####oo     ",
+"   o++@########@o                   ooO+@####@oo                    o+@##..#..#o                   o+@@#########o                 oO+@###..#..##@o                 o++@########@o                   oo+@######@o    ",
+"   o+@#########@o                 ooO++@######@@o                   o+@########o                   oO++@@######+o                 oO+@###..#..##@o                 o+@#########@o                  o++@########@o   ",
+"  oO+@###..#..##@o               oOO++@########@o                   o+@########o                    oOO++@@@@@+Oo                 oO+@##########@o                oO+@###..#..##@o                oO+@#########@o   ",
+"  oO+@###..#..##@o              oOOO+@#########@@o                  oO+@@#####+o                     ooOOOOOOOOo                  oO+@@#########+o                oO+@###..#..##@o                oO+@###..#..##@o  ",
+"  oO+@##########@o              oOOO+@###..#..##@o                   oO++@@@@+Oo                       oooooooo                    oO++@@######+Oo                oO+@##########@o               oOO+@###..#..##@Oo ",
+"  oO+@@#########+o              oOOO+@###..#..##@o                    oOOOOOOOo                                                     oOO++@@@@@+Oo                 oO+@@#########+o               oOO+@@#########@Oo ",
+"   oO++@@######+Oo               oOOO++@@######+Oo                     ooooooo                                                       ooOOOOOOOOo                   oO++@@######+Oo               oOO++@@@#######+Oo ",
+"    oOO++@@@@@OOo                  OOOO++@@@@@+Oo                                                                                      oooooooo                      OO++@@@@@+Oo                 ooO++@@@@@@@+Ooo  ",
+"       OOOOOOO                         OOOOOOOO                                                                                                                        OOOOOOOO                      OOOOOOOOOO     ",
+"                                                                                                                                                                                                                    "
+};
