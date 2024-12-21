@@ -1,33 +1,97 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
-SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
-        ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c\
-        ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c\
-        ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c\
-        ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c\
-        ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c\
-        ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
-SRC_BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c\
-        ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
-OBJ = ${SRC:.c=.o}
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
+NAME		=	so_long
+NAMEB		=	so_long_bonus
+CC			=	gcc
+FLAGS		=	-Wall -Wextra -Werror
+MLX			=	mlx/Makefile.gen
+LFT			=	libft/libft.a
+INC			=	-I ./src -I ./libft -I ./mlx
+INCB		=	-I ./bonus -I ./libft -I ./mlx
+LIB			=	-L ./libft -lft -L ./mlx -lX11 -lXext -lm -lmlx -lbsd
+OBJ			=	$(SRC:.c=.o)
+OBJBONUS	=	$(SRCBONUS:.c=.o)
+GREEN		=	\033[0;32m
+RED 		=	\033[0;31m
+YELLOW		=	\033[0;33m
+RESET		=	\033[0m
+SRC			=	src/die.c \
+				src/draw.c \
+				src/event.c \
+				src/game_destroy.c \
+				src/game_init.c \
+				src/map_height.c \
+				src/map_init.c \
+				src/map_isvalid.c \
+				src/map_parsing.c \
+				src/map_read.c \
+				src/map_width.c \
+				src/mlx_utils.c \
+				src/move_player.c \
+				src/root_destroy.c \
+				src/root_init.c \
+				src/so_long.c \
+				src/update.c
 
-all: $(NAME)
+SRCBONUS	=	bonus/die_bonus.c \
+				bonus/draw_bonus.c \
+				bonus/event_bonus.c \
+				bonus/game_destroy_bonus.c \
+				bonus/game_init_bonus.c \
+				bonus/map_height_bonus.c \
+				bonus/map_init_bonus.c \
+				bonus/map_isvalid_bonus.c \
+				bonus/map_parsing_bonus.c \
+				bonus/map_read_bonus.c \
+				bonus/map_width_bonus.c \
+				bonus/mlx_utils_bonus.c \
+				bonus/move_player_bonus.c \
+				bonus/root_destroy_bonus.c \
+				bonus/root_init_bonus.c \
+				bonus/so_long_bonus.c \
+				bonus/update_bonus.c
 
-$(NAME): $(OBJ)
-        ar rc $(NAME) $(OBJ)
+all:		$(MLX) $(LFT) $(NAME)
 
-bonus: $(OBJ) $(OBJ_BONUS)
-        ar rc $(NAME) $(OBJ_BONUS) $(OBJ)
+$(NAME):	$(OBJ)
+			@echo "$(RED)[ .. ] Compiling Mandatory..$(RESET)"
+			@$(CC) $(FLAGS) -fsanitize=address -o $@ $^ $(LIB)
+			@echo "$(GREEN)[ OK ]$(RESET) $(YELLOW)Mandatory Ready!$(RESET)"
 
-%.o: %.c
-        ${CC} -c ${CFLAGS} -I. $< -o $@
+$(MLX):
+			@echo "$(RED)[ .. ] | Compiling minilibx..$(RESET)"
+			@make -s -C mlx
+			@echo "$(GREEN)[ OK ]$(RESET)|$(YELLOW)Minilibx ready!$(RESET)"
+
+$(LFT):
+			@echo "$(RED)[ .. ] Compiling Libft..$(RESET)"
+			@make -s -C libft
+			@echo "$(GREEN)[ OK ]$(RESET) $(YELLOW)Libft ready!$(RESET)"
+
+bonus:		$(MLX) $(LFT) $(NAMEB)
+
+$(NAMEB):	$(OBJBONUS)
+			@echo "$(RED)[ .. ] Compiling Bonus..$(RESET)"
+			@$(CC) $(FLAGS) -fsanitize=address -o $@ $^ $(LIB)
+			@echo "$(GREEN)[ OK ]$(RESET) $(YELLOW)Bonus Ready!$(RESET)"
+
+src/%.o:	src/%.c
+			@$(CC) $(FLAGS) $(INC) -o $@ -c $<
+
+bonus/%.o:	bonus/%.c
+			@$(CC) $(FLAGS) $(INCB) -o $@ -c $<
 
 clean:
-        rm -rf $(OBJ) $(OBJ_BONUS)
+			@make -s $@ -C libft
+			@rm -rf $(OBJ) src/*.o
+			@rm -rf $(OBJBONUS) bonus/*.o
+			@echo "Object files removed."
 
-fclean: clean
-        rm -rf $(NAME)
+fclean:		clean
+			@make -s $@ -C libft
+			@rm -rf $(NAME)
+			@rm -rf $(NAMEB)
+			@echo "Binary file removed."
 
-re: fclean all
+re:			fclean all
+re_b:			fclean bonus
+
+.PHONY:		all clean fclean re
