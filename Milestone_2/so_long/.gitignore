@@ -1,3 +1,4 @@
 /mlx
 *.out
+*.o
 .vscode

@@ -46,6 +46,8 @@ typedef struct s_root //inizializzazioni texture
 }	t_root;
 
 void	texture_init(t_root *root);
-void *put_map(char **map, char *filename);
+void	*put_map(char **map, char *filename);
+int		check_map(char **maps, int p, int c, int e);
+int		check_wall(char **map, int l);
 
 #endif
