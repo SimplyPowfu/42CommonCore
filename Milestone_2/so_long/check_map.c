@@ -22,7 +22,7 @@ static int is_simm(char **map, int l, int *i, int *j)
 
 int check_wall(char **map, int l)
 {
-	int i;
+ 	int i;
 	int j;
 
 	i = 0;

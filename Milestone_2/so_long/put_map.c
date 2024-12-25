@@ -60,7 +60,7 @@ int count_char(char *str, int *p, int *c, int *e)
 			(*c)++;
 		else if (str[i] == 'E')
 			(*e)++;
-		if (str[i] != 'C' || str[i] != 'P' || str[i] != 'E' || str[i] != '1' || str[i] != '0')
+		if (str[i] != 'C' && str[i] != 'P' && str[i] != 'E' && str[i] != '1' && str[i] != '0' && str[i] != '\n')
 			return (0);
 		i++;
 	}
@@ -76,7 +76,7 @@ int check_map(char **maps, int p, int c, int e)
 	return (1);
 }
 
-int is_valid(char *filename)
+int	is_valid(char *filename)
 {
 	char *maps[100];
 	int p = 0;
@@ -88,11 +88,11 @@ int is_valid(char *filename)
 		return (0);
 	while (maps[i])
 	{
-		if (count_char(maps[i], &p, &c, &e) != 1);
+		if (count_char(maps[i], &p, &c, &e) != 1)
 			return (0);
 		i++;
 	}
-	if (check_wall(maps, i) != 1 && check_map(maps, p, c, e) != 1)
+	if (check_wall(maps, i) != 1 || check_map(maps, p, c, e) != 1)
 		return (0);
 	i = 0;
 	while (maps[i])

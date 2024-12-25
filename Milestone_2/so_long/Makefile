@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long.a
-SRC = test.c add_texture.c
+SRC = test.c add_texture.c put_map.c check_map.c
 SRC_BONUS = 
 OBJ = ${SRC:.c=.o}
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
