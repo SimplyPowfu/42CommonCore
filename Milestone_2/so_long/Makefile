@@ -1,26 +1,29 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = so_long.a
+LIBFT = libft/libft.a
+LIBFTDIR = libft/
 SRC = test.c add_texture.c put_map.c check_map.c
-SRC_BONUS = 
 OBJ = ${SRC:.c=.o}
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(LIBFT) $(OBJ)
+	cp $(LIBFT) $(NAME)
 	ar rc $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(OBJ_BONUS)
-	ar rc $(NAME) $(OBJ_BONUS) $(OBJ)
+$(LIBFT): $(LIBFTDIR)
+	$(MAKE) -C $(LIBFTDIR)
 
 %.o: %.c
 	${CC} -c ${CFLAGS} -I. $< -o $@
 
 clean:
-	rm -rf $(OBJ) $(OBJ_BONUS)
+	$(MAKE) clean -C $(LIBFTDIR)
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
+	$(MAKE) fclean -C $(LIBFTDIR)
 
 re: fclean all

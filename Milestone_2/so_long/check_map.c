@@ -48,6 +48,32 @@ int check_wall(char **map, int l)
 	return (1);
 }
 
+void	ft_clean(char **map, char *line, int fd, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i)
+	{
+		free(map[j]);
+		j++;
+	}
+	free(line);
+	close(fd);
+}
+
+void	ft_free_maps(char **maps)
+{
+	int	i;
+
+	i = 0;
+	while (maps[i])
+	{
+		free(maps[i]);
+		i++;
+	}
+}
+
 // int main() {
 // 	int l = 3;
 //     char *matrice[3] = {

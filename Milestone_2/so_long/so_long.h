@@ -48,5 +48,7 @@ typedef struct s_root //inizializzazioni texture
 void	texture_init(t_root *root);
 int		is_valid(char *filename);
 int		check_wall(char **map, int l);
+void	ft_clean(char **map, char *line, int fd, int i);
+void	ft_free_maps(char **maps);
 
 #endif
