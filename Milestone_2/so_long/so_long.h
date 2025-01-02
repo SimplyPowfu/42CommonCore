@@ -38,7 +38,8 @@ typedef struct s_root //inizializzazioni texture
 	void			*mlx;
 	void			*mlx_win;
 	t_img			*mlx_img;
-	t_img			*player; //contadino
+	t_img			*player; //contadina
+	t_img			*playerM; //contadina passo
 	t_img			*exit; //scala
 	t_img			*coll; //carota
 	t_img			*wall; //albero

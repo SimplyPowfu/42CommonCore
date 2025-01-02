@@ -31,6 +31,8 @@ int main(void)
 
 	texture_init(&root); // Inizializzazione Texture
 
-	mlx_put_image_to_window(root.mlx, root.mlx_win, root.exit, 100, 100); // Disegna l'immagine nella finestra, dando la posizione
+	mlx_put_image_to_window(root.mlx, root.mlx_win, root.player, 0, 0); // Disegna l'immagine nella finestra, dando la posizione
+    //mlx_put_image_to_window(root.mlx, root.mlx_win, root.wall, 0, 0);
+    mlx_put_image_to_window(root.mlx, root.mlx_win, root.playerM, 40, 0);
     mlx_loop(root.mlx); // Mantiene la finestra aperta
 }

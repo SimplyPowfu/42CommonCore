@@ -14,7 +14,8 @@ static void	texture_load(t_root *root, t_img **img, char *path)
 
 void	texture_init(t_root *root)
 {
-	//texture_load(root, &root->player, "./textures/player.xpm");
+	texture_load(root, &root->player, "./textures/player.xpm");
+	texture_load(root, &root->playerM, "./textures/playerMove.xpm");
 	texture_load(root, &root->exit, "./textures/key.xpm");
 	texture_load(root, &root->coll, "./textures/coin.xpm");
 	texture_load(root, &root->wall, "./textures/wall.xpm");
