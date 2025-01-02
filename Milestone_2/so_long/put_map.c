@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 15:11:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/02 16:33:44 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/02 21:04:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,8 @@ void	*put_map(char **map, char *filename)
 int	count_char(char *str, int *p, int *c, int *e)
 {
 	int	i;
-	int	count;
 
 	i = 0;
-	count = 0;
 	while (str[i])
 	{
 		if (str[i] == 'P')
