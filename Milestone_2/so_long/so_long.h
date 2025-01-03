@@ -16,7 +16,7 @@ typedef struct s_coord
 
 typedef struct s_game //gestione del gioco e posizioni degli sprites
 {
-	int				**map;
+	char				**map;
 	int				height;
 	int				width;
 	t_coord			player;
@@ -47,8 +47,10 @@ typedef struct s_root //inizializzazioni texture
 }	t_root;
 
 void	texture_init(t_root *root);
+void	*put_map(char **map, char *filename);
 int		is_valid(char *filename);
 int		check_wall(char **map, int l);
+void	image_load(t_root *root);
 void	ft_clean(char **map, char *line, int fd, int i);
 void	ft_free_maps(char **maps);
 
