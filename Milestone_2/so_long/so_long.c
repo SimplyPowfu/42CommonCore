@@ -70,5 +70,6 @@ int main(int argc, char **argv)
     mlx_key_hook(root.mlx_win, key_press, NULL);
 	texture_init(&root);
     put_ground(&root, game.width, game.height);
+    mlx_put_image_to_window(root.mlx, root.mlx_win, root.player, 40, 40);
     mlx_loop(root.mlx);
 }

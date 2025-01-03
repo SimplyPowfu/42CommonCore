@@ -50,7 +50,7 @@ void	texture_init(t_root *root);
 void	*put_map(char **map, char *filename);
 int		is_valid(char *filename);
 int		check_wall(char **map, int l);
-void	image_load(t_root *root);
+void	image_load(t_img **img, t_img *src1, t_img *src2);
 void	ft_clean(char **map, char *line, int fd, int i);
 void	ft_free_maps(char **maps);
 

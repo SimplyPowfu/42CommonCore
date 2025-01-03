@@ -28,7 +28,10 @@ void put_ground(t_root *root, int width, int height)
     {
         while (x < width)
         {
-            mlx_put_image_to_window(root->mlx, root->mlx_win, root->ground, x, y);
+            if (x == 0 || y == 0 || x == width - 40 || y == height - 40)
+                mlx_put_image_to_window(root->mlx, root->mlx_win, root->wall, x, y);
+            else
+                mlx_put_image_to_window(root->mlx, root->mlx_win, root->ground, x, y);
             x += 40;
         }
         y += 40;
@@ -66,16 +69,12 @@ int main(int argc, char **argv)
 	root = (t_root){0};
 	root.mlx = mlx_init();
 	root.mlx_win = mlx_new_window(root.mlx, game.width, game.height, "Finestra Test");
-
-
-    root.mlx_img = mlx_new_image(root.mlx, game.width, game.height);//Crea Immagine
-    image_load(&root);//sovrapponi Texture
-    mlx_put_image_to_window(root.mlx, root.mlx_win, root.mlx_img, 0, 0);//Mostra Immagine
-
     mlx_hook(root.mlx_win, 17, 0, close_window, NULL);
     mlx_key_hook(root.mlx_win, key_press, NULL);
 	texture_init(&root);
     put_ground(&root, game.width, game.height);
-   	mlx_put_image_to_window(root.mlx, root.mlx_win, root.player, 40, 40); // Disegna l'immagine nella finestra, dando la posizione
+
+    mlx_put_image_to_window(root.mlx, root.mlx_win, root.player, 40, 40); //player
+
     mlx_loop(root.mlx);
 }
