@@ -1,12 +1,80 @@
 cc test.c -Lmlx -lmlx -lXext -lX11 -lm add_texture.c -Lmlx -lmlx -lXext -lX11 -lm
+./a.out "maps/valid/mandatory/medium.ber"
 
-tutte le text devono essere 40x40
+casistica ipotetica funzionante:
+void put_ground(t_root *root, t_game *game)
+{
+    int x;
+    int y;
 
-check maps:
+    x = 0;
+    y = 0;
+    while (y < game->height)
+    {
+        while (x < game->width)
+        {
+            if (x == 0 || y == 0 || x == game->width - 40 || y == game->height - 40)
+                mlx_put_image_to_window(root->mlx, root->mlx_win, root->wall, x, y);
+            else
+                mlx_put_image_to_window(root->mlx, root->mlx_win, root->ground, x, y);
+            x += 40;
+        }
+        y += 40;
+        x = 0;
+    }
+	for (int i = 0; i < 5; i++) {  // ciclo sulle righe
+        for (int j = 0; j < 13; j++) {  // ciclo sulle colonne
+            printf("%c ", game.map[i][j]);  // stampa ogni elemento
+        }
+        printf("\n");  // nuova riga dopo ogni riga della matrice
+    }
+}
 
-i lati devono essere solo 1
-la P deve essere 1
-la E deve essere 1
-la P deve poter raggiungere la E attraverso gli 0
-nessun carattere indesiderato
-nessuna linea vuota
+int main(int argc, char **argv)
+{
+	t_root	root;
+	t_game	game;
+
+	if (argc != 2)
+		return (write(1, "Invalid Argument\n", 17), 1);
+	if (!is_valid(argv[1]))
+		return (write(1, "Invalid Maps\n", 13), 1);
+	take_map(&game, argv[1]);
+	root = (t_root){0};
+	root.mlx = mlx_init();
+	root.mlx_win = mlx_new_window(root.mlx, game.width, game.height, "Finestra Test");
+    mlx_hook(root.mlx_win, 17, 0, close_window, NULL);
+    mlx_key_hook(root.mlx_win, key_press, NULL);
+	texture_init(&root);
+    put_ground(&root, &game);
+    mlx_put_image_to_window(root.mlx, root.mlx_win, root.player, 40, 40); //player
+    mlx_loop(root.mlx);
+}
+
+casistica funzionante:
+int main(int argc, char **argv)
+{
+	t_root	root;
+	t_game	game;
+
+	if (argc != 2)
+		return (write(1, "Invalid Argument\n", 17), 1);
+	if (!is_valid(argv[1]))
+		return (write(1, "Invalid Maps\n", 13), 1);
+	take_map(&game, argv[1]);
+	// root = (t_root){0};
+	// root.mlx = mlx_init();
+	// root.mlx_win = mlx_new_window(root.mlx, game.width, game.height, "Finestra Test");
+    // mlx_hook(root.mlx_win, 17, 0, close_window, NULL);
+    // mlx_key_hook(root.mlx_win, key_press, NULL);
+	// texture_init(&root);
+    // put_ground(&root, &game);
+    // mlx_put_image_to_window(root.mlx, root.mlx_win, root.player, 40, 40); //player
+    for (int i = 0; i < 5; i++) {  // ciclo sulle righe
+        for (int j = 0; j < 13; j++) {  // ciclo sulle colonne
+            printf("%c ", game.map[i][j]);  // stampa ogni elemento
+        }
+        printf("\n");  // nuova riga dopo ogni riga della matrice
+    }
+    //mlx_loop(root.mlx);
+}

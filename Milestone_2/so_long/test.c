@@ -17,18 +17,18 @@ int key_press(int keycode, void *param)
     return (0);
 }
 
-void put_ground(t_root *root, int width, int height)
+void put_ground(t_root *root, t_game *game)
 {
     int x;
     int y;
 
     x = 0;
     y = 0;
-    while (y < height)
+    while (y < game->height)
     {
-        while (x < width)
+        while (x < game->width)
         {
-            if (x == 0 || y == 0 || x == width - 40 || y == height - 40)
+            if (x == 0 || y == 0 || x == game->width - 40 || y == game->height - 40)
                 mlx_put_image_to_window(root->mlx, root->mlx_win, root->wall, x, y);
             else
                 mlx_put_image_to_window(root->mlx, root->mlx_win, root->ground, x, y);
@@ -72,9 +72,7 @@ int main(int argc, char **argv)
     mlx_hook(root.mlx_win, 17, 0, close_window, NULL);
     mlx_key_hook(root.mlx_win, key_press, NULL);
 	texture_init(&root);
-    put_ground(&root, game.width, game.height);
-
+    put_ground(&root, &game);
     mlx_put_image_to_window(root.mlx, root.mlx_win, root.player, 40, 40); //player
-
     mlx_loop(root.mlx);
 }
