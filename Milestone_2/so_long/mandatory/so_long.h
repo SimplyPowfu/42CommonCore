@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:00:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 19:41:26 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/06 21:53:38 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <X11/keysymdef.h>
 # include <X11/keysym.h> //macro tasti tastiera (LINUX)
+# define put_im mlx_put_image_to_window
 
 typedef struct s_coord
 {

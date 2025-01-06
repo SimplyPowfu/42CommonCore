@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:00:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 19:41:34 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/06 21:51:29 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <X11/keysymdef.h>
 # include <X11/keysym.h> //macro tasti tastiera (LINUX)
+# define put_im mlx_put_image_to_window
 
 typedef struct s_coord
 {
@@ -60,6 +61,6 @@ int		is_valid_bonus(char *filename);
 int		check_wall(char **map, int l);
 void	ft_clean(char **map, char *line, int fd, int i);
 void	ft_free_maps(char **maps);
-void	put_map_with_textures(t_root *root, t_game *game);
+void	put_in_loop(t_root *root, t_game *game);
 
 #endif

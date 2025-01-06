@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:12:51 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 19:28:37 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/06 21:54:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ void	put_map_with_textures(t_root *root, t_game *game)
 		while ((x * 40) < game->width)
 		{
 			if (game->map[y][x] == '1')
-				mlx_put_image_to_window(root->mlx, root->mlx_win, root->wall, x * 40, y * 40);
+				put_im(root->mlx, root->mlx_win, root->wall, x * 40, y * 40);
 			else if (game->map[y][x] == 'C')
-				mlx_put_image_to_window(root->mlx, root->mlx_win, root->coll, x * 40, y * 40);
+				put_im(root->mlx, root->mlx_win, root->coll, x * 40, y * 40);
 			else if (game->map[y][x] == 'P')
-				mlx_put_image_to_window(root->mlx, root->mlx_win, root->player, x * 40, y * 40);
+				put_im(root->mlx, root->mlx_win, root->player, x * 40, y * 40);
 			else if (game->map[y][x] == 'E')
-				mlx_put_image_to_window(root->mlx, root->mlx_win, root->exit, x * 40, y * 40);
+				put_im(root->mlx, root->mlx_win, root->exit, x * 40, y * 40);
 			else
-				mlx_put_image_to_window(root->mlx, root->mlx_win, root->ground, x * 40, y * 40);
+				put_im(root->mlx, root->mlx_win, root->ground, x * 40, y * 40);
 			x++;
 		}
 		y++;
