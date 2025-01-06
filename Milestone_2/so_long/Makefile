@@ -5,7 +5,7 @@ LIBFT = libft/libft.a
 LIBFTDIR = libft/
 SRC = mandatory/add_texture.c mandatory/check_map.c mandatory/put_map.c mandatory/so_long.c
 SRCDIR = mandatory/
-BONUS = bonus/add_texture_bonus.c bonus/check_map_bonus.c bonus/put_map_bonus.c bonus/so_long_bonus.c bonus/test.c
+BONUS = bonus/add_texture_bonus.c bonus/check_map_bonus.c bonus/put_map_bonus.c bonus/so_long_bonus.c
 BONUSDIR = bonus/
 OBJ = ${SRC:.c=.o}
 OBJ_BONUS = ${BONUS:.c=.o}
