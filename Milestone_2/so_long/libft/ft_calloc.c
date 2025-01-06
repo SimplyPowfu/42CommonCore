@@ -6,21 +6,21 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:19:00 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 15:29:16 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/06 11:24:14 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb)
 {
 	void	*arr;
 
-	arr = malloc(nmemb * size);
+	arr = malloc(nmemb);
 	if (arr == NULL)
 		return (NULL);
-	ft_bzero(arr, nmemb * size);
+	ft_bzero(arr, nmemb);
 	return (arr);
 }
 // #include <stdio.h>

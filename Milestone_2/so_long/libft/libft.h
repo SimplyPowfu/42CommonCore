@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:27:52 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/12/21 18:48:15 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/06 11:24:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_list
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_calloc(size_t nmemb);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);

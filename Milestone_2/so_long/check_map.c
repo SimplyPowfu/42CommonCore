@@ -74,14 +74,24 @@ void	ft_free_maps(char **maps)
 	}
 }
 
-// int main() {
-// 	int l = 3;
-//     char *matrice[3] = {
-//         "1111111111111",
-//         "1EP00000000C1",
-//         "1111111111111"
-//     };
+void	take_P(t_game *game)
+{
+	int	y;
+	int	x;
 
-// 	printf("%d\n", check_wall(matrice, l));
-//     return 0;
-// }
+	y = 0;
+	while (game->map[y]) {
+		x = 0;
+		while (game->map[y][x]) {
+			if (game->map[y][x] == 'P')
+			{
+				game->player_x = x;
+				game->player_y = y;
+			}
+			else if (game->map[y][x] == 'C')
+                game->tot_score++;
+			x++;
+		}
+		y++;
+	}
+}

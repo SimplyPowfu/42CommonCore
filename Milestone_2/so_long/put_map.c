@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 15:11:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/03 15:01:50 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:44:37 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	count_char(char *str, int *p, int *c, int *e)
 		else if (str[i] == 'E')
 			(*e)++;
 		if (str[i] != 'C' && str[i] != 'P' && str[i] != 'E'
-			&& str[i] != '1' && str[i] != '0' && str[i] != '\n')
+			&& str[i] != '1' && str[i] != '0' && str[i] != '\n' && str[i] != 'N')
 			return (0);
 		i++;
 	}
@@ -114,6 +114,6 @@ int	is_valid(char *filename)
 
 // int main()
 // {
-//     printf("%d", is_valid("maps/valid/mandatory/small.ber"));
+//     printf("%d", is_valid("maps/valid/bonus/small.ber"));
 //     return (0);
 // }
