@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_map.c                                          :+:      :+:    :+:   */
+/*   put_map_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 15:11:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 14:44:37 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:01:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-int	check_empty_line(const char *line)
+int	check_empty_line_bonus(const char *line)
 {
 	int	i;
 	int	f;
@@ -33,7 +33,7 @@ int	check_empty_line(const char *line)
 		return (1);
 }
 
-void	*put_map(char **map, char *filename)
+void	*put_map_bonus(char **map, char *filename)
 {
 	int		fd;
 	char	*line;
@@ -44,7 +44,7 @@ void	*put_map(char **map, char *filename)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		if (check_empty_line(line) == 1)
+		if (check_empty_line_bonus(line) == 1)
 		{
 			ft_clean(map, line, fd, i);
 			return (NULL);
@@ -58,7 +58,7 @@ void	*put_map(char **map, char *filename)
 	return (map);
 }
 
-int	count_char(char *str, int *p, int *c, int *e)
+int	count_char_bonus(char *str, int *p, int *c, int *e)
 {
 	int	i;
 
@@ -72,21 +72,22 @@ int	count_char(char *str, int *p, int *c, int *e)
 		else if (str[i] == 'E')
 			(*e)++;
 		if (str[i] != 'C' && str[i] != 'P' && str[i] != 'E'
-			&& str[i] != '1' && str[i] != '0' && str[i] != '\n' && str[i] != 'N')
+			&& str[i] != '1' && str[i] != '0' && str[i] != '\n'
+			&& str[i] != 'N')
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	check_map(int p, int c, int e)
+int	check_map_bonus(int p, int c, int e)
 {
 	if (p != 1 || e != 1 || c < 1)
 		return (0);
 	return (1);
 }
 
-int	is_valid(char *filename)
+int	is_valid_bonus(char *filename)
 {
 	char	*maps[100];
 	int		p;
@@ -97,16 +98,16 @@ int	is_valid(char *filename)
 	p = 0;
 	c = 0;
 	e = 0;
-	if (put_map(maps, filename) == NULL)
+	if (put_map_bonus(maps, filename) == NULL)
 		return (0);
 	i = 0;
 	while (maps[i])
 	{
-		if (count_char(maps[i], &p, &c, &e) != 1)
+		if (count_char_bonus(maps[i], &p, &c, &e) != 1)
 			return (0);
 		i++;
 	}
-	if (check_wall(maps, i) != 1 || check_map(p, c, e) != 1)
+	if (check_wall(maps, i) != 1 || check_map_bonus(p, c, e) != 1)
 		return (0);
 	ft_free_maps(maps);
 	return (1);
