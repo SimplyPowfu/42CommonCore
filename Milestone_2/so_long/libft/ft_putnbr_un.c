@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_un.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:20:18 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 12:04:08 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/26 16:21:45 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/01/07 12:12:46 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <unistd.h>
+#include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putnbr_un(unsigned int n)
 {
-	int	i;
+	unsigned int	temp;
+	unsigned int	i;
 
 	i = 0;
-	if (!s)
+	if (n == 0)
+		return (write(1, "0", 1), 1);
+	temp = n;
+	while (temp > 0)
 	{
-		write (1, "(null)", 6);
-		return (6);
-	}
-	while (s[i] != '\0')
-	{
-		write (fd, &s[i], 1);
+		temp /= 10;
 		i++;
 	}
-	return (i);
+	return (ft_conv(i, n, "0123456789"));
 }

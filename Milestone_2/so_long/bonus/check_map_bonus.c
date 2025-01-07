@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:03:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 18:53:39 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:20:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	is_simm(char **map, int l, int *i, int *j)
 	return (1);
 }
 
-int	check_wall(char **map, int l)
+int	check_wall_bonus(char **map, int l)
 {
 	int	i;
 	int	j;
@@ -60,7 +60,7 @@ int	check_wall(char **map, int l)
 	return (1);
 }
 
-void	ft_clean(char **map, char *line, int fd, int i)
+void	ft_clean_bonus(char **map, char *line, int fd, int i)
 {
 	int	j;
 
@@ -74,7 +74,7 @@ void	ft_clean(char **map, char *line, int fd, int i)
 	close(fd);
 }
 
-void	ft_free_maps(char **maps)
+void	ft_free_maps_bonus(char **maps)
 {
 	int	i;
 
@@ -86,12 +86,13 @@ void	ft_free_maps(char **maps)
 	}
 }
 
-void	take_p(t_game *game)
+void	take_p_bonus(t_game *game)
 {
 	int	y;
 	int	x;
 
 	y = 0;
+	game->tot_score = 0;
 	while (game->map[y])
 	{
 		x = 0;

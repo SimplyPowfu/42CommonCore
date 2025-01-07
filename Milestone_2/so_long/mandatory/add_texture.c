@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_texture.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:12:51 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 21:54:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:58:27 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ void	put_map_with_textures(t_root *root, t_game *game)
 		while ((x * 40) < game->width)
 		{
 			if (game->map[y][x] == '1')
-				put_im(root->mlx, root->mlx_win, root->wall, x * 40, y * 40);
+				PUT_IM(root->mlx, root->mlx_win, root->wall, x * 40, y * 40);
 			else if (game->map[y][x] == 'C')
-				put_im(root->mlx, root->mlx_win, root->coll, x * 40, y * 40);
+				PUT_IM(root->mlx, root->mlx_win, root->coll, x * 40, y * 40);
 			else if (game->map[y][x] == 'P')
-				put_im(root->mlx, root->mlx_win, root->player, x * 40, y * 40);
+				PUT_IM(root->mlx, root->mlx_win, root->player, x * 40, y * 40);
 			else if (game->map[y][x] == 'E')
-				put_im(root->mlx, root->mlx_win, root->exit, x * 40, y * 40);
+				PUT_IM(root->mlx, root->mlx_win, root->exit, x * 40, y * 40);
 			else
-				put_im(root->mlx, root->mlx_win, root->ground, x * 40, y * 40);
+				PUT_IM(root->mlx, root->mlx_win, root->ground, x * 40, y * 40);
 			x++;
 		}
 		y++;

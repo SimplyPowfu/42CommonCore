@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_map_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 15:11:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 19:01:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:12:27 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,17 @@ void	*put_map_bonus(char **map, char *filename)
 	int		i;
 
 	fd = open(filename, O_RDONLY);
+	if (fd < 1)
+		return (NULL);
 	i = 0;
 	line = get_next_line(fd);
+	if (line == NULL)
+		return (NULL);
 	while (line != NULL)
 	{
 		if (check_empty_line_bonus(line) == 1)
 		{
-			ft_clean(map, line, fd, i);
+			ft_clean_bonus(map, line, fd, i);
 			return (NULL);
 		}
 		map[i] = line;
@@ -107,9 +111,9 @@ int	is_valid_bonus(char *filename)
 			return (0);
 		i++;
 	}
-	if (check_wall(maps, i) != 1 || check_map_bonus(p, c, e) != 1)
+	if (check_wall_bonus(maps, i) != 1 || check_map_bonus(p, c, e) != 1)
 		return (0);
-	ft_free_maps(maps);
+	ft_free_maps_bonus(maps);
 	return (1);
 }
 

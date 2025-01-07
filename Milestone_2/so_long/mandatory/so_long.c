@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:16:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 19:28:53 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:21:12 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@ int	move_player(t_game *game, int new_y, int new_x)
 	if (game->map[new_y][new_x] == 'E')
 	{
 		if (game->score == game->tot_score)
+		{
+			ft_printf("Hai Vinto!");
 			exit(0);
+		}
 		return (0);
 	}
-	printf("mosse: %d\n", game->move);
+	ft_printf("mosse: %d\n", game->move);
 	game->move += 1;
 	game->map[game->player_y][game->player_x] = '0';
 	game->player_y = new_y;
@@ -100,7 +103,7 @@ int	main(int argc, char **argv)
 	game.score = 0;
 	root.mlx = mlx_init();
 	root.mlx_win = mlx_new_window(root.mlx, game.width,
-			game.height, "Finestra Test");
+			game.height, "Mandatory");
 	game.root = &root;
 	texture_init(&root);
 	put_map_with_textures(&root, &game);

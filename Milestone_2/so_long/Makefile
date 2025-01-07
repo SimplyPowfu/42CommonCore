@@ -13,24 +13,24 @@ OBJ_BONUS = ${BONUS:.c=.o}
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
-	cp $(LIBFT) $(NAME)
-	ar rc $(NAME) $(OBJ)
+	@cp $(LIBFT) $(NAME)
+	@ar rc $(NAME) $(OBJ)
 
 $(LIBFT): $(LIBFTDIR)
-	$(MAKE) -C $(LIBFTDIR)
+	@$(MAKE) -C $(LIBFTDIR)
 
 bonus: $(OBJ) $(OBJ_BONUS)
-	ar rc $(NAME) $(OBJ_BONUS) $(OBJ)
+	@ar rc $(NAME) $(OBJ_BONUS) $(OBJ)
 
 %.o: %.c
-	${CC} -c ${CFLAGS} -I. $< -o $@
+	@${CC} -c ${CFLAGS} -I. $< -o $@
 
 clean:
-	$(MAKE) clean -C $(LIBFTDIR)
-	rm -rf $(OBJ) $(OBJ_BONUS)
+	@$(MAKE) clean -C $(LIBFTDIR)
+	@rm -rf $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	rm -rf $(NAME)
-	$(MAKE) fclean -C $(LIBFTDIR)
+	@rm -rf $(NAME)
+	@$(MAKE) fclean -C $(LIBFTDIR)
 
 re: fclean all

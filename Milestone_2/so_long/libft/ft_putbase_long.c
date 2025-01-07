@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putbase_long.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:20:18 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 12:04:08 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/26 18:08:37 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/01/07 12:01:06 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+static int	ft_check(unsigned long n)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
+	if (!n)
 	{
-		write (1, "(null)", 6);
-		return (6);
+		write (1, "(nil)", 5);
+		return (5);
 	}
-	while (s[i] != '\0')
+	write(1, "0x", 2);
+	return (2);
+}
+
+int	ft_putbase_long(unsigned long n)
+{
+	unsigned long	temp;
+	int				i;
+
+	temp = n;
+	i = ft_check(n);
+	while (temp > 0)
 	{
-		write (fd, &s[i], 1);
+		temp /= 16;
 		i++;
 	}
-	return (i);
+	return (ft_conv(i, n, "0123456789abcdef"));
 }

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_conv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:20:18 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 12:04:08 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/11/27 19:07:31 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/01/07 12:01:41 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_conv(int i, unsigned long n, char *base)
 {
-	int	i;
+	char	*array;
+	int		b;
 
-	i = 0;
-	if (!s)
+	b = ft_strlen(base);
+	array = malloc(sizeof(char) * (i + 1));
+	if (!array)
+		return (0);
+	array[i] = '\0';
+	while (n > 0)
 	{
-		write (1, "(null)", 6);
-		return (6);
+		array[--i] = base[n % b];
+		n = n / b;
 	}
-	while (s[i] != '\0')
-	{
-		write (fd, &s[i], 1);
-		i++;
-	}
+	while (array[i])
+		write (1, &array[i++], 1);
+	free (array);
 	return (i);
 }

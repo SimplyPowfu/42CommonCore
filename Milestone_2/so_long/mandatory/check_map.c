@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:03:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 19:28:41 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:21:17 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	take_p(t_game *game)
 	int	x;
 
 	y = 0;
+	game->tot_score = 0;
 	while (game->map[y])
 	{
 		x = 0;

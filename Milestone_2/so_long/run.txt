@@ -5,11 +5,3 @@ cc mandatory/so_long.c mandatory/add_texture.c -Lmlx -lmlx -lXext -lX11 -lm -Lml
 Bonus
 cc bonus/so_long_bonus.c bonus/add_texture_bonus.c -Lmlx -lmlx -lXext -lX11 -lm -Lmlx -lmlx -lXext -lX11 -lm so_long.a
 ./a.out "maps/valid/bonus/medium.ber"
-
-aggiungere ft_printf a libft
-
-mandatory aggiungere Hai vinto quando esci,
-
-aggiungere nel make che genera i .out in base al bonus o mandatory
-
-aggiungere animazioni di nemici idle, movimento player

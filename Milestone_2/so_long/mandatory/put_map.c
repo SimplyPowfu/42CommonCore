@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 15:11:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/06 19:28:49 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:54:17 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ void	*put_map(char **map, char *filename)
 	int		i;
 
 	fd = open(filename, O_RDONLY);
+	if (fd < 1)
+		return (NULL);
 	i = 0;
 	line = get_next_line(fd);
+	if (line == NULL)
+		return (NULL);
 	while (line != NULL)
 	{
 		if (check_empty_line(line) == 1)
@@ -111,9 +115,3 @@ int	is_valid(char *filename)
 	ft_free_maps(maps);
 	return (1);
 }
-
-// int main()
-// {
-//     printf("%d", is_valid("maps/valid/bonus/small.ber"));
-//     return (0);
-// }

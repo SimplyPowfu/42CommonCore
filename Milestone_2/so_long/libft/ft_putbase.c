@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putbase.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:20:18 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 12:04:08 by ecarbona         ###   ########.fr       */
+/*   Created: 2024/10/29 16:26:36 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/01/07 12:01:20 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putbase(unsigned long n, char *base)
 {
-	int	i;
+	unsigned long	temp;
+	int				i;
 
+	temp = n;
 	i = 0;
-	if (!s)
+	if (n == 0)
+		return (write (1, "0", 1), 1);
+	while (temp > 0)
 	{
-		write (1, "(null)", 6);
-		return (6);
-	}
-	while (s[i] != '\0')
-	{
-		write (fd, &s[i], 1);
+		temp /= 16;
 		i++;
 	}
-	return (i);
+	return (ft_conv(i, n, base));
 }
