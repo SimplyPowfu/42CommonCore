@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:16:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 14:24:30 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 01:38:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	close_window(void *param)
 {
-	(void)param;
+	t_game *game;
+
+	game = (t_game *)param;
+	free_all(game->root, game);
 	exit(0);
 	return (0);
 }
@@ -24,7 +27,7 @@ int	move_player(t_game *game, int new_y, int new_x)
 	if (game->map[new_y][new_x] == '1')
 		return (0);
 	if (game->map[new_y][new_x] == 'N')
-		exit(0);
+		close_window(game);
 	if (game->map[new_y][new_x] == 'C')
 		game->score++;
 	if (game->map[new_y][new_x] == 'E')
@@ -32,7 +35,7 @@ int	move_player(t_game *game, int new_y, int new_x)
 		if (game->score == game->tot_score)
 		{
 			ft_printf("Hai Vinto!\n");
-			exit(0);
+			close_window(game);
 		}
 		return (0);
 	}
@@ -79,7 +82,7 @@ int	key_press(int keycode, void *param)
 
 	game = (t_game *)param;
 	if (keycode == XK_Escape)
-		exit(0);
+		close_window(game);
 	if (keycode == XK_w)
 		move_player(game, game->player_y - 1, game->player_x);
 	if (keycode == XK_s)
@@ -117,5 +120,4 @@ int	main(int argc, char **argv)
 	mlx_key_hook(root.mlx_win, key_press, &game);
 	mlx_loop_hook(root.mlx, update, &game);
 	mlx_loop(root.mlx);
-	ft_free_maps_bonus(game.map);
 }

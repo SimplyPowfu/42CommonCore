@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:03:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 14:20:19 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 01:28:45 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_free_maps_bonus(char **maps)
 		free(maps[i]);
 		i++;
 	}
+	free(maps);
 }
 
 void	take_p_bonus(t_game *game)
