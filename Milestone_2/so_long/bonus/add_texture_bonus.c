@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:12:51 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 14:18:10 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:00:14 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	texture_init(t_root *root)
 	texture_load(root, &root->ground, "./textures/sand.xpm");
 }
 
-void	put_map_with_textures(t_root *root, t_game *game)
+void	put_map_with_textures_bonus(t_root *root, t_game *game)
 {
 	int	y;
 	int	x;
@@ -76,7 +76,7 @@ void	put_in_loop(t_root *root, t_game *game)
 	char	*mosse;
 	void	*player_texture;
 
-	put_map_with_textures(root, game);
+	put_map_with_textures_bonus(root, game);
 	mosse = ft_itoa(game->move);
 	mlx_string_put(root->mlx, root->mlx_win, 10, 20, 0xFFFFFF, "Mosse: ");
 	mlx_string_put(root->mlx, root->mlx_win, 50, 20, 0xFFFFFF, mosse);

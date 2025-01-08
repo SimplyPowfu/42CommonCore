@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:16:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/08 01:38:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:53:59 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	close_window(void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
-	free_all(game->root, game);
+	free_all_bonus(game->root, game);
 	exit(0);
 	return (0);
 }
@@ -51,10 +51,13 @@ int	move_player(t_game *game, int new_y, int new_x)
 
 void	take_map(t_game *game, char *filename)
 {
-	char	*maps[100];
+	char	**maps;
 	int		y;
 	int		x;
 
+	maps = (char **)malloc(100 * sizeof(char *));
+	if (!maps)
+		return ;
 	put_map_bonus(maps, filename);
 	y = 0;
 	x = 0;
@@ -63,17 +66,16 @@ void	take_map(t_game *game, char *filename)
 	while (maps[0][x])
 		x++;
 	game->map = ft_calloc(y * sizeof(char *));
-	y = 0;
-	while (maps[y])
+	y = -1;
+	while (maps[++y])
 	{
 		game->map[y] = ft_calloc(x);
 		ft_strlcpy(game->map[y], maps[y], x);
-		y++;
 	}
 	game->map[y] = NULL;
-	take_p_bonus(game);
 	game->width = (x - 1) * 40;
 	game->height = y * 40;
+	ft_free_maps_bonus(maps);
 }
 
 int	key_press(int keycode, void *param)
@@ -105,6 +107,7 @@ int	main(int argc, char **argv)
 	if (!is_valid_bonus(argv[1]))
 		return (write(1, "Invalid Maps\n", 13), 1);
 	take_map(&game, argv[1]);
+	take_p_bonus(&game);
 	root = (t_root){0};
 	game.score = 0;
 	game.move = 0;

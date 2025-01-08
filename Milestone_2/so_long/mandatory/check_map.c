@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:03:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 14:21:17 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:14:56 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_free_maps(char **maps)
 		free(maps[i]);
 		i++;
 	}
+	free (maps);
 }
 
 void	take_p(t_game *game)

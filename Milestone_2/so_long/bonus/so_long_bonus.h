@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:00:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/08 01:38:47 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:58:38 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ void	ft_clean_bonus(char **map, char *line, int fd, int i);
 void	ft_free_maps_bonus(char **maps);
 void	put_in_loop(t_root *root, t_game *game);
 int		update(void *param);
-void	free_all(t_root *root, t_game *game);
+void	free_all_bonus(t_root *root, t_game *game);
 
 #endif

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_bonus.c                                       :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 01:33:50 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/08 14:53:29 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:57:56 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
 void	free_textures(t_root *root)
 {
@@ -23,9 +23,9 @@ void	free_textures(t_root *root)
 	mlx_destroy_image(root->mlx, root->ground);
 }
 
-void	free_all_bonus(t_root *root, t_game *game)
+void	free_all(t_root *root, t_game *game)
 {
-	ft_free_maps_bonus(game->map);
+	ft_free_maps(game->map);
 	free_textures(root);
 	if (root->mlx_win)
 		mlx_destroy_window(root->mlx, root->mlx_win);

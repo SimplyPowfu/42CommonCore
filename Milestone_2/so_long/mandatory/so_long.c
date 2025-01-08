@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:16:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 14:21:12 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 17:02:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	close_window(void *param)
 {
-	(void)param;
+	t_game	*game;
+
+	game = (t_game *)param;
+	free_all(game->root, game);
 	exit(0);
 	return (0);
 }
@@ -30,7 +33,7 @@ int	move_player(t_game *game, int new_y, int new_x)
 		if (game->score == game->tot_score)
 		{
 			ft_printf("Hai Vinto!");
-			exit(0);
+			close_window(game);
 		}
 		return (0);
 	}
@@ -45,10 +48,13 @@ int	move_player(t_game *game, int new_y, int new_x)
 
 void	take_map(t_game *game, char *filename)
 {
-	char	*maps[100];
+	char	**maps;
 	int		y;
 	int		x;
 
+	maps = (char **)malloc(100 * sizeof(char *));
+	if (!maps)
+		return ;
 	put_map(maps, filename);
 	y = 0;
 	x = 0;
@@ -57,17 +63,16 @@ void	take_map(t_game *game, char *filename)
 	while (maps[0][x])
 		x++;
 	game->map = ft_calloc(y * sizeof(char *));
-	y = 0;
-	while (maps[y])
+	y = -1;
+	while (maps[++y])
 	{
 		game->map[y] = ft_calloc(x);
 		ft_strlcpy(game->map[y], maps[y], x);
-		y++;
 	}
 	game->map[y] = NULL;
-	take_p(game);
 	game->width = (x - 1) * 40;
 	game->height = y * 40;
+	ft_free_maps(maps);
 }
 
 int	key_press(int keycode, void *param)
@@ -76,7 +81,7 @@ int	key_press(int keycode, void *param)
 
 	game = (t_game *)param;
 	if (keycode == XK_Escape)
-		exit(0);
+		close_window(game);
 	if (keycode == XK_w)
 		move_player(game, game->player_y - 1, game->player_x);
 	if (keycode == XK_s)
@@ -99,6 +104,7 @@ int	main(int argc, char **argv)
 	if (!is_valid(argv[1]))
 		return (write(1, "Invalid Maps\n", 13), 1);
 	take_map(&game, argv[1]);
+	take_p(&game);
 	root = (t_root){0};
 	game.score = 0;
 	root.mlx = mlx_init();
@@ -110,5 +116,4 @@ int	main(int argc, char **argv)
 	mlx_hook(root.mlx_win, 17, 0, close_window, NULL);
 	mlx_key_hook(root.mlx_win, key_press, &game);
 	mlx_loop(root.mlx);
-	ft_free_maps(game.map);
 }

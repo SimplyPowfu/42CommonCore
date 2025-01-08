@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:00:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 13:56:37 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:55:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int		check_wall(char **map, int l);
 void	ft_clean(char **map, char *line, int fd, int i);
 void	ft_free_maps(char **maps);
 void	put_map_with_textures(t_root *root, t_game *game);
+void	free_all(t_root *root, t_game *game);
 
 #endif

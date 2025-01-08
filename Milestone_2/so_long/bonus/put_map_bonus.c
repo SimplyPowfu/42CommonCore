@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 15:11:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/07 14:12:27 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:57:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*put_map_bonus(char **map, char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd < 1)
 		return (NULL);
-	i = 0;
+	i = -1;
 	line = get_next_line(fd);
 	if (line == NULL)
 		return (NULL);
@@ -50,14 +50,14 @@ void	*put_map_bonus(char **map, char *filename)
 	{
 		if (check_empty_line_bonus(line) == 1)
 		{
-			ft_clean_bonus(map, line, fd, i);
+			ft_clean_bonus(map, line, fd, ++i);
 			return (NULL);
 		}
-		map[i] = line;
-		i++;
+		map[++i] = line;
 		line = get_next_line(fd);
 	}
-	map[i] = NULL;
+	map[++i] = NULL;
+	free(line);
 	close(fd);
 	return (map);
 }
@@ -93,7 +93,7 @@ int	check_map_bonus(int p, int c, int e)
 
 int	is_valid_bonus(char *filename)
 {
-	char	*maps[100];
+	char	**maps;
 	int		p;
 	int		c;
 	int		e;
@@ -102,23 +102,25 @@ int	is_valid_bonus(char *filename)
 	p = 0;
 	c = 0;
 	e = 0;
+	maps = (char **)malloc(100 * sizeof(char *));
+	if (!maps)
+		return (ft_free_maps_bonus(maps), 0);
 	if (put_map_bonus(maps, filename) == NULL)
-		return (0);
-	i = 0;
-	while (maps[i])
+		return (ft_free_maps_bonus(maps), 0);
+	i = -1;
+	while (maps[++i])
 	{
 		if (count_char_bonus(maps[i], &p, &c, &e) != 1)
-			return (0);
-		i++;
+			return (ft_free_maps_bonus(maps), 0);
 	}
 	if (check_wall_bonus(maps, i) != 1 || check_map_bonus(p, c, e) != 1)
-		return (0);
+		return (ft_free_maps_bonus(maps), 0);
 	ft_free_maps_bonus(maps);
 	return (1);
 }
 
 // int main()
 // {
-//     printf("%d", is_valid("maps/valid/bonus/small.ber"));
+//     printf("%d", is_valid_bonus("maps/valid/bons/small.ber"));
 //     return (0);
 // }
