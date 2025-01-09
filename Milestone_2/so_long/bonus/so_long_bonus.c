@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:16:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/08 14:53:59 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:29:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ void	take_map(t_game *game, char *filename)
 	x = 0;
 	while (maps[y])
 		y++;
-	while (maps[0][x])
+	while (maps[0][x] && maps[0][x] && maps[0][x] != '\n')
 		x++;
-	game->map = ft_calloc(y * sizeof(char *));
+	game->map = ft_calloc((y + 1) * sizeof(char *));
 	y = -1;
 	while (maps[++y])
 	{
-		game->map[y] = ft_calloc(x);
-		ft_strlcpy(game->map[y], maps[y], x);
+		game->map[y] = ft_calloc(x + 1);
+		ft_strlcpy(game->map[y], maps[y], x + 1);
 	}
 	game->map[y] = NULL;
-	game->width = (x - 1) * 40;
+	game->width = x * 40;
 	game->height = y * 40;
 	ft_free_maps_bonus(maps);
 }
@@ -119,7 +119,7 @@ int	main(int argc, char **argv)
 	game.root = &root;
 	texture_init(&root);
 	put_in_loop(&root, &game);
-	mlx_hook(root.mlx_win, 17, 0, close_window, NULL);
+	mlx_hook(root.mlx_win, 17, 0, close_window, &game);
 	mlx_key_hook(root.mlx_win, key_press, &game);
 	mlx_loop_hook(root.mlx, update, &game);
 	mlx_loop(root.mlx);
