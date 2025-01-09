@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 18:16:28 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/09 17:29:33 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/09 19:37:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	move_player(t_game *game, int new_y, int new_x)
 	{
 		if (game->score == game->tot_score)
 		{
-			ft_printf("Hai Vinto!");
+			ft_printf("Hai Vinto!\n");
 			close_window(game);
 		}
 		return (0);
