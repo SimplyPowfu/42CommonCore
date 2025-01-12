@@ -1,5 +1,5 @@
 #ifndef MINITALK_H
-# define MINITAL_H
+# define MINITALK_H
 
 # include "libft/libft.h"
 # include <bits/types/siginfo_t.h>

@@ -2,7 +2,6 @@
 
 void	put_signal(int pid, char *str)
 {
-	{
 	int	i;
 	int	c;
 
@@ -22,7 +21,6 @@ void	put_signal(int pid, char *str)
 		str++;
 		i = 0;
 	}
-}
 }
 
 int	main(int argc, char **argv)
