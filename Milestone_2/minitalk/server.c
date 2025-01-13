@@ -3,9 +3,9 @@
 void	take_signal(int sig)
 {
 	if (sig == SIGUSR2)
-		printf("signal 0");
+		write (1, "0", 1);
 	else if (sig == SIGUSR1)
-		printf("signal 1");
+		write (1, "1", 1);
 }
 
 int main(void)
