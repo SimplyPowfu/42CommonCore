@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 		put_signal(ft_atoi(argv[1]), argv[2]);
 	else
 	{
-		printf("Invalid arguments.\nPut PID and messange.\n");
+		ft_printf("Invalid arguments.\nPut PID and messange.\n");
 		exit(1);
 	}
 	return (0);

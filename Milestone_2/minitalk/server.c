@@ -20,7 +20,7 @@ void	take_signal(int sig)
 
 int main(void)
 {
-	printf("PID process: %d\n", getpid());
+	ft_printf("PID process: %d\n", getpid());
 	while (1)
 	{
 		signal(SIGUSR1, take_signal);
