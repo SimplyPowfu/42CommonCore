@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:27:52 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/11 17:39:33 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/07 12:13:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	*get_next_line(int fd);
 int		ft_printf(const char *n, ...);
 int		ft_putnbr_un(unsigned int n);
 int		ft_putbase(unsigned long n, char *base);
