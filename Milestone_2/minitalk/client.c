@@ -26,7 +26,7 @@ void	put_signal(int pid, char *str)
 int	main(int argc, char **argv)
 {
 	if (argc == 3)
-		put_signal(ft_atoi((const char *)argv[1]), argv[2]);
+		put_signal(ft_atoi(argv[1]), argv[2]);
 	else
 	{
 		printf("Invalid arguments.\nPut PID and messange.\n");
