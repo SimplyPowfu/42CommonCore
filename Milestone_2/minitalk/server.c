@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/14 16:43:14 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/01/14 16:43:33 by ecarbona         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 void	take_signal(int sig)
 {
-	static int c;
-	static int i;
+	static int	c;
+	static int	i;
 
 	if (sig == SIGUSR2)
 		c = c << 1;
@@ -18,7 +30,7 @@ void	take_signal(int sig)
 	}
 }
 
-int main(void)
+int	main(void)
 {
 	ft_printf("PID process: %d\n", getpid());
 	while (1)
