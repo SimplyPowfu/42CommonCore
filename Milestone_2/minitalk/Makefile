@@ -26,9 +26,9 @@ $(NAME): $(LIBFT) $(OBJC) $(OBJS)
 	@echo " $(COLOR) mandatory compilato: esegui il server, poi esegui il client dando il PID e il messaggio."
 
 $(NAME_B): $(LIBFT) $(OBJC_B) $(OBJS_B)
-	@cp $(LIBFT) $(NAME_B)
-	@$(CC) $(CFLAGS) $(CLIENT_B) -o client_bonus $(NAME_B)
-	@$(CC) $(CFLAGS) $(SERVER_B) -o server_bonus $(NAME_B)
+	@cp $(LIBFT) $(NAME)
+	@$(CC) $(CFLAGS) $(CLIENT_B) -o client $(NAME)
+	@$(CC) $(CFLAGS) $(SERVER_B) -o server $(NAME)
 	@clear
 	@echo " $(COLOR) bonus compilato: esegui il server, poi esegui il client dando il PID e il messaggio."
 
