@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:10:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/14 16:42:32 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:06:49 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	handler(int sig)
 {
 	static int	message_printed;
 
-	message_printed = 0;
 	if (!message_printed)
 	{
 		if (sig == SIGUSR1)
