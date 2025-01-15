@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:34:17 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/14 17:10:49 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:41:26 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	take_signal(int sig, siginfo_t *info, void *content)
 		ft_printf("%c", c);
 		i = 0;
 		c = 0;
+		if (kill(info->si_pid, SIGUSR1) == -1)
+			ft_printf("Unable to send SIGUSR1\n", 2);
 		return ;
 	}
 }
