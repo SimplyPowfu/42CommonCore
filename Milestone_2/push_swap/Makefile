@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap.a
 LIBFT = libft/libft.a
 LIBFTDIR = libft/
-SRC = 
+SRC = free.c
 OBJ = ${SRC:.c=.o}
 COLOR = \033[0;33m #giallo
 
@@ -11,11 +11,12 @@ all : $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ)
 	@cp $(LIBFT) $(NAME)
+	ar rc $(NAME) $(OBJ)
 	@clear
-	@echo " $(COLOR) push_swap"
+	@echo "$(COLOR)push_swap"
 
 $(LIBFT): $(LIBFTDIR)
-	@$(MAKE) -C $(LIBFTDIR)
+	@$(MAKE) bonus -C $(LIBFTDIR)
 
 %.o: %.c
 	@${CC} -c ${CFLAGS} -I. $< -o $@
