@@ -6,16 +6,16 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:39:11 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/03 13:29:49 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:40:29 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int swap(t_stack **stack)
+static int	swap(t_stack **stack)
 {
-	t_stack *head;
-	int	tmp;
+	t_stack	*head;
+	int		tmp;
 
 	if (ft_stacksize(*stack) < 2)
 		return (0);
