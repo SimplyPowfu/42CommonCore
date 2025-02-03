@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:44:21 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/01 17:41:42 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:21:55 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ int	ft_stacksize(t_stack *stack)
 		stack = stack->next;
 	}
 	return (i);
+}
+
+void print_stack(t_stack *stack)
+{
+    while (stack)
+    {
+        printf("%d -> ", stack->content);
+        stack = stack->next;
+    }
+    printf("NULL\n");
 }
 
 void	ft_free(char **tab, int wrld)

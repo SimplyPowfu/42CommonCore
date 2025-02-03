@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:22:09 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/01 18:13:38 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:14:09 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,12 +109,12 @@ int main(int argc, char **argv)
 	a = NULL;
 	if (!put_argv(argc, argv, &a))
 		return (ft_printf("Numero doppio\n"), free_stack(a), 1);
-	t_stack *temp = a;
-    while (temp)
-    {
-        printf("%d\n", temp->content);
-        temp = temp->next;
-    }
+	// t_stack *temp = a;
+    // while (temp)
+    // {
+    //     printf("%d\n", temp->content);
+    //     temp = temp->next;
+    // }
 	free_stack(a);
 	return (0);
 }

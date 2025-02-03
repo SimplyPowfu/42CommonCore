@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap.a
 LIBFT = libft/libft.a
 LIBFTDIR = libft/
-SRC = free.c
+SRC = free.c operations/push.c operations/reverse.c operations/rotate.c operations/swap.c
 OBJ = ${SRC:.c=.o}
 COLOR = \033[0;33m #giallo
 

@@ -11,6 +11,7 @@ typedef struct s_stack
 
 void	ft_free(char **tab, int wrld);
 void	free_stack(t_stack *a);
+void	print_stack(t_stack *stack);
 int		ft_stacksize(t_stack *lst);
 
 #endif
