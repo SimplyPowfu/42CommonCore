@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:38:14 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/04 13:08:06 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:38:54 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	rotate(t_stack **stack)
 {
-	t_stack *head;
-	t_stack *temp;
-	t_stack *last;
+	t_stack	*head;
+	t_stack	*temp;
+	t_stack	*last;
 
 	if (ft_stacksize(*stack) == 0)
 		return (0);
@@ -25,7 +25,7 @@ int	rotate(t_stack **stack)
 	last = ft_laststack(head);
 	*stack = (*stack)->next;
 	last->next = temp;
-    temp->next = NULL;
+	temp->next = NULL;
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:44:21 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/04 13:03:59 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:37:57 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_free(char **tab, int wrld)
 void	free_stack(t_stack *a)
 {
 	t_stack	*temp;
+
 	while (a)
 	{
 		temp = a;

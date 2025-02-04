@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:39:11 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/03 13:40:29 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:36:33 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ int	ss(t_stack **a, t_stack **b) //sa & sb
 // 		return (1);
 //     print_stack(stack);
 // 	print_stack(stack_b);
+// 	free_stack(stack);
+// 	free_stack(stack_b);
 //     return 0;
 // }
