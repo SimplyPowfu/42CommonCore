@@ -6,11 +6,11 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:38:14 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/04 15:38:54 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:06:08 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap.h" //primo in ultimo
 
 int	rotate(t_stack **stack)
 {
@@ -71,7 +71,7 @@ int	rr(t_stack **a, t_stack **b)
 // 	stack_b->next = (t_stack *)malloc(sizeof(t_list));
 // 	stack_b->next->content = 8;
 // 	stack_b->next->next = NULL;
-//  print_stack(stack);
+// 	print_stack(stack);
 // 	print_stack(stack_b);
 //     if (!rr(&stack, &stack_b))
 // 		return (1);

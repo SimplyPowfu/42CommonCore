@@ -6,11 +6,11 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:36:45 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/04 15:38:41 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:29:13 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap.h" //ultimo in prima
 
 int	reverse(t_stack **stack)
 {
