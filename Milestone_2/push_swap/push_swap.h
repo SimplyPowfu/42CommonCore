@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:32:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/05 18:32:09 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/05 23:18:54 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	rr(t_stack **a, t_stack **b);
 int	rra(t_stack **a);
 int	rrb(t_stack **b);
 int	rrr(t_stack **a, t_stack **b);
+int	pa(t_stack **a, t_stack **b);
+int	pb(t_stack **a, t_stack **b);
 
 #endif

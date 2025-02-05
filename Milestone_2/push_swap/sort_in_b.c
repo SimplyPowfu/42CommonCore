@@ -64,28 +64,6 @@ int	take_min(t_stack *a)
 	return (min);
 }
 
-int pa(t_stack **a, t_stack **b)
-{
-    t_stack *temp;  // Puntatore temporaneo per il primo elemento di a
-
-    // Controlla se a è vuota
-    if (*a == NULL)
-        return (0);
-
-    // Rimuovi il primo elemento da a
-    temp = *a;
-    *a = (*a)->next;
-
-    // Aggiungi il primo elemento di a in cima a b
-    temp->next = *b;
-    *b = temp;
-
-    // Scrivi l'operazione
-    write(1, "pa\n", 3);
-
-    return (1);
-}
-
 void put_in_b(t_stack **a, t_stack **b)
 {
 	t_stack *temp;
@@ -99,7 +77,6 @@ void put_in_b(t_stack **a, t_stack **b)
 	while (temp && temp->content != min)
 		temp = temp->next;
 	pos = (ft_stacksize(*a) - ft_stacksize(temp)) + 1;
-	//ft_printf("numero: %d in posizione: %d\n", temp->content, pos);
 	if (pos <= ft_stacksize(*a) / 2)
 		while (++i < pos)
 		{
@@ -107,7 +84,7 @@ void put_in_b(t_stack **a, t_stack **b)
 			m += 1;
 		}
 	else
-		while (pos++ < ft_stacksize(*a) + 1)
+        while (pos++ < ft_stacksize(*a) + 1)
 		{
 			rra(a);
 			m += 1;
@@ -133,22 +110,18 @@ int main()
     t_stack *a = NULL;
     t_stack *b = NULL;
 	int min;
-    
+
     a = init_stack_with_random_values(a);
-    
-	print_stack(a); // Assuming print_stack is implemented
-	
+	//print_stack(a); // Assuming print_stack is implemented
 	while (a && !is_sort(&a))
-	{
 		put_in_b(&a, &b);
-	}
 	while (b)
 	{
-		pa(&b, &a);
+		pb(&a, &b);
 		m += 1;
 	}
 	print_stack(a);
-	ft_printf("%d", m);
+	ft_printf("\n%d\n\n", m);
 
     free_stack(a); // Assuming free_stack is implemented
     free_stack(b); // Assuming free_stack is implemented
