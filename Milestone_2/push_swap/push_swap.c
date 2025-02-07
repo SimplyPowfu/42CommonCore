@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:22:09 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/04 14:43:21 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:21:51 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	take_numb(t_stack **a, char **mat, int *i)
 
 	new = ft_calloc(sizeof(t_stack));
 	new->content = ft_atoi(mat[*i]);
+	new->next = NULL;
+    new->before = NULL;
 	if (*a == NULL)
 		*a = new;
 	else
@@ -70,7 +72,10 @@ void	take_numb(t_stack **a, char **mat, int *i)
 		while (temp->next)
 			temp = temp->next;
 		temp->next = new;
+		new->before = temp;
 	}
+	if (new->next == NULL)
+        (*a)->before = new;
 }
 
 int	put_argv(int argc, char **argv, t_stack **a)
@@ -100,18 +105,36 @@ int	put_argv(int argc, char **argv, t_stack **a)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	//t_stack	*b;
+	t_stack	*b;
+	t_stack *temp;
+	int min;
+
 	if (argc < 2 || !check_char(argv))
 		return (ft_printf("Error\n"), 1);
 	a = NULL;
+	b = NULL;
 	if (!put_argv(argc, argv, &a))
 		return (ft_printf("Numero doppio\n"), free_stack(a), 1);
-	// t_stack *temp = a;
-	// while (temp)
-	// {
-	//     printf("%d\n", temp->content);
-	//     temp = temp->next;
-	// }
+	// print_stack(a);
+	while (a && !is_sort(&a))
+		put_in_b(&a, &b);
+	// print_stack(a);
+	// print_stack(b);
+	put_in_a(&a, &b);
+	// print_stack(a);
+	// print_stack(b);
+	while (b)
+	{
+		temp = a;
+		min = take_min(a);
+		while (temp->content != min)
+			temp = temp->next;
+		put_sort_in_a(&a, &b, &temp);
+	}
+	min_pos(&a);
+	// print_stack(a);
+	// print_stack(b);
 	free_stack(a);
+	free_stack(b);
 	return (0);
 }

@@ -3,11 +3,11 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap.a
 LIBFT = libft/libft.a
 LIBFTDIR = libft/
-SRC = free.c operations/push.c operations/reverse.c operations/rotate.c operations/swap.c
+SRC = push_swap.c free.c sort_in_b.c operations/push.c operations/reverse.c operations/rotate.c operations/swap.c
 OBJ = ${SRC:.c=.o}
-COLOR = \033[0;33m #giallo
 
 all : $(NAME)
+	$(CC) $(CFLAGS) $(SRC) $(NAME) -o "push_swap"
 
 $(NAME): $(LIBFT) $(OBJ)
 	@cp $(LIBFT) $(NAME)
