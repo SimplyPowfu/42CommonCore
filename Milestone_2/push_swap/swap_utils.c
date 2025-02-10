@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:15:13 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 17:40:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:29:47 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	take_min(t_stack *a)
 {
 	t_stack	*temp;
 	int		min;
-	int		i;
 
-	i = 0;
 	temp = a;
 	min = temp->content;
 	while (temp)
@@ -58,22 +56,16 @@ int calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
 {
 	t_stack *temp_a;
 	int pos;
-	int i;
 	int moves;
 
-	i = 0;
 	pos = 1;
 	moves = 0;
 	temp_a = *a;
-
-	// Trova la posizione dell'elemento minimo in `a`
 	while (temp_a->content != take_min(*a))
 	{
 		pos++;
 		temp_a = temp_a->next;
 	}
-
-	// Scorri `a` fino a trovare la posizione corretta per `elem_b` (rispetto all'ordinamento desiderato)
 	while (temp_a->content < elem_b->content)
 	{
 		pos++;
@@ -85,19 +77,10 @@ int calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
 			pos = 1;
 		}
 	}
-
-	// Calcola le mosse per `a`
 	if (pos <= ft_stacksize(*a) / 2)
-	{
-		moves += pos;  // Mossa in avanti (ra)
-	}
+		moves += pos;
 	else
-	{
-		moves += ft_stacksize(*a) - pos + 1;  // Mossa indietro (rra)
-	}
-
-	// Calcola le mosse per `b` (come se spostassi l'elemento da `b` su `a`)
-	// Se l'elemento in `b` è in cima o in fondo, calcola di conseguenza.
+		moves += ft_stacksize(*a) - pos + 1;
 	int pos_b = 0;
 	t_stack *temp_b = *b;
 	while (temp_b)
@@ -107,16 +90,10 @@ int calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
 			break;
 		temp_b = temp_b->next;
 	}
-
 	if (pos_b <= ft_stacksize(*b) / 2)
-	{
-		moves += pos_b;  // Mossa in avanti (rb)
-	}
+		moves += pos_b;
 	else
-	{
-		moves += ft_stacksize(*b) - pos_b + 1;  // Mossa indietro (rrb)
-	}
-
+		moves += ft_stacksize(*b) - pos_b + 1;
 	return moves;
 }
 

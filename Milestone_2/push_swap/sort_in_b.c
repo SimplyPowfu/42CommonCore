@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_in_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:33:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 16:39:23 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:02:58 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@ void	put_in_b(t_stack **a, t_stack **b)
 		pb(a, b);
 	else
 		ra(a);
-}
-
-void put_in_a(t_stack **a, t_stack **b)
-{
-	t_stack	*temp_a;
-	t_stack	*temp_b;
-
-	temp_a = *a;
-	temp_b = *b;
 }
 
 void	put_sort_in_a(t_stack **a, t_stack **b)
