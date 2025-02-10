@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:22:09 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/07 19:21:51 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:13:05 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	take_numb(t_stack **a, char **mat, int *i)
 	new = ft_calloc(sizeof(t_stack));
 	new->content = ft_atoi(mat[*i]);
 	new->next = NULL;
-    new->before = NULL;
+	new->before = NULL;
 	if (*a == NULL)
 		*a = new;
 	else
@@ -75,7 +75,7 @@ void	take_numb(t_stack **a, char **mat, int *i)
 		new->before = temp;
 	}
 	if (new->next == NULL)
-        (*a)->before = new;
+		(*a)->before = new;
 }
 
 int	put_argv(int argc, char **argv, t_stack **a)
@@ -106,8 +106,8 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack *temp;
-	int min;
+	t_stack	*temp;
+	int		min;
 
 	if (argc < 2 || !check_char(argv))
 		return (ft_printf("Error\n"), 1);
@@ -115,14 +115,10 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (!put_argv(argc, argv, &a))
 		return (ft_printf("Numero doppio\n"), free_stack(a), 1);
-	// print_stack(a);
 	while (a && !is_sort(&a))
 		put_in_b(&a, &b);
-	// print_stack(a);
-	// print_stack(b);
-	put_in_a(&a, &b);
-	// print_stack(a);
-	// print_stack(b);
+	if (b)
+		put_in_a(&a, &b);
 	while (b)
 	{
 		temp = a;
@@ -132,9 +128,5 @@ int	main(int argc, char **argv)
 		put_sort_in_a(&a, &b, &temp);
 	}
 	min_pos(&a);
-	// print_stack(a);
-	// print_stack(b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	return (free_stack(a), free_stack(b), 0);
 }
