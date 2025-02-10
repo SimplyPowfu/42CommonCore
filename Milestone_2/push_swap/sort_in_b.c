@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:33:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 15:50:59 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:39:23 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void put_in_a(t_stack **a, t_stack **b)
 	temp_b = *b;
 }
 
-void	put_sort_in_a(t_stack **a, t_stack **b, t_stack **temp)
+void	put_sort_in_a(t_stack **a, t_stack **b)
 {
 	t_stack	*temp_a;
 	t_stack	*temp_b;
@@ -45,7 +45,7 @@ void	put_sort_in_a(t_stack **a, t_stack **b, t_stack **temp)
 	pos = 1;
 	temp_a = *a;
 	temp_b = *b;
-	while (temp_a->content != (*temp)->content)
+	while (temp_a->content != take_min(*a))
 	{
 		pos++;
 		temp_a = temp_a->next;
