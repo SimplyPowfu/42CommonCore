@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:22:09 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 18:27:29 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:16:36 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	t_stack	*temp;
-	t_stack *best;
+	t_stack	*best;
 	int		i;
 	int		pos;
 

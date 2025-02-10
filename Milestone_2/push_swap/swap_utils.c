@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:15:13 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 21:29:47 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:15:34 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ void	min_pos(t_stack **a)
 			rra(a);
 }
 
-int calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
+int	calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
 {
-	t_stack *temp_a;
-	int pos;
-	int moves;
+	t_stack	*temp_a;
+	t_stack	*temp_b;
+	int		pos;
+	int		moves;
+	int		pos_b;
 
 	pos = 1;
 	moves = 0;
@@ -81,27 +83,26 @@ int calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
 		moves += pos;
 	else
 		moves += ft_stacksize(*a) - pos + 1;
-	int pos_b = 0;
-	t_stack *temp_b = *b;
+	pos_b = 0;
+	temp_b = *b;
 	while (temp_b)
 	{
 		pos_b++;
 		if (temp_b == elem_b)
-			break;
+			break ;
 		temp_b = temp_b->next;
 	}
 	if (pos_b <= ft_stacksize(*b) / 2)
 		moves += pos_b;
 	else
 		moves += ft_stacksize(*b) - pos_b + 1;
-	return moves;
+	return (moves);
 }
-
 
 t_stack	*find_best(t_stack **a, t_stack **b)
 {
-	t_stack *temp_b;
-	t_stack *best;
+	t_stack	*temp_b;
+	t_stack	*best;
 	int		moves;
 	int		best_moves;
 
