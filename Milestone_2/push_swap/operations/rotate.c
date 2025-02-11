@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:38:14 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/07 16:22:25 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:14:52 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	rotate(t_stack **stack)
 
 int	ra(t_stack **a)
 {
+	if (ft_stacksize(*a) == 1)
+		return (1);
 	if (!rotate(a))
 		return (ft_printf("Error\n"), 0);
 	write(1, "ra\n", 3);
@@ -39,6 +41,8 @@ int	ra(t_stack **a)
 
 int	rb(t_stack **b)
 {
+	if (ft_stacksize(*b) == 1)
+		return (1);
 	if (!rotate(b))
 		return (ft_printf("Error\n"), 0);
 	write(1, "rb\n", 3);
