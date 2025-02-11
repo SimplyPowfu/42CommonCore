@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_in_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:33:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 21:02:58 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:53:48 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,22 @@ void	put_in_b(t_stack **a, t_stack **b)
 		ra(a);
 }
 
+int	take_pos(t_stack **a, t_stack *temp_a, t_stack *temp_b, int pos)
+{
+	while (temp_a->content < temp_b->content)
+	{
+		pos++;
+		if (temp_a->next)
+			temp_a = temp_a->next;
+		else
+		{
+			temp_a = (*a);
+			pos = 1;
+		}
+	}
+	return (pos);
+}
+
 void	put_sort_in_a(t_stack **a, t_stack **b)
 {
 	t_stack	*temp_a;
@@ -41,17 +57,7 @@ void	put_sort_in_a(t_stack **a, t_stack **b)
 		pos++;
 		temp_a = temp_a->next;
 	}
-	while (temp_a->content < temp_b->content)
-	{
-		pos++;
-		if (temp_a->next)
-			temp_a = temp_a->next;
-		else
-		{
-			temp_a = (*a);
-			pos = 1;
-		}
-	}
+	pos = take_pos(a, temp_a, temp_b, pos);
 	if (pos <= ft_stacksize(*a) / 2)
 		while (++i < pos)
 			ra(a);
@@ -71,4 +77,29 @@ int	is_sort(t_stack **a)
 	if (temp == NULL || temp->next == NULL)
 		return (1);
 	return (0);
+}
+
+void	put_in_a(t_stack **a, t_stack **b)
+{
+	t_stack	*temp;
+	t_stack	*best;
+	int		i;
+	int		pos;
+
+	best = find_best(a, b);
+	temp = *b;
+	i = 0;
+	pos = 1;
+	while (temp->content != best->content)
+	{
+		pos++;
+		temp = temp->next;
+	}
+	if (pos <= ft_stacksize(*b) / 2 && ft_stacksize(*b) > 1)
+		while (++i < pos)
+			rb(b);
+	else
+		while (pos++ < ft_stacksize(*b) + 1 && ft_stacksize(*b) > 1)
+			rrb(b);
+	put_sort_in_a(a, b);
 }

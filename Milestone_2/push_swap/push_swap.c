@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:22:09 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 23:16:36 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:50:00 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*temp;
-	t_stack	*best;
-	int		i;
-	int		pos;
 
 	if (argc < 2 || !check_char(argv))
 		return (ft_printf("Error\n"), 1);
@@ -120,24 +116,7 @@ int	main(int argc, char **argv)
 	while (a && !is_sort(&a))
 		put_in_b(&a, &b);
 	while (b)
-	{
-		best = find_best(&a, &b);
-		temp = b;
-		i = 0;
-		pos = 1;
-		while (temp->content != best->content)
-		{
-			pos++;
-			temp = temp->next;
-		}
-		if (pos <= ft_stacksize(b) / 2 && ft_stacksize(b) > 1)
-			while (++i < pos)
-				rb(&b);
-		else
-			while (pos++ < ft_stacksize(b) + 1 && ft_stacksize(b) > 1)
-				rrb(&b);
-		put_sort_in_a(&a, &b);
-	}
+		put_in_a(&a, &b);
 	min_pos(&a);
 	return (free_stack(a), free_stack(b), 0);
 }
