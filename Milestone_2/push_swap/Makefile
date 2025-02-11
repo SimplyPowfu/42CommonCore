@@ -8,7 +8,7 @@ SRC = push_swap.c swap_utils.c free.c sort_in_b.c operations/push.c operations/r
 OBJ = ${SRC:.c=.o}
 
 all : $(NAME)
-	@$(CC) $(CFLAGS) $(SRC) $(NAME) -o "push_swap" -g
+	@$(CC) $(CFLAGS) $(SRC) $(NAME) -o $(ANAME) -g
 
 $(NAME): $(LIBFT) $(OBJ) 
 	@cp $(LIBFT) $(NAME)
