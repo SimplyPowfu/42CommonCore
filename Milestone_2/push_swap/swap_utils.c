@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:15:13 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/10 23:15:34 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:27:58 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,13 @@ void	min_pos(t_stack **a)
 			rra(a);
 }
 
-int	calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
+int	algorithm_moves(int pos, t_stack **a, t_stack **b, t_stack *elem_b)
 {
-	t_stack	*temp_a;
 	t_stack	*temp_b;
-	int		pos;
 	int		moves;
 	int		pos_b;
 
-	pos = 1;
 	moves = 0;
-	temp_a = *a;
-	while (temp_a->content != take_min(*a))
-	{
-		pos++;
-		temp_a = temp_a->next;
-	}
-	while (temp_a->content < elem_b->content)
-	{
-		pos++;
-		if (temp_a->next)
-			temp_a = temp_a->next;
-		else
-		{
-			temp_a = (*a);
-			pos = 1;
-		}
-	}
 	if (pos <= ft_stacksize(*a) / 2)
 		moves += pos;
 	else
@@ -97,6 +77,32 @@ int	calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
 	else
 		moves += ft_stacksize(*b) - pos_b + 1;
 	return (moves);
+}
+
+int	calculate_moves(t_stack **a, t_stack **b, t_stack *elem_b)
+{
+	t_stack	*temp_a;
+	int		pos;
+
+	pos = 1;
+	temp_a = *a;
+	while (temp_a->content != take_min(*a))
+	{
+		pos++;
+		temp_a = temp_a->next;
+	}
+	while (temp_a->content < elem_b->content)
+	{
+		pos++;
+		if (temp_a->next)
+			temp_a = temp_a->next;
+		else
+		{
+			temp_a = (*a);
+			pos = 1;
+		}
+	}
+	return (algorithm_moves(pos, a, b, elem_b));
 }
 
 t_stack	*find_best(t_stack **a, t_stack **b)

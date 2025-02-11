@@ -4,7 +4,6 @@ NAME = push_swap.a
 ANAME = push_swap
 LIBFT = libft/libft.a
 LIBFTDIR = libft/
-MAKE = -s
 SRC = push_swap.c swap_utils.c free.c sort_in_b.c operations/push.c operations/reverse.c operations/rotate.c operations/swap.c
 OBJ = ${SRC:.c=.o}
 
