@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_in_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:33:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/11 15:53:48 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:43:54 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	put_in_b(t_stack **a, t_stack **b)
 		ra(a);
 }
 
-int	take_pos(t_stack **a, t_stack *temp_a, t_stack *temp_b, int pos)
+int	take_pos_a(t_stack **a, t_stack *temp_a, t_stack *temp_b, int pos)
 {
 	while (temp_a->content < temp_b->content)
 	{
@@ -52,12 +52,12 @@ void	put_sort_in_a(t_stack **a, t_stack **b)
 	pos = 1;
 	temp_a = *a;
 	temp_b = *b;
-	while (temp_a->content != take_min(*a))
+	while (temp_a && temp_a->content != take_min(*a))
 	{
 		pos++;
 		temp_a = temp_a->next;
 	}
-	pos = take_pos(a, temp_a, temp_b, pos);
+	pos = take_pos_a(a, temp_a, temp_b, pos);
 	if (pos <= ft_stacksize(*a) / 2)
 		while (++i < pos)
 			ra(a);
@@ -87,9 +87,10 @@ void	put_in_a(t_stack **a, t_stack **b)
 	int		pos;
 
 	best = find_best(a, b);
-	temp = *b;
 	i = 0;
 	pos = 1;
+	check_doubles(a, b, best);
+	temp = *b;
 	while (temp->content != best->content)
 	{
 		pos++;

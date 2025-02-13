@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:36:45 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/11 16:12:26 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:21:41 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	rrb(t_stack **b)
 
 int	rrr(t_stack **a, t_stack **b)
 {
-	if (ft_stacksize((*a)) < 2 || ft_stacksize((*b)) < 2)
-		return (ft_printf("Error\n"), 0);
+	// if (ft_stacksize((*a)) < 2 || ft_stacksize((*b)) < 2)
+	// 	return (ft_printf("Error\n"), 0);
 	reverse(a);
 	reverse(b);
 	write(1, "rrr\n", 4);
