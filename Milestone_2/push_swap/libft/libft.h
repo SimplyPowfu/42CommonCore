@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 11:27:52 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/01 17:37:12 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:57:36 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(char *s1, char *s2);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

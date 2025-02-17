@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:32:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/14 19:10:46 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/16 21:18:56 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	print_stack(t_stack *stack);
 int		ft_stacksize(t_stack *lst);
 t_stack	*ft_laststack(t_stack *stack);
 int		is_sort(t_stack **a);
+int		check_char(char **av);
+int		put_argv(int argc, char **argv, t_stack **a);
 int		take_min(t_stack *a);
 void	put_in_b(t_stack **a, t_stack **b);
 void	put_in_a(t_stack **a, t_stack **b);
