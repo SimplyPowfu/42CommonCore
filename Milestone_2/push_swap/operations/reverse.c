@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:36:45 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/17 14:26:26 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:58:23 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,38 +55,9 @@ int	rrb(t_stack **b, int i)
 
 int	rrr(t_stack **a, t_stack **b, int i)
 {
-	// if (ft_stacksize((*a)) < 2 || ft_stacksize((*b)) < 2)
-	// 	return (ft_printf("Error\n"), 0);
 	reverse(a);
 	reverse(b);
 	if (i == 1)
 		write(1, "rrr\n", 4);
 	return (1);
 }
-
-// int main()
-// {
-//     t_stack *stack = NULL;
-// 	stack = (t_stack *)malloc(sizeof(t_list));
-// 	stack->content = 2;
-// 	stack->next = NULL;
-// 	stack->next = (t_stack *)malloc(sizeof(t_list));
-// 	stack->next->content = 4;
-// 	stack->next->next = NULL;
-// 	t_stack *stack_b = NULL;
-// 	stack_b = (t_stack *)malloc(sizeof(t_list));
-// 	stack_b->content = 6;
-// 	stack_b->next = NULL;
-// 	stack_b->next = (t_stack *)malloc(sizeof(t_list));
-// 	stack_b->next->content = 8;
-// 	stack_b->next->next = NULL;
-//  	print_stack(stack);
-// 	print_stack(stack_b);
-//     if (!rrr(&stack, &stack_b))
-// 		return (1);
-//     print_stack(stack);
-// 	print_stack(stack_b);
-// 	free_stack(stack);
-// 	free_stack(stack_b);
-//     return (0);
-// }

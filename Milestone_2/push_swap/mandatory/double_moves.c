@@ -60,7 +60,7 @@ void	check_doub(t_stack **a, t_stack **b, t_stack *best, int r_b, int rr_b)
 		rr_b--;
 	}
 }
-
+//funzione int a int b puntati e funzione che li richiama, fa i calcoli e chiama le funzioni
 void	check_doubles(t_stack **a, t_stack **b, t_stack *best)
 {
 	t_stack	*temp;

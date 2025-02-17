@@ -6,13 +6,13 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 20:36:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/17 14:42:47 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:57:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int ft_moves(char *str, t_stack **a, t_stack **b)
+static int	ft_moves(char *str, t_stack **a, t_stack **b)
 {
 	if (ft_strcmp(str, "sa\n") == 0)
 		sa(a, 0);
@@ -41,11 +41,11 @@ static int ft_moves(char *str, t_stack **a, t_stack **b)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	char 	*str;
-	t_stack *a;
-	t_stack *b;
+	char	*str;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2 || !check_char(argv))
 		return (ft_printf("Error\n"), 1);
