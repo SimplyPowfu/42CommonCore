@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:32:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/16 21:18:56 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:28:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,16 @@ void	min_pos(t_stack **a);
 int		take_pos_a(t_stack **a, t_stack *temp_a, t_stack *temp_b, int pos);
 t_stack	*find_best(t_stack **a, t_stack **b);
 void	check_doubles(t_stack **a, t_stack **b, t_stack *best);
-int		sa(t_stack **a);
-int		sb(t_stack **b);
-int		ss(t_stack **a, t_stack **b);
-int		ra(t_stack **a);
-int		rb(t_stack **b);
-int		rr(t_stack **a, t_stack **b);
-int		rra(t_stack **a);
-int		rrb(t_stack **b);
-int		rrr(t_stack **a, t_stack **b);
-int		pa(t_stack **a, t_stack **b);
-int		pb(t_stack **a, t_stack **b);
+int		sa(t_stack **a, int i);
+int		sb(t_stack **b, int i);
+int		ss(t_stack **a, t_stack **b, int i);
+int		ra(t_stack **a, int i);
+int		rb(t_stack **b, int i);
+int		rr(t_stack **a, t_stack **b, int i);
+int		rra(t_stack **a, int i);
+int		rrb(t_stack **b, int i);
+int		rrr(t_stack **a, t_stack **b, int i);
+int		pa(t_stack **a, t_stack **b, int i);
+int		pb(t_stack **a, t_stack **b, int i);
 
 #endif

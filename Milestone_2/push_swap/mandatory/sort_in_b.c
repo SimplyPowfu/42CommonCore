@@ -6,11 +6,11 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:33:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/14 20:55:42 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:42:47 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	put_in_b(t_stack **a, t_stack **b)
 {
@@ -20,9 +20,9 @@ void	put_in_b(t_stack **a, t_stack **b)
 	temp = *a;
 	last = ft_laststack(temp);
 	if (temp->content < last->content)
-		pb(a, b);
+		pb(a, b, 1);
 	else
-		ra(a);
+		ra(a, 1);
 }
 
 int	take_pos_a(t_stack **a, t_stack *temp_a, t_stack *temp_b, int pos)
@@ -60,11 +60,11 @@ void	put_sort_in_a(t_stack **a, t_stack **b)
 	pos = take_pos_a(a, temp_a, temp_b, pos);
 	if (pos <= ft_stacksize(*a) / 2)
 		while (++i < pos)
-			ra(a);
+			ra(a, 1);
 	else
 		while (pos++ < ft_stacksize(*a) + 1)
-			rra(a);
-	pa(a, b);
+			rra(a, 1);
+	pa(a, b, 1);
 }
 
 int	is_sort(t_stack **a)
@@ -98,9 +98,9 @@ void	put_in_a(t_stack **a, t_stack **b)
 	}
 	if (pos <= ft_stacksize(*b) / 2 && ft_stacksize(*b) > 1)
 		while (++i < pos)
-			rb(b);
+			rb(b, 1);
 	else
 		while (pos++ < ft_stacksize(*b) + 1 && ft_stacksize(*b) > 1)
-			rrb(b);
+			rrb(b, 1);
 	put_sort_in_a(a, b);
 }

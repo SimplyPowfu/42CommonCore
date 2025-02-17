@@ -6,36 +6,36 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 20:36:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/17 12:40:09 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:42:47 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int ft_moves(char *str, t_stack **a, t_stack **b)
+static int ft_moves(char *str, t_stack **a, t_stack **b)
 {
 	if (ft_strcmp(str, "sa\n") == 0)
-		sa(a);
+		sa(a, 0);
 	else if (ft_strcmp(str, "sb\n") == 0)
-		sb(b);
+		sb(b, 0);
 	else if (ft_strcmp(str, "ss\n") == 0)
-		ss(a, b);
+		ss(a, b, 0);
 	else if (ft_strcmp(str, "ra\n") == 0)
-		ra(a);
+		ra(a, 0);
 	else if (ft_strcmp(str, "rb\n") == 0)
-		rb(b);
+		rb(b, 0);
 	else if (ft_strcmp(str, "rr\n") == 0)
-		rr(a, b);
+		rr(a, b, 0);
 	else if (ft_strcmp(str, "rra\n") == 0)
-		rra(a);
+		rra(a, 0);
 	else if (ft_strcmp(str, "rrb\n") == 0)
-		rrb(b);
+		rrb(b, 0);
 	else if (ft_strcmp(str, "rrr\n") == 0)
-		rrr(a, b);
+		rrr(a, b, 0);
 	else if (ft_strcmp(str, "pa\n") == 0)
-		pa(a, b);
+		pa(a, b, 0);
 	else if (ft_strcmp(str, "pb\n") == 0)
-		pb(a, b);
+		pb(a, b, 0);
 	else
 		return (write(1, "Error\n", 6), free_stack(*a), free_stack(*b), 0);
 	return (1);

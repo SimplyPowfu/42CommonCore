@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	check_doub(t_stack **a, t_stack **b, t_stack *best, int r_b, int rr_b)
 {
@@ -49,13 +49,13 @@ void	check_doub(t_stack **a, t_stack **b, t_stack *best, int r_b, int rr_b)
 			rr_a++;
 	while (r_a > 0 && r_b > 0)
 	{
-		rr(a, b);
+		rr(a, b, 1);
 		r_a--;
 		r_b--;
 	}
 	while (rr_a > 0 && rr_b > 0)
 	{
-		rrr(a, b);
+		rrr(a, b, 1);
 		rr_a--;
 		rr_b--;
 	}

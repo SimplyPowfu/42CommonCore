@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:15:13 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/11 14:27:58 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:42:47 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	take_min(t_stack *a)
 {
@@ -46,10 +46,10 @@ void	min_pos(t_stack **a)
 	}
 	if (pos <= ft_stacksize(*a) / 2)
 		while (++i < pos)
-			ra(a);
+			ra(a, 1);
 	else
 		while (pos++ < ft_stacksize(*a) + 1)
-			rra(a);
+			rra(a, 1);
 }
 
 int	algorithm_moves(int pos, t_stack **a, t_stack **b, t_stack *elem_b)
