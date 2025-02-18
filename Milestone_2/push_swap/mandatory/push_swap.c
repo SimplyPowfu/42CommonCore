@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:22:09 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/17 14:43:22 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:16:51 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,16 @@ int	put_argv(int argc, char **argv, t_stack **a)
 	if (!check_double(a))
 		return (0);
 	return (1);
+}
+
+void	direct_sort(t_stack **a)
+{
+	t_stack *temp;
+
+	temp = *a;
+	if (temp->content > temp->next->content && temp->next->content > temp->next->next->content)
+	{
+		sa(a, 1);
+		rra(a, 1);
+	}
 }

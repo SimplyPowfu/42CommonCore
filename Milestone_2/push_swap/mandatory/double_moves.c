@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   double_moves.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecar_bona <ecar_bona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 14:58:18 by ecar_bona          #+#    #+#             */
-/*   Updated: 2025/02/14 18:01:44 by ecar_bona         ###   ########.fr       */
+/*   Created: 2025/02/18 16:54:49 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/02/18 16:54:53 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

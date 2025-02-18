@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 20:36:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/17 14:57:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:33:36 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	output(t_stack *a, t_stack *b)
+{
+	if (is_sort(&a))
+			return (write(1, "OK\n", 3), free_stack(a), free_stack(b), 0);
+		else
+			return (write(1, "KO\n", 3), free_stack(a), free_stack(b), 1);
+}
 
 static int	ft_moves(char *str, t_stack **a, t_stack **b)
 {
@@ -47,23 +55,23 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
-	if (argc < 2 || !check_char(argv))
-		return (ft_printf("Error\n"), 1);
-	a = NULL;
-	b = NULL;
-	if (!put_argv(argc, argv, &a))
-		return (ft_printf("Numero doppio\n"), free_stack(a), 1);
-	str = get_next_line(0);
-	while (str)
+	if (argc > 1)
 	{
-		if (!ft_moves(str, &a, &b))
-			return (free(str), free_stack(a), free_stack(b), 0);
-		free(str);
+		if (!check_char(argv))
+			return (ft_printf("Error\n"), 1);
+		a = NULL;
+		b = NULL;
+		if (!put_argv(argc, argv, &a))
+			return (ft_printf("Numero doppio\n"), free_stack(a), 1);
 		str = get_next_line(0);
+		while (str)
+		{
+			if (!ft_moves(str, &a, &b))
+				return (free(str), free_stack(a), free_stack(b), 0);
+			free(str);
+			str = get_next_line(0);
+		}
+		free(str);
+		return (output(a, b));
 	}
-	free(str);
-	if (is_sort(&a))
-		return (write(1, "OK\n", 3), free_stack(a), free_stack(b), 0);
-	else
-		return (write(1, "KO\n", 3), free_stack(a), free_stack(b), 1);
 }

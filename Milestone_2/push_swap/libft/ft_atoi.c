@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:45:39 by ecarbona          #+#    #+#             */
-/*   Updated: 2024/11/22 13:45:53 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:55:52 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	atoi;
-	int	min;
+	int		i;
+	long	atoi;
+	int		min;
 
 	i = 0;
 	atoi = 0;
@@ -36,6 +36,8 @@ int	ft_atoi(const char *nptr)
 		atoi = ((atoi * 10) + (nptr[i] - 48));
 		i++;
 	}
+	if (atoi * min > 2147483647 || atoi * min < -2147483648)
+		return (write(1, "Error\n", 6), exit(1), 1);
 	return (atoi * min);
 }
 // #include <stdlib.h>
