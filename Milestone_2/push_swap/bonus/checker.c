@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 20:36:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/18 18:33:36 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:41:18 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	ft_moves(char *str, t_stack **a, t_stack **b)
 	else if (ft_strcmp(str, "pb\n") == 0)
 		pb(a, b, 0);
 	else
-		return (write(1, "Error\n", 6), free_stack(*a), free_stack(*b), 0);
+		return (write(1, "Error\n", 6), 0);
 	return (1);
 }
 
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
 		while (str)
 		{
 			if (!ft_moves(str, &a, &b))
-				return (free(str), free_stack(a), free_stack(b), 0);
+				return (free(str), free_stack(a), free_stack(b), 1);
 			free(str);
 			str = get_next_line(0);
 		}
