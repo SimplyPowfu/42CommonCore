@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 13:44:21 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/17 14:42:47 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:32:49 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ void	print_stack(t_stack *stack)
 	printf("NULL\n");
 }
 
-void	ft_free(char **tab, int wrld)
+void	ft_free(char **tab)
 {
+	int	wrld;
+
+	wrld = 0;
+	while (tab[wrld])
+		wrld++;
 	while (wrld >= 0)
 		free(tab[wrld--]);
 	free(tab);

@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:43:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/18 18:34:42 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:25:43 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 		a = NULL;
 		b = NULL;
 		if (!put_argv(argc, argv, &a))
-			return (ft_printf("Numero doppio\n"), free_stack(a), 1);
+			return (ft_printf("Error\n"), free_stack(a), 1);
 		if (argc == 4)
 			direct_sort(&a);
 		while (a && !is_sort(&a))

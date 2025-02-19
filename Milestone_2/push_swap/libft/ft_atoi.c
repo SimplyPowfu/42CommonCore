@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:45:39 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/18 17:55:52 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:47:39 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	if (atoi * min > 2147483647 || atoi * min < -2147483648)
-		return (write(1, "Error\n", 6), exit(1), 1);
+		return (0);
 	return (atoi * min);
 }
 // #include <stdlib.h>

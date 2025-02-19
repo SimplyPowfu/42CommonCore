@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:32:33 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/18 18:12:07 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:33:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_stack
 	struct s_stack	*before;
 }	t_stack;
 
-void	ft_free(char **tab, int wrld);
+void	ft_free(char **tab);
 void	free_stack(t_stack *a);
 void	print_stack(t_stack *stack);
 int		ft_stacksize(t_stack *lst);

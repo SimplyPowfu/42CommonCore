@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:33:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/18 18:08:08 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:01:04 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	put_in_b(t_stack **a, t_stack **b)
 
 	temp = *a;
 	last = ft_laststack(temp);
-	
 	if (temp->content < last->content)
 		pb(a, b, 1);
 	else

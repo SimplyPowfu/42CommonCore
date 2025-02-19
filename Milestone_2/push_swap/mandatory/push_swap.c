@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:22:09 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/18 18:16:51 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:33:28 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,15 @@ int	check_char(char **av)
 	return (n);
 }
 
-void	take_numb(t_stack **a, char **mat, int *i)
+int	take_numb(t_stack **a, char **mat, int *i)
 {
 	t_stack	*new;
 	t_stack	*temp;
 
 	new = ft_calloc(sizeof(t_stack));
 	new->content = ft_atoi(mat[*i]);
+	if (new->content == 0 && mat[*i][0] != '0')
+		return (free(new), 0);
 	new->next = NULL;
 	new->before = NULL;
 	if (*a == NULL)
@@ -76,6 +78,7 @@ void	take_numb(t_stack **a, char **mat, int *i)
 	}
 	if (new->next == NULL)
 		(*a)->before = new;
+	return (1);
 }
 
 int	put_argv(int argc, char **argv, t_stack **a)
@@ -88,14 +91,16 @@ int	put_argv(int argc, char **argv, t_stack **a)
 	{
 		mat = ft_split(argv[1], ' ');
 		while (mat[++i])
-			take_numb(a, mat, &i);
-		ft_free(mat, i);
+			if (!take_numb(a, mat, &i))
+				return (ft_free(mat), 0);
+		ft_free(mat);
 	}
 	else
 	{
 		i = 0;
 		while (argv[++i])
-			take_numb(a, argv, &i);
+			if (!take_numb(a, argv, &i))
+				return (0);
 	}
 	if (!check_double(a))
 		return (0);
@@ -104,10 +109,11 @@ int	put_argv(int argc, char **argv, t_stack **a)
 
 void	direct_sort(t_stack **a)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *a;
-	if (temp->content > temp->next->content && temp->next->content > temp->next->next->content)
+	if (temp->content > temp->next->content
+		&& temp->next->content > temp->next->next->content)
 	{
 		sa(a, 1);
 		rra(a, 1);

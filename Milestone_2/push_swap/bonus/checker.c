@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 20:36:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/18 18:41:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:00:16 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	output(t_stack *a, t_stack *b)
 {
 	if (is_sort(&a))
-			return (write(1, "OK\n", 3), free_stack(a), free_stack(b), 0);
-		else
-			return (write(1, "KO\n", 3), free_stack(a), free_stack(b), 1);
+		return (write(1, "OK\n", 3), free_stack(a), free_stack(b), 0);
+	else
+		return (write(1, "KO\n", 3), free_stack(a), free_stack(b), 1);
 }
 
 static int	ft_moves(char *str, t_stack **a, t_stack **b)
