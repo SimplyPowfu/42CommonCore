@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 		a = NULL;
 		b = NULL;
 		if (!put_argv(argc, argv, &a))
-			return (ft_printf("Numero doppio\n"), free_stack(a), 1);
+			return (ft_printf("Error\n"), free_stack(a), 1);
 		str = get_next_line(0);
 		while (str)
 		{
