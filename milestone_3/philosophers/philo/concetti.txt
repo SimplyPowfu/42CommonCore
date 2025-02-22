@@ -1,0 +1,30 @@
+Per completare con successo il progetto Philosophers, è importante avere una solida comprensione dei seguenti concetti:
+
+    Multithreading e Multiprocessing: la familiarità con la distinzione tra fili e processi, così come la loro creazione e gestione, è essenziale per questo progetto.
+
+    Concorrenza e sincronizzazione: comprendere concetti come condizioni di gara, stallo e fame è fondamentale. Inoltre, sapere come utilizzare la sincronizzazione primitivi come mutex e semafori per prevenire questi problemi è importante.
+
+    Inter-Process Communication (IPC): nella parte bonus, dove ogni filosofo è un processo separato, è necessaria la conoscenza delle tecniche di comunicazione interprocesso.
+
+    studio delle funzioni per i thread:
+	Gestione temporale:
+gettimeofday,
+usleep,
+	POSIX thread:
+pthread_create,
+pthread_detach,
+pthread_join,
+pthread_mutex_init,
+pthread_mutex_destroy,
+pthread_mutex_lock,
+pthread_mutex_unlock
+
+Il programma dovrebbe accettare i seguenti argomenti:
+./philo 5 800 200 200
+    Questo number_of_philosophersrappresenta sia il numero dei filosofi che il numero di forchette.
+    time_to_die(in millisecondi): Questo è il tempo massimo in cui un filosofo può andare senza mangiare prima di morire. Si misura dall'inizio del loro ultimo pasto o dall'inizio della simulazione.
+    time_to_eat(in millisecondi): Questo è il tempo necessario per un filosofo a mangiare. Durante questo periodo, devono tenere due forchette.
+    time_to_sleep(in millisecondi): Questo è il tempo che un filosofo trascorrerà dormendo.
+    number_of_times_each_philosopher_must_eatSe tutti i filosofi hanno mangiato almeno così tante volte, la simulazione si ferma. Se non specificata, la simulazione si ferma quando un filosofo muore.
+
+Info appunti: https://github.com/f-corvaro/PHILOSOPHERS
