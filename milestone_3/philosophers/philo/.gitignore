@@ -1,0 +1,7 @@
+.vscode
+*.out
+*.o
+*.a
+.nfs*
+philo
+philo_bonus
