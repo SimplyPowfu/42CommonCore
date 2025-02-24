@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+         #
+#    By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 17:25:58 by ecarbona          #+#    #+#              #
-#    Updated: 2025/02/22 17:33:27 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/02/24 19:01:39 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -g
 NAME = philo.a
 ANAME = philo
 BNAME = philo_bonus
-LIBFT = libft/libft.a
-LIBFTDIR = libft/
-SRC = 
+SRC = main.c philo.c utils.c
 BONUS = 
 OBJ = ${SRC:.c=.o}
 OBJ_BONUS = ${BONUS:.c=.o}
@@ -31,26 +29,20 @@ bonus :	$(NAME) $(OBJ_BONUS)
 	@$(CC) $(CFLAGS) $(BONUS) $(NAME) -o $(BNAME) -g
 	@echo "$(COLOR) bonus compilato: esegui ./checker e aggiungi i valori"
 
-$(NAME): $(LIBFT) $(OBJ) 
-	@cp $(LIBFT) $(NAME)
+$(NAME):$(OBJ) 
 	@ar rc $(NAME) $(OBJ)
 	@clear
 	@echo "$(COLOR) mandatory compilato: esegui ./philo e aggiungi i valori"
-
-$(LIBFT): $(LIBFTDIR)
-	@$(MAKE) bonus -C $(LIBFTDIR)
 
 %.o: %.c
 	@${CC} -c ${CFLAGS} -I. $< -o $@
 
 clean:
-	@$(MAKE) clean -C $(LIBFTDIR)
 	@rm -rf $(OBJ) $(OBJ_BONUS)
 	@clear
 
 fclean: clean
 	@rm -rf $(NAME) $(ANAME) $(BNAME)
-	@$(MAKE) fclean -C $(LIBFTDIR)
 	@clear
 
 re: fclean all
