@@ -21,9 +21,9 @@ pthread_mutex_unlock
 
 Il programma dovrebbe accettare i seguenti argomenti:
 ./philo 5 800 200 200
-    Questo number_of_philosophersrappresenta sia il numero dei filosofi che il numero di forchette.
+    Questo number_of_philosophersrappresenta sia il numero dei filosofi che il numero di forkhette.
     time_to_die(in millisecondi): Questo è il tempo massimo in cui un filosofo può andare senza mangiare prima di morire. Si misura dall'inizio del loro ultimo pasto o dall'inizio della simulazione.
-    time_to_eat(in millisecondi): Questo è il tempo necessario per un filosofo a mangiare. Durante questo periodo, devono tenere due forchette.
+    time_to_eat(in millisecondi): Questo è il tempo necessario per un filosofo a mangiare. Durante questo periodo, devono tenere due forkhette.
     time_to_sleep(in millisecondi): Questo è il tempo che un filosofo trascorrerà dormendo.
     number_of_times_each_philosopher_must_eatSe tutti i filosofi hanno mangiato almeno così tante volte, la simulazione si ferma. Se non specificata, la simulazione si ferma quando un filosofo muore.
 
