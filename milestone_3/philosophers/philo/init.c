@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/26 03:51:56 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:30:50 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	take_time(t_table *table)
+long	take_time()
 {
 	struct timeval	time;
 
 	gettimeofday(&time, NULL);
-	table->start = (time.tv_sec * 1e3) + (time.tv_usec / 1e3);
+	return((time.tv_sec * 1000 + time.tv_usec / 1000));
 }
 
 void	init(t_table *table)
@@ -31,7 +31,7 @@ void	init(t_table *table)
 	while (++i < table->n_philo)
 	{
 		philos[i] = malloc(sizeof(t_philo));
-		philos[i]->id = i;
+		philos[i]->id = i + 1;
 		philos[i]->is_dead = 0;
 		philos[i]->is_full = 0;
 		philos[i]->n_eating = 0;
@@ -43,10 +43,10 @@ void	init(t_table *table)
 			philos[i]->fork = malloc(sizeof(pthread_mutex_t));
 			philos[i]->r_fork = philos[i - 1]->fork;
 		}
-		pthread_mutex_init(philos[i]->fork, 0);
+		pthread_mutex_init(philos[i]->fork, NULL);
 	}
-	philos[0]->r_fork = philos[i]->fork;
-	take_time(table);
+	philos[0]->r_fork = philos[i - 1]->fork;
+	table->start = take_time();
 }
 
 int	take_args(t_table *table, char **av)

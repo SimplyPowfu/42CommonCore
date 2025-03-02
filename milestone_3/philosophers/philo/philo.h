@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:21:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/26 03:42:11 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/02 17:45:10 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ typedef struct s_table
 	int				eat_time;//tempo impiegato per mangiare
 	int				sleep_time;//tempo impiegato per dormire
 	int				n_eat;//numero di mangiate per concludere il programma, if 0 is off
-	long			start;
+	long			start;//inizio simulazione
 }	t_table;
 
 int		take_args(t_table *table, char **av);
 long	ft_atoi(const char *str);
 void	init(t_table *table);
+long	take_time();
+
 
 #endif
