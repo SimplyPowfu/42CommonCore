@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/02/24 18:48:56 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:02:24 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,12 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	return (atoi * min);
+}
+
+void	print_mess(char *str, long start, int id)
+{
+	long	time;
+
+	time = take_time() - start;
+	printf("%ld, %d, %s", time, id, str);
 }

@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+         #
+#    By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 17:25:58 by ecarbona          #+#    #+#              #
-#    Updated: 2025/03/02 17:16:36 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/03/06 18:19:31 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -pthread -g
 NAME = philo.a
 ANAME = philo
 BNAME = philo_bonus

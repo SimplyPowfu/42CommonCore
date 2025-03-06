@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:21:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/02 17:45:10 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:02:44 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		take_args(t_table *table, char **av);
 long	ft_atoi(const char *str);
 void	init(t_table *table);
 long	take_time();
+void	print_mess(char *str, long start, int id);
 
 
 #endif
