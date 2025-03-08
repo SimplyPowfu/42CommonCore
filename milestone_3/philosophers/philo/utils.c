@@ -6,11 +6,39 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/06 18:02:24 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/08 16:07:13 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	f_eat(t_table *table, t_philo **philos)
+{
+	int	finish;
+	int i;
+
+	finish = 0;
+	i = -1;
+	while(philos[++i])
+	{
+		if(philos[i]->n_eating >= table->n_eat)
+			finish++;
+	}
+	if (finish == table->n_philo)
+		return (1);
+	return (0);
+}
+
+int	is_dead(t_philo **philos)
+{
+	int	i;
+
+	i = -1;
+	while (philos[++i])
+		if (philos[i]->is_dead != 0)
+			return (1);
+	return (0);
+}
 
 long	ft_atoi(const char *str)
 {

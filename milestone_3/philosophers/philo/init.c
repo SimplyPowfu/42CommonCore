@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/02 17:30:50 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:33:14 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,24 @@ long	take_time()
 	return((time.tv_sec * 1000 + time.tv_usec / 1000));
 }
 
-void	init(t_table *table)
+// void	init_thread(t_table *table, t_philo **philos)
+// {
+// 	pthread_t	*thread;
+// 	int			i;
+
+// 	i = -1;
+// 	thread = malloc((sizeof(pthread_t) * table->n_philo));
+// 	table->start = take_time();
+// 	while (++i < table->n_philo)
+// 		pthread_create(&thread[i], NULL, routine, &philos[i]);
+// }
+
+void	init(t_table *table, t_philo **philos)
 {
-	t_philo	**philos;
 	int		i;
 
 	i = -1;
 	philos = malloc(sizeof(t_philo) * table->n_philo);
-	table->philos = philos;
 	while (++i < table->n_philo)
 	{
 		philos[i] = malloc(sizeof(t_philo));
@@ -36,6 +46,7 @@ void	init(t_table *table)
 		philos[i]->is_full = 0;
 		philos[i]->n_eating = 0;
 		philos[i]->last_eat = 0;
+		philos[i]->table = table;
 		if (i == 0)
 			philos[i]->fork = malloc(sizeof(pthread_mutex_t));
 		else
@@ -46,7 +57,6 @@ void	init(t_table *table)
 		pthread_mutex_init(philos[i]->fork, NULL);
 	}
 	philos[0]->r_fork = philos[i - 1]->fork;
-	table->start = take_time();
 }
 
 int	take_args(t_table *table, char **av)

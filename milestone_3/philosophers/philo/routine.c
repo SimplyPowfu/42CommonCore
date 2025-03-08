@@ -6,34 +6,51 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/06 18:37:55 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/08 19:30:00 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	eating(t_table *table ,t_philo *philo)
+void	thinking(t_philo *philo)
 {
-	pthread_mutex_lock(&philo->fork);
-	print_mess("has taken a fork", table->start, philo->id);
-	pthread_mutex_lock(&philo->r_fork);
-	print_mess("has taken a fork", table->start, philo->id);
-	print_mess("is eating", table->start ,philo->id);
-	usleep(table->eat_time);//simulazione pasto
-	pthread_mutex_unlock(&philo->fork);
-	pthread_mutex_unlock(&philo->r_fork);
-}
-void	sleeping(t_table *table ,t_philo *philo)
-{
-	print_mess("is sleeping", table->start ,philo->id);
-	usleep(table->sleep_time);
-}
-void	thinking(t_table *table, t_philo *philo)
-{
-	print_mess("is thinking", table->start ,philo->id);
+	print_mess("is thinking", philo->table->start ,philo->id);
 }
 
-void	routine(t_table *table, t_philo *philo)
+void	sleeping(t_philo *philo)
 {
-	
+	print_mess("is sleeping", philo->table->start ,philo->id);
+	usleep(philo->table->sleep_time);
+	thinking(philo);
+}
+
+void	eating(t_philo *philo)
+{
+	pthread_mutex_lock(philo->fork);
+	print_mess("has taken a fork", philo->table->start, philo->id);
+	pthread_mutex_lock(philo->r_fork);
+	print_mess("has taken a fork", philo->table->start, philo->id);
+	philo->last_eat = take_time();
+	print_mess("is eating", philo->table->start ,philo->id);
+	philo->n_eating++;
+	usleep(philo->table->eat_time);//simulazione pasto
+	philo->is_full = 1;
+	pthread_mutex_unlock(philo->fork);
+	pthread_mutex_unlock(philo->r_fork);
+	sleeping(philo);
+}
+
+void	routine(void *arg)
+{
+	t_philo *philo;
+
+	philo = (t_philo *)arg;
+	if(philo->id % 2 == 0)
+		sleeping(philo);
+	while (philo->is_dead == 0)
+		eating(philo);
+	// while(!f_eat(table, philos) || !is_dead(philos))
+	// {
+
+	// }
 }
