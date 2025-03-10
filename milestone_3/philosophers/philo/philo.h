@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:21:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/08 18:00:11 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:43:41 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ typedef struct s_philo
 
 int		take_args(t_table *table, char **av);
 long	ft_atoi(const char *str);
-void	init(t_table *table, t_philo **philos);
-void	init_thread(t_table *table, t_philo **philos);
+void	init(t_table *table);
 long	take_time();
 void	print_mess(char *str, long start, int id);
-void	routine(void *arg);
+void	*routine(void *arg);
 int		f_eat(t_table *table, t_philo **philos);
 int		is_dead(t_philo **philos);
 

@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/08 16:07:13 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:44:01 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	is_dead(t_philo **philos)
 
 	i = -1;
 	while (philos[++i])
+		
 		if (philos[i]->is_dead != 0)
 			return (1);
 	return (0);
@@ -70,5 +71,5 @@ void	print_mess(char *str, long start, int id)
 	long	time;
 
 	time = take_time() - start;
-	printf("%ld, %d, %s", time, id, str);
+	printf("%ld %d %s", time, id, str);
 }
