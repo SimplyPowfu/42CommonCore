@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/10 12:55:04 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:32:04 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ void	init_thread(t_table *table, t_philo **philos)
 	i = -1;
 	while (++i < table->n_philo)
 		pthread_join(thread[i], NULL);
+	i = -1;
+	free_philo(philos);
+	free(thread);
 }
 
 void	init(t_table *table)
@@ -92,6 +95,6 @@ int	take_args(t_table *table, char **av)
 	if (av[5])
 		table->n_eat = ft_atoi(av[5]);
 	else
-		table->n_eat = 0;
+		table->n_eat = -1;
 	return (1);
 }

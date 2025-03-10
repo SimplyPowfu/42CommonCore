@@ -6,38 +6,56 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/10 12:44:01 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:33:05 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	f_eat(t_table *table, t_philo **philos)
+void	print_mess(char *str, long start, int id)
 {
-	int	finish;
+	long	time;
+
+	time = take_time() - start;
+	printf("%ld, %d %s", time, id, str);
+}
+
+int	f_eat(t_philo *philos)
+{
+	long	finish;
 	int i;
 
 	finish = 0;
 	i = -1;
-	while(philos[++i])
+	if (philos->table->n_eat == -1)
+		return (0);
+	while (++i < philos->table->n_philo)
 	{
-		if(philos[i]->n_eating >= table->n_eat)
+		if(philos->n_eating >= philos->table->n_eat)
 			finish++;
 	}
-	if (finish == table->n_philo)
+	if (finish == philos->table->n_philo)
 		return (1);
 	return (0);
 }
 
-int	is_dead(t_philo **philos)
+int	is_dead(t_philo *philos)
 {
 	int	i;
+	long	time;
 
+	time = take_time() - philos->table->start;
 	i = -1;
-	while (philos[++i])
-		
-		if (philos[i]->is_dead != 0)
+	while (++i < philos->table->n_philo)
+	{
+		if (time - philos->last_eat > philos->table->die_time)
+			philos->is_dead = 1;
+		if (philos->is_dead != 0)
+		{
+			print_mess("died\n", philos->table->start, philos->id);
 			return (1);
+		}
+	}
 	return (0);
 }
 
@@ -64,12 +82,4 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	return (atoi * min);
-}
-
-void	print_mess(char *str, long start, int id)
-{
-	long	time;
-
-	time = take_time() - start;
-	printf("%ld %d %s", time, id, str);
 }

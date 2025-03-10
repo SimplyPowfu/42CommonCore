@@ -6,7 +6,7 @@
 #    By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 17:25:58 by ecarbona          #+#    #+#              #
-#    Updated: 2025/03/10 11:22:10 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/03/10 16:52:12 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -pthread -g
 NAME = philo.a
 ANAME = philo
 BNAME = philo_bonus
-SRC = main.c init.c utils.c routine.c
+SRC = main.c init.c utils.c routine.c free.c
 BONUS = 
 OBJ = ${SRC:.c=.o}
 OBJ_BONUS = ${BONUS:.c=.o}
