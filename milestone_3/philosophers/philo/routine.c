@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/10 18:37:38 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/11 13:23:05 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ int	eating(t_philo *philo)
 	return (0);
 }
 
+int is_one(t_philo *philo)
+{
+	print_mess("is sleeping\n", philo->table->start ,philo->id);
+	usleep((philo->table->die_time + 1) * 1000);
+	is_dead(philo);
+	return (0);
+}
+
 void	*routine(void *arg)
 {
 	t_philo *philo;
@@ -62,8 +70,13 @@ void	*routine(void *arg)
 		sleeping(philo);
 	while (1)
 	{
-		if (eating(philo) == 1)
-			exit(0) ;
+		if (philo->table->n_philo == 1)
+		{
+			is_one(philo);
+			break ; //funzione dove liberi tutto e poi exit(0); gestione unlock forchette;
+		}
+		else if (eating(philo) == 1)
+			break ; //funzione dove liberi tutto e poi exit(0); gestione unlock forchette;
 		i++;
 	}
 	return (philo);

@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/10 18:32:04 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/11 13:18:37 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	init_thread(t_table *table, t_philo **philos)
 	i = -1;
 	while (++i < table->n_philo)
 		pthread_join(thread[i], NULL);
-	i = -1;
 	free_philo(philos);
 	free(thread);
 }
@@ -83,7 +82,7 @@ int	take_args(t_table *table, char **av)
 		{
 			if ((av[i][j] < '0' || av[i][j] > '9') && av[i][j] != ' ' &&
 				av[i][j] != '+')
-				return (printf("Only numbers, "), 0);
+				return (0);
 		}
 		if (ft_atoi(av[i]) < -2147483648 || ft_atoi(av[i]) > 2147483647)
 			return (printf("Only INT numbers, "), 0);
