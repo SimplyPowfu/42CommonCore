@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/11 13:18:23 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:53:41 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	is_dead(t_philo *philos)
 	if (philos->last_eat == 0)
 		time = take_time() - philos->table->start;
 	else
-		time = take_time() - philos->table->start;
+		time = take_time() - philos->last_eat;
 	i = -1;
 	while (++i < philos->table->n_philo)
 	{

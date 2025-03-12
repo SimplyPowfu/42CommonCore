@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:21:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/10 18:10:46 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:57:00 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef struct s_table
 	long				eat_time;//tempo impiegato per mangiare
 	long				sleep_time;//tempo impiegato per dormire
 	long				n_eat;//numero di mangiate per concludere il programma, if 0 is off
-	long			start;//inizio simulazione
+	long				start;//inizio simulazione
+	long				is_finish;
 }	t_table;
 
 typedef struct s_philo

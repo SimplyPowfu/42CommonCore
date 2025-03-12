@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/11 13:23:05 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:55:43 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ void	*routine(void *arg)
 		if (philo->table->n_philo == 1)
 		{
 			is_one(philo);
-			break ; //funzione dove liberi tutto e poi exit(0); gestione unlock forchette;
+			exit(0); //funzione dove liberi tutto e poi exit(0); gestione unlock forchette;
 		}
 		else if (eating(philo) == 1)
-			break ; //funzione dove liberi tutto e poi exit(0); gestione unlock forchette;
+			exit(0); //funzione dove liberi tutto e poi exit(0); gestione unlock forchette;
 		i++;
 	}
 	return (philo);
