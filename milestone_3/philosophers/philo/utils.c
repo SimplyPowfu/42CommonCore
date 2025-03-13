@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/12 17:53:41 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/13 19:57:58 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,20 @@ int	f_eat(t_philo *philos)
 
 int	is_dead(t_philo *philos)
 {
-	int	i;
 	long	time;
 
+	if (philos->table->is_finish == 1)
+		return (1);
 	if (philos->last_eat == 0)
 		time = take_time() - philos->table->start;
 	else
 		time = take_time() - philos->last_eat;
-	i = -1;
-	while (++i < philos->table->n_philo)
+	if (time >= philos->table->die_time)
+		philos->table->is_finish = 1;
+	if (philos->table->is_finish == 1)
 	{
-		if (time > philos->table->die_time)
-			philos->is_dead = 1;
-		if (philos->is_dead != 0)
-		{
-			print_mess("died\n", philos->table->start, philos->id);
-			return (1);
-		}
+		print_mess("died\n", philos->table->start, philos->id);
+		return (1);
 	}
 	return (0);
 }

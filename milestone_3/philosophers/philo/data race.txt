@@ -1,0 +1,349 @@
+./philo 4 310 200 100 2
+c2r1p10% valgrind --tool=helgrind ./philo 4 310 200 100 2
+==2091163== Helgrind, a thread error detector
+==2091163== Copyright (C) 2007-2017, and GNU GPL'd, by OpenWorks LLP et al.
+==2091163== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==2091163== Command: ./philo 4 310 200 100 2
+==2091163== 
+4, 1 has taken a fork
+9, 1 has taken a fork
+9, 1 is eating
+==2091163== ---Thread-Announcement------------------------------------------
+==2091163== 
+==2091163== Thread #3 was created
+==2091163==    at 0x49AB342: clone (clone.S:71)
+==2091163==    by 0x48702EB: create_thread (createthread.c:101)
+==2091163==    by 0x4871E0F: pthread_create@@GLIBC_2.2.5 (pthread_create.c:817)
+==2091163==    by 0x4842917: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40133C: init_thread (init.c:34)
+==2091163==    by 0x401502: init (init.c:69)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163== 
+==2091163== ---Thread-Announcement------------------------------------------
+==2091163== 
+==2091163== Thread #2 was created
+==2091163==    at 0x49AB342: clone (clone.S:71)
+==2091163==    by 0x48702EB: create_thread (createthread.c:101)
+==2091163==    by 0x4871E0F: pthread_create@@GLIBC_2.2.5 (pthread_create.c:817)
+==2091163==    by 0x4842917: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40133C: init_thread (init.c:34)
+==2091163==    by 0x401502: init (init.c:69)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163== 
+==2091163== ----------------------------------------------------------------
+==2091163== 
+==2091163== Possible data race during write of size 1 at 0x4A816D0 by thread #3
+==2091163== Locks held: none
+==2091163==    at 0x48488CC: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x491B631: _IO_new_file_xsputn (fileops.c:1236)
+==2091163==    by 0x491B631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==2091163==    by 0x49037AC: __vfprintf_internal (vfprintf-internal.c:1687)
+==2091163==    by 0x48EDD3E: printf (printf.c:33)
+==2091163==    by 0x40173D: print_mess (utils.c:20)
+==2091163==    by 0x401B20: sleeping (routine.c:27)
+==2091163==    by 0x401D58: routine (routine.c:67)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163==  Address 0x4a816d0 is 0 bytes inside a block of size 1,024 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x490DD03: _IO_file_doallocate (filedoalloc.c:101)
+==2091163==    by 0x491DECF: _IO_doallocbuf (genops.c:347)
+==2091163==    by 0x491CF2F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+==2091163==    by 0x491B6B4: _IO_new_file_xsputn (fileops.c:1244)
+==2091163==    by 0x491B6B4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==2091163==    by 0x49037AC: __vfprintf_internal (vfprintf-internal.c:1687)
+==2091163==    by 0x48EDD3E: printf (printf.c:33)
+==2091163==    by 0x40173D: print_mess (utils.c:20)
+==2091163==    by 0x401BDD: eating (routine.c:39)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==  Block was alloc'd by thread #2
+==2091163== 
+==2091163== ----------------------------------------------------------------
+==2091163== 
+==2091163== Possible data race during write of size 1 at 0x4A816D3 by thread #3
+==2091163== Locks held: none
+==2091163==    at 0x48488A6: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x491B631: _IO_new_file_xsputn (fileops.c:1236)
+==2091163==    by 0x491B631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==2091163==    by 0x4902FE5: __vfprintf_internal (vfprintf-internal.c:1719)
+==2091163==    by 0x48EDD3E: printf (printf.c:33)
+==2091163==    by 0x40173D: print_mess (utils.c:20)
+==2091163==    by 0x401B20: sleeping (routine.c:27)
+==2091163==    by 0x401D58: routine (routine.c:67)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163==  Address 0x4a816d3 is 3 bytes inside a block of size 1,024 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x490DD03: _IO_file_doallocate (filedoalloc.c:101)
+==2091163==    by 0x491DECF: _IO_doallocbuf (genops.c:347)
+==2091163==    by 0x491CF2F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+==2091163==    by 0x491B6B4: _IO_new_file_xsputn (fileops.c:1244)
+==2091163==    by 0x491B6B4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==2091163==    by 0x49037AC: __vfprintf_internal (vfprintf-internal.c:1687)
+==2091163==    by 0x48EDD3E: printf (printf.c:33)
+==2091163==    by 0x40173D: print_mess (utils.c:20)
+==2091163==    by 0x401BDD: eating (routine.c:39)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==  Block was alloc'd by thread #2
+==2091163== 
+==2091163== ----------------------------------------------------------------
+==2091163== 
+==2091163== Possible data race during write of size 1 at 0x4A816E1 by thread #3
+==2091163== Locks held: none
+==2091163==    at 0x48488A6: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x491B631: _IO_new_file_xsputn (fileops.c:1236)
+==2091163==    by 0x491B631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==2091163==    by 0x49030FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==2091163==    by 0x48EDD3E: printf (printf.c:33)
+==2091163==    by 0x40173D: print_mess (utils.c:20)
+==2091163==    by 0x401B20: sleeping (routine.c:27)
+==2091163==    by 0x401D58: routine (routine.c:67)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163==  Address 0x4a816e1 is 17 bytes inside a block of size 1,024 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x490DD03: _IO_file_doallocate (filedoalloc.c:101)
+==2091163==    by 0x491DECF: _IO_doallocbuf (genops.c:347)
+==2091163==    by 0x491CF2F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+==2091163==    by 0x491B6B4: _IO_new_file_xsputn (fileops.c:1244)
+==2091163==    by 0x491B6B4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==2091163==    by 0x49037AC: __vfprintf_internal (vfprintf-internal.c:1687)
+==2091163==    by 0x48EDD3E: printf (printf.c:33)
+==2091163==    by 0x40173D: print_mess (utils.c:20)
+==2091163==    by 0x401BDD: eating (routine.c:39)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==  Block was alloc'd by thread #2
+==2091163== 
+10, 2 is sleeping
+11, 3 has taken a fork
+11, 3 has taken a fork
+12, 3 is eating
+12, 4 is sleeping
+112, 2 is thinking
+116, 4 is thinking
+212, 1 is sleeping
+213, 3 is sleeping
+214, 4 has taken a fork
+215, 4 has taken a fork
+216, 4 is eating
+214, 2 has taken a fork
+==2091163== ----------------------------------------------------------------
+==2091163== 
+==2091163== Thread #3: lock order "0x4A811E0 before 0x4A812D0" violated
+==2091163== 
+==2091163== Observed (incorrect) order is: acquisition of lock at 0x4A812D0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BB8: eating (routine.c:38)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  followed by a later acquisition of lock at 0x4A811E0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BEA: eating (routine.c:40)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  Lock at 0x4A811E0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a811e0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40145D: init (init.c:60)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163==  Lock at 0x4A812D0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a812d0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40147F: init (init.c:63)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163== 
+217, 2 has taken a fork
+217, 2 is eating
+313, 1 is thinking
+315, 3 is thinking
+416, 4 is sleeping
+417, 3 has taken a fork
+==2091163== ---Thread-Announcement------------------------------------------
+==2091163== 
+==2091163== Thread #4 was created
+==2091163==    at 0x49AB342: clone (clone.S:71)
+==2091163==    by 0x48702EB: create_thread (createthread.c:101)
+==2091163==    by 0x4871E0F: pthread_create@@GLIBC_2.2.5 (pthread_create.c:817)
+==2091163==    by 0x4842917: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40133C: init_thread (init.c:34)
+==2091163==    by 0x401502: init (init.c:69)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163== 
+==2091163== ----------------------------------------------------------------
+==2091163== 
+==2091163== Thread #4: lock order "0x4A812D0 before 0x4A813C0" violated
+==2091163== 
+==2091163== Observed (incorrect) order is: acquisition of lock at 0x4A813C0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BB8: eating (routine.c:38)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  followed by a later acquisition of lock at 0x4A812D0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BEA: eating (routine.c:40)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  Lock at 0x4A812D0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a812d0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40147F: init (init.c:63)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163==  Lock at 0x4A813C0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a813c0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40147F: init (init.c:63)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163== 
+418, 3 has taken a fork
+419, 3 is eating
+419, 2 is sleeping
+419, 1 has taken a fork
+==2091163== ----------------------------------------------------------------
+==2091163== 
+==2091163== Thread #2: lock order "0x4A814B0 before 0x4A811E0" violated
+==2091163== 
+==2091163== Observed (incorrect) order is: acquisition of lock at 0x4A811E0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BB8: eating (routine.c:38)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  followed by a later acquisition of lock at 0x4A814B0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BEA: eating (routine.c:40)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  Lock at 0x4A814B0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a814b0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40147F: init (init.c:63)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163==  Lock at 0x4A811E0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a811e0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40145D: init (init.c:60)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163== 
+420, 1 has taken a fork
+420, 1 is eating
+517, 4 is thinking
+519, 2 is thinking
+625, 2 has taken a fork
+626, 2 has taken a fork
+626, 2 is eating
+626, 4 has taken a fork
+==2091163== ---Thread-Announcement------------------------------------------
+==2091163== 
+==2091163== Thread #5 was created
+==2091163==    at 0x49AB342: clone (clone.S:71)
+==2091163==    by 0x48702EB: create_thread (createthread.c:101)
+==2091163==    by 0x4871E0F: pthread_create@@GLIBC_2.2.5 (pthread_create.c:817)
+==2091163==    by 0x4842917: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40133C: init_thread (init.c:34)
+==2091163==    by 0x401502: init (init.c:69)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163== 
+==2091163== ----------------------------------------------------------------
+==2091163== 
+==2091163== Thread #5: lock order "0x4A813C0 before 0x4A814B0" violated
+==2091163== 
+==2091163== Observed (incorrect) order is: acquisition of lock at 0x4A814B0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BB8: eating (routine.c:38)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  followed by a later acquisition of lock at 0x4A813C0
+==2091163==    at 0x483FEDF: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x401BEA: eating (routine.c:40)
+==2091163==    by 0x401D99: routine (routine.c:75)
+==2091163==    by 0x4842B1A: ??? (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4871608: start_thread (pthread_create.c:477)
+==2091163==    by 0x49AB352: clone (clone.S:95)
+==2091163== 
+==2091163==  Lock at 0x4A813C0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a813c0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40147F: init (init.c:63)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163==  Lock at 0x4A814B0 was first observed
+==2091163==    at 0x4843D9D: pthread_mutex_init (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x4014D0: init (init.c:66)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Address 0x4a814b0 is 0 bytes inside a block of size 40 alloc'd
+==2091163==    at 0x483C893: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_helgrind-amd64-linux.so)
+==2091163==    by 0x40147F: init (init.c:63)
+==2091163==    by 0x401252: main (main.c:23)
+==2091163==  Block was alloc'd by thread #1
+==2091163== 
+==2091163== 
+628, 4 has taken a fork
+628, 4 is eating
+==2091163== 
+==2091163== Use --history-level=approx or =none to gain increased speed, at
+==2091163== the cost of reduced accuracy of conflicting-access information
+==2091163== For lists of detected and suppressed errors, rerun with: -s
+==2091163== ERROR SUMMARY: 667 errors from 7 contexts (suppressed: 1096 from 73)

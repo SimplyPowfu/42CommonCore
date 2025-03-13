@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:21:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/12 17:57:00 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/13 17:30:40 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,10 @@ typedef struct s_table
 typedef struct s_philo
 {
 	pthread_t		philo;//thread filosofo
-	long				id;//indice del filosofo
+	long			id;//indice del filosofo
 	pthread_mutex_t	*fork;//forchetta alla sinistra
 	pthread_mutex_t	*r_fork;//forchetta alla destra
-	long				is_dead;//bool 0 vivo, 1 morto
-	long				is_full;//bool 0 fame, 1 sazio
-	long				n_eating;//mangiate totali
+	long			n_eating;//mangiate totali
 	long			last_eat;//ultima mangiata effettuata, tempo - valore = quanto tempo fa ha mangiato
 	t_table			*table;
 }	t_philo;

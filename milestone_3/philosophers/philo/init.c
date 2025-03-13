@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/11 13:18:37 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/13 17:29:08 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	init_thread(t_table *table, t_philo **philos)
 
 	i = -1;
 	thread = malloc((sizeof(pthread_t) * table->n_philo));
+	table->is_finish = 0;
 	table->start = take_time();
 	while (++i < table->n_philo)
 	{
@@ -51,8 +52,7 @@ void	init(t_table *table)
 	{
 		philos[i] = malloc(sizeof(t_philo));
 		philos[i]->id = i + 1;
-		philos[i]->is_dead = 0;
-		philos[i]->is_full = 0;
+		//philos[i]->is_dead = 0;
 		philos[i]->n_eating = 0;
 		philos[i]->last_eat = 0;
 		philos[i]->table = table;
