@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/14 16:04:26 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:44:54 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_mess(t_philo *philo, char *str, long start, int id)
 int	f_eat(t_philo *philos)
 {
 	long	finish;
-	int i;
+	int		i;
 
 	finish = 0;
 	i = -1;
@@ -33,7 +33,7 @@ int	f_eat(t_philo *philos)
 		return (0);
 	while (++i < philos->table->n_philo)
 	{
-		if(philos->n_eating >= philos->table->n_eat)
+		if (philos->n_eating >= philos->table->n_eat)
 			finish++;
 	}
 	if (finish == philos->table->n_philo)
@@ -62,7 +62,7 @@ int	is_dead(t_philo *philos)
 	pthread_mutex_lock(philos->table->simulation);
 	if (philos->table->is_finish == 1)
 	{
-		print_mess(philos ,"died\n", philos->table->start, philos->id);
+		print_mess(philos, "died\n", philos->table->start, philos->id);
 		return (pthread_mutex_unlock(philos->table->simulation), 1);
 	}
 	pthread_mutex_unlock(philos->table->simulation);

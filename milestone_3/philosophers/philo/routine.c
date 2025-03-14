@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/14 15:31:29 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:50:28 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	thinking(t_philo *philo)
 {
 	if (is_dead(philo) == 1 || f_eat(philo) == 1)
 		return (1);
-	print_mess(philo, "is thinking\n", philo->table->start ,philo->id);
+	print_mess(philo, "is thinking\n", philo->table->start, philo->id);
 	return (0);
 }
 
@@ -24,7 +24,7 @@ int	sleeping(t_philo *philo)
 {
 	if (is_dead(philo) == 1 || f_eat(philo) == 1)
 		return (1);
-	print_mess(philo, "is sleeping\n", philo->table->start ,philo->id);
+	print_mess(philo, "is sleeping\n", philo->table->start, philo->id);
 	usleep(philo->table->sleep_time * 1000);
 	if (thinking(philo) == 1)
 		return (1);
@@ -40,7 +40,7 @@ int	eating(t_philo *philo)
 	pthread_mutex_lock(philo->r_fork);
 	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	philo->last_eat = take_time();
-	print_mess(philo, "is eating\n", philo->table->start ,philo->id);
+	print_mess(philo, "is eating\n", philo->table->start, philo->id);
 	philo->n_eating++;
 	usleep(philo->table->eat_time * 1000);
 	pthread_mutex_unlock(philo->fork);
@@ -50,9 +50,9 @@ int	eating(t_philo *philo)
 	return (0);
 }
 
-int is_one(t_philo *philo)
+int	is_one(t_philo *philo)
 {
-	print_mess(philo, "is sleeping\n", philo->table->start ,philo->id);
+	print_mess(philo, "is sleeping\n", philo->table->start, philo->id);
 	usleep((philo->table->die_time + 1) * 1000);
 	is_dead(philo);
 	return (0);
@@ -60,10 +60,10 @@ int is_one(t_philo *philo)
 
 void	*routine(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	if(philo->id % 2 == 0)
+	if (philo->id % 2 == 0)
 		sleeping(philo);
 	while (philo->table->is_finish == 0)
 	{

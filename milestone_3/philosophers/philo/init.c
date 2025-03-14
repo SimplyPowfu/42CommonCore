@@ -6,18 +6,18 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/14 15:46:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:43:59 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long	take_time()
+long	take_time(void)
 {
 	struct timeval	time;
 
 	gettimeofday(&time, NULL);
-	return((time.tv_sec * 1000) + (time.tv_usec / 1000));
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
 void	init_thread(t_table *table, t_philo **philos)
@@ -26,6 +26,8 @@ void	init_thread(t_table *table, t_philo **philos)
 	int			i;
 
 	i = -1;
+	pthread_mutex_init(table->printing, NULL);
+	pthread_mutex_init(table->simulation, NULL);
 	thread = malloc((sizeof(pthread_t) * table->n_philo));
 	table->is_finish = 0;
 	table->start = take_time();
@@ -43,7 +45,7 @@ void	init_thread(t_table *table, t_philo **philos)
 
 void	init(t_table *table)
 {
-	t_philo **philos;
+	t_philo	**philos;
 	int		i;
 
 	i = -1;
@@ -67,8 +69,6 @@ void	init(t_table *table)
 	philos[0]->r_fork = philos[i - 1]->fork;
 	table->printing = malloc(sizeof(pthread_mutex_t));
 	table->simulation = malloc(sizeof(pthread_mutex_t));
-	pthread_mutex_init(table->printing, NULL);
-	pthread_mutex_init(table->simulation, NULL);
 	init_thread(table, philos);
 }
 
