@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:21:01 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/13 17:30:40 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:45:07 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_table
 	long				n_eat;//numero di mangiate per concludere il programma, if 0 is off
 	long				start;//inizio simulazione
 	long				is_finish;
+	pthread_mutex_t		*printing;
+	pthread_mutex_t		*simulation;
 }	t_table;
 
 typedef struct s_philo
@@ -45,7 +47,7 @@ int		take_args(t_table *table, char **av);
 long	ft_atoi(const char *str);
 void	init(t_table *table);
 long	take_time();
-void	print_mess(char *str, long start, int id);
+void	print_mess(t_philo *philo, char *str, long start, int id);
 void	*routine(void *arg);
 int		f_eat(t_philo *philos);
 int		is_dead(t_philo *philos);

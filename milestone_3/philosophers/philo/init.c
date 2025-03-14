@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/13 17:29:08 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:46:57 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	init(t_table *table)
 	{
 		philos[i] = malloc(sizeof(t_philo));
 		philos[i]->id = i + 1;
-		//philos[i]->is_dead = 0;
 		philos[i]->n_eating = 0;
 		philos[i]->last_eat = 0;
 		philos[i]->table = table;
@@ -66,6 +65,10 @@ void	init(t_table *table)
 		pthread_mutex_init(philos[i]->fork, NULL);
 	}
 	philos[0]->r_fork = philos[i - 1]->fork;
+	table->printing = malloc(sizeof(pthread_mutex_t));
+	table->simulation = malloc(sizeof(pthread_mutex_t));
+	pthread_mutex_init(table->printing, NULL);
+	pthread_mutex_init(table->simulation, NULL);
 	init_thread(table, philos);
 }
 

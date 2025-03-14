@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 19:01:13 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/10 15:06:33 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:42:26 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(int argc, char **argv)
 	if (!take_args(&table, argv))
 		return (printf("Error\n"), 1);
 	init(&table);
-	// printf("numero di filosofi: %d\ntempo per morire: %d\ntempo per mangiare %d\ntempo per dormire: %d\nnumero di mangiate: %d\ninizio simulazione: %ld\n", table.n_philo, table.die_time, table.eat_time, table.sleep_time, table.n_eat, table.start);
+	//c printf("numero di filosofi: %d\ntempo per morire: %d\ntempo per mangiare %d\ntempo per dormire: %d\nnumero di mangiate: %d\ninizio simulazione: %ld\n", table.n_philo, table.die_time, table.eat_time, table.sleep_time, table.n_eat, table.start);
 	return (0);
 }

@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/13 19:57:58 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:48:43 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	print_mess(char *str, long start, int id)
+void	print_mess(t_philo *philo, char *str, long start, int id)
 {
 	long	time;
 
-	time = take_time() - start;
+	pthread_mutex_lock(philo->table->printing);
+	time = take_time() - start + (philo->n_eating - philo->n_eating);
 	printf("%ld, %d %s", time, id, str);
+	pthread_mutex_unlock(philo->table->printing);
 }
 
 int	f_eat(t_philo *philos)
@@ -53,7 +55,7 @@ int	is_dead(t_philo *philos)
 		philos->table->is_finish = 1;
 	if (philos->table->is_finish == 1)
 	{
-		print_mess("died\n", philos->table->start, philos->id);
+		print_mess(philos ,"died\n", philos->table->start, philos->id);
 		return (1);
 	}
 	return (0);
