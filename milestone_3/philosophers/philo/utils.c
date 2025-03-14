@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/14 15:48:43 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/14 16:04:26 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,27 @@ int	is_dead(t_philo *philos)
 {
 	long	time;
 
+	pthread_mutex_lock(philos->table->simulation);
 	if (philos->table->is_finish == 1)
-		return (1);
+		return (pthread_mutex_unlock(philos->table->simulation), 1);
+	pthread_mutex_unlock(philos->table->simulation);
 	if (philos->last_eat == 0)
 		time = take_time() - philos->table->start;
 	else
 		time = take_time() - philos->last_eat;
 	if (time >= philos->table->die_time)
+	{
+		pthread_mutex_lock(philos->table->simulation);
 		philos->table->is_finish = 1;
+		pthread_mutex_unlock(philos->table->simulation);
+	}
+	pthread_mutex_lock(philos->table->simulation);
 	if (philos->table->is_finish == 1)
 	{
 		print_mess(philos ,"died\n", philos->table->start, philos->id);
-		return (1);
+		return (pthread_mutex_unlock(philos->table->simulation), 1);
 	}
+	pthread_mutex_unlock(philos->table->simulation);
 	return (0);
 }
 
