@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/15 14:30:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:14:50 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,10 @@ int	eating(t_philo *philo)
 {
 	if (is_dead(philo) == 1 || f_eat(philo) == 1)
 		return (1);
-	if (philo->id % 2 == 0)
-	{
-		pthread_mutex_lock(philo->fork);
-		print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
-		pthread_mutex_lock(philo->r_fork);
-		print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
-	}
-	else
-	{
-		pthread_mutex_lock(philo->r_fork);
-		print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
-		pthread_mutex_lock(philo->fork);
-		print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
-	}
+	pthread_mutex_lock(philo->fork);
+	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
+	pthread_mutex_lock(philo->r_fork);
+	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	philo->last_eat = take_time();
 	print_mess(philo, "is eating\n", philo->table->start, philo->id);
 	philo->n_eating++;
@@ -74,7 +64,7 @@ void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
-		sleeping(philo);
+		usleep(philo->table->sleep_time * 1000);
 	while (philo->table->is_finish == 0)
 	{
 		if (philo->table->n_philo == 1)

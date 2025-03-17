@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/14 16:43:59 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:00:34 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	init(t_table *table)
 
 	i = -1;
 	philos = malloc(sizeof(t_philo) * table->n_philo);
-	while (++i < table->n_philo)
+	while (++i <= table->n_philo)
 	{
 		philos[i] = malloc(sizeof(t_philo));
 		philos[i]->id = i + 1;
