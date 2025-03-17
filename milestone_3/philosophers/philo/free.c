@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 14:53:58 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/14 16:48:27 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/17 21:02:01 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_philo(t_philo **philos)
 	pthread_mutex_destroy(philos[0]->table->simulation);
 	free(philos[0]->table->printing);
 	free(philos[0]->table->simulation);
-	while (++i < philo)
+	while (++i <= philo)
 	{
 		pthread_mutex_destroy(philos[i]->fork);
 		free(philos[i]->fork);

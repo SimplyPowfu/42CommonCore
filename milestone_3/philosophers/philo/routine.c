@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/17 18:14:50 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/17 20:55:23 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	eating(t_philo *philo)
 	if (is_dead(philo) == 1 || f_eat(philo) == 1)
 		return (1);
 	pthread_mutex_lock(philo->fork);
+	if (is_dead(philo) == 1 || f_eat(philo) == 1)
+		return (pthread_mutex_unlock(philo->fork), 1);
 	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	pthread_mutex_lock(philo->r_fork);
 	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
