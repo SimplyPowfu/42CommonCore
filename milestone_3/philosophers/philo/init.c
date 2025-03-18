@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/17 18:00:34 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/18 16:07:34 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ void	init_thread(t_table *table, t_philo **philos)
 	table->is_finish = 0;
 	table->start = take_time();
 	while (++i < table->n_philo)
-	{
 		pthread_create(&thread[i], NULL, routine, philos[i]);
-		usleep(100);
-	}
 	i = -1;
 	while (++i < table->n_philo)
 		pthread_join(thread[i], NULL);
