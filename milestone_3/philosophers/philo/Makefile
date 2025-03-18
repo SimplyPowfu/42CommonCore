@@ -6,36 +6,25 @@
 #    By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/22 17:25:58 by ecarbona          #+#    #+#              #
-#    Updated: 2025/03/10 16:52:12 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/03/18 17:53:32 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -pthread -g
-NAME = philo.a
-ANAME = philo
-BNAME = philo_bonus
+NAME = philo
 SRC = main.c init.c utils.c routine.c free.c
-BONUS = 
 OBJ = ${SRC:.c=.o}
-OBJ_BONUS = ${BONUS:.c=.o}
 COLOR = \033[1;32m
 
 all : $(NAME)
-	@$(CC) $(CFLAGS) $(SRC) $(NAME) -o $(ANAME) -g
-
-bonus :	$(NAME) $(OBJ_BONUS)
-	@ar rc $(NAME) $(OBJ_BONUS)
-	@$(CC) $(CFLAGS) $(BONUS) $(NAME) -o $(BNAME) -g
-	@echo "$(COLOR) bonus compilato: esegui ./checker e aggiungi i valori"
 
 $(NAME):$(OBJ) 
-	@ar rc $(NAME) $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -g
 	@clear
 	@echo "$(COLOR) mandatory compilato: esegui ./philo e aggiungi i valori"
 
-%.o: %.c
-	@${CC} -c ${CFLAGS} -I. $< -o $@
+bonus:
 
 clean:
 	@rm -rf $(OBJ) $(OBJ_BONUS)
