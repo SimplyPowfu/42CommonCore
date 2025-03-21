@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/18 15:57:32 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/21 18:06:13 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	eating(t_philo *philo)
 	pthread_mutex_lock(philo->fork);
 	if (is_dead(philo) == 1 || f_eat(philo) == 1)
 		return (pthread_mutex_unlock(philo->fork), 1);
+	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	pthread_mutex_lock(philo->r_fork);
 	if (is_dead(philo) == 1 || f_eat(philo) == 1)
 		return (pthread_mutex_unlock(philo->fork),
 			pthread_mutex_unlock(philo->r_fork), 1);
-	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	philo->last_eat = take_time();
 	print_mess(philo, "is eating\n", philo->table->start, philo->id);
