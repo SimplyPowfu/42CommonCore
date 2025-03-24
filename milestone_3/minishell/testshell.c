@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   testshell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:41:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/23 18:57:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/24 17:42:31 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void signal_manager(void *signal)
+{
+	
+}
 
 int main()
 {
@@ -25,7 +30,7 @@ int main()
 		else if (command[0] == 'c')
 			rl_clear_history();
 		else
-			printf("input\n");
+			ft_printf("input\n");
 		free(command);
 		command = readline("minishell$ ");
 	}
