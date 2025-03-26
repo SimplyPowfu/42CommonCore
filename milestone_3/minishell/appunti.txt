@@ -26,4 +26,5 @@ serve per rendere il processo corrente un altro processo  che lo sovrascrive
 completamente
 
 appunti: 
+file: https://github.com/f-corvaro/MINISHELL
 file: https://github.com/cclaude42/minishell/tree/cclaude

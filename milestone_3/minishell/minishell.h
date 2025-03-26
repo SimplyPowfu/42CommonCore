@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:38:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/24 12:23:47 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:04:53 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@
 # include "libft/libft.h"
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <bits/types/siginfo_t.h>
+# include <signal.h>
 
 #endif
