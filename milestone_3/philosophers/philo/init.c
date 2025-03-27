@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/27 11:40:45 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/27 16:13:19 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,18 @@ void	init(t_table *table)
 	init_thread(table, philos);
 }
 
+void	init_argv(t_table *table, char **av)
+{
+	table->n_philo = ft_atoi(av[1]);
+	table->die_time = ft_atoi(av[2]);
+	table->eat_time = ft_atoi(av[3]);
+	table->sleep_time = ft_atoi(av[4]);
+	if (av[5])
+		table->n_eat = ft_atoi(av[5]);
+	else
+		table->n_eat = -1;
+}
+
 int	take_args(t_table *table, char **av)
 {
 	int	i;
@@ -89,13 +101,6 @@ int	take_args(t_table *table, char **av)
 		if (ft_atoi(av[i]) < -2147483648 || ft_atoi(av[i]) > 2147483647)
 			return (printf("Only INT numbers, "), 0);
 	}
-	table->n_philo = ft_atoi(av[1]);
-	table->die_time = ft_atoi(av[2]);
-	table->eat_time = ft_atoi(av[3]);
-	table->sleep_time = ft_atoi(av[4]);
-	if (av[5])
-		table->n_eat = ft_atoi(av[5]);
-	else
-		table->n_eat = -1;
+	init_argv(table, av);
 	return (1);
 }
