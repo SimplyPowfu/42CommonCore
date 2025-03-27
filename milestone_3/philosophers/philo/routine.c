@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/22 00:45:00 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:04:39 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,20 @@ int	sleeping(t_philo *philo)
 
 int	eating(t_philo *philo)
 {
-	pthread_mutex_lock(philo->fork);
-	if (is_dead(philo) == 1 || f_eat(philo) == 1)
-		return (pthread_mutex_unlock(philo->fork), 1);
-	pthread_mutex_lock(philo->r_fork);
-	if (is_dead(philo) == 1 || f_eat(philo) == 1)
-		return (pthread_mutex_unlock(philo->fork),
-			pthread_mutex_unlock(philo->r_fork), 1);
+	if (philo->id % 2 == 0)
+	{
+		pthread_mutex_lock(philo->fork);
+		if (is_dead(philo) == 1 || f_eat(philo) == 1)
+			return (pthread_mutex_unlock(philo->fork), 1);
+		pthread_mutex_lock(philo->r_fork);
+	}
+	else
+	{
+		pthread_mutex_lock(philo->r_fork);
+		if (is_dead(philo) == 1 || f_eat(philo) == 1)
+			return (pthread_mutex_unlock(philo->r_fork), 1);
+		pthread_mutex_lock(philo->fork);
+	}
 	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	philo->last_eat = take_time();

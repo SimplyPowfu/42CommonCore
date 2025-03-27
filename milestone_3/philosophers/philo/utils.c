@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:22:47 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/18 13:01:54 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:07:28 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	is_dead(t_philo *philos)
 	{
 		philos->table->is_finish = 1;
 		print_mess(philos, "died\n", philos->table->start, philos->id);
+		return (pthread_mutex_unlock(philos->table->simulation), 1);
 	}
 	pthread_mutex_unlock(philos->table->simulation);
 	return (0);
