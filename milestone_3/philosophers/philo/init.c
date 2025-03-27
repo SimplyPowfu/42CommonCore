@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 17:34:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/27 09:40:14 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/27 11:40:45 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	take_args(t_table *table, char **av)
 	i = 0;
 	while (av[++i] != NULL)
 	{
-		if(av[i][0] == '\0' || av[1][0] == '0')
+		if(av[i][0] == '\0' || av[i][0] == '0')
 			return (0);
 		j = -1;
 		while (av[i][++j])
