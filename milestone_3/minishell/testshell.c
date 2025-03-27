@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:41:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/27 11:26:27 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/27 12:00:21 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int argc, char **argv, char **envp)
 	if (argc != 1)
 		return (write(1,"Error: no arguments\n", 20), 1);
 	signal(SIGINT, signal_manager);
-	signal(SIGQUIT, signal_manager);
+	signal(SIGQUIT, signal_manager);	
 	command = readline("minishell$ ");
 	while(command)
 	{

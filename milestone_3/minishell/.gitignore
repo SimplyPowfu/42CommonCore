@@ -3,5 +3,4 @@
 *.o
 *.a
 .nfs*
-philo
-philo_bonus
+minishell
