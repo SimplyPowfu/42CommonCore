@@ -9,6 +9,13 @@
    <insert_a_suppression_name_here>
    Memcheck:Leak
    match-leak-kinds: reachable
+   fun:*
+   obj:/usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
    fun:malloc
    fun:strdup
 }

@@ -6,7 +6,7 @@
 #    By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/23 16:39:41 by ecarbona          #+#    #+#              #
-#    Updated: 2025/03/26 19:09:16 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/03/27 11:32:17 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -g
 NAME = minishell
 LIBFT = libft/libft.a
 LIBFTDIR = libft/
-SRC = testshell.c
+SRC = main.c testshell.c signal/signal.c
 OBJ = ${SRC:.c=.o}
 COLOR = \033[1;32m
 
@@ -23,7 +23,7 @@ all : $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ) 
 	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME) -lreadline
-#@clear
+	@clear
 	@echo "$(COLOR) mandatory compilato: esegui ./minishell "
 
 $(LIBFT): $(LIBFTDIR)

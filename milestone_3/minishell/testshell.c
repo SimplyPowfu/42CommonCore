@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:41:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/26 19:23:30 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/27 11:26:27 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,37 @@
 
 void signal_manager(int signal)
 {
-	if(signal == SIGINT) //segnale CTRL+C
+	struct sigaction	sa;
+
+	if(signal == SIGINT) //segnale CTRL+C quando non fa niente
 	{
-		printf("CTRL+C");
+		printf("\n");
+		rl_on_new_line();
+		rl_replace_line("", 0);
+		rl_redisplay();
+		return ;
 	}
-	else if(signal == SIGQUIT) //segnale CTRL+D
+	else if(signal == SIGQUIT)/*&& comando attivo quit del processo in esec*/ 
 	{
-		printf("CTRL+\\");
+		ft_ignore_signal(sa, SIGQUIT);//segnale CTRL+\" quando non fa niente
 	}
 }
 
-int main()
+int main(int argc, char **argv, char **envp)
 {
 	char *command;
 
+	if (argc != 1)
+		return (write(1,"Error: no arguments\n", 20), 1);
 	signal(SIGINT, signal_manager);
 	signal(SIGQUIT, signal_manager);
 	command = readline("minishell$ ");
 	while(command)
 	{
 		add_history(command);
-		if (!command)
-		{
-			write(1, "exit", 4);
-			break;
-		}
 		free(command);
 		command = readline("minishell$ ");
 	}
-	rl_clear_history();
-	free(command);
+	if (!command)
+		return (write(1, "exit\n", 5), rl_clear_history(), free(command), 0);
 }

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 16:38:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/27 11:20:48 by ecarbona         ###   ########.fr       */
+/*   Created: 2025/03/27 11:06:39 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/03/27 11:32:05 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "../minishell.h"
 
-# ifndef SIGNAL
-#  define SIGNAL//globale per gestire i segnali
-# endif
-
-# include "libft/libft.h"
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <bits/types/siginfo_t.h>
-# include <signal.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-
-void	ft_ignore_signal(struct sigaction sa, int sig);
-
-#endif
+void	ft_ignore_signal(struct sigaction sa, int sig) //quando CTRL+\ non fa niente
+{
+	sa.sa_handler = SIG_IGN;
+	sigaction(sig, &sa, NULL);
+}
