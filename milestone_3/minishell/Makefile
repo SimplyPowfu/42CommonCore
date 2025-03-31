@@ -6,7 +6,7 @@
 #    By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/23 16:39:41 by ecarbona          #+#    #+#              #
-#    Updated: 2025/03/27 11:32:17 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/03/31 16:13:36 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all : $(NAME)
 $(NAME): $(LIBFT) $(OBJ) 
 	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME) -lreadline
 	@clear
-	@echo "$(COLOR) mandatory compilato: esegui ./minishell "
+	@echo "$(COLOR) mandatory compilato: esegui ./minishell"
 
 $(LIBFT): $(LIBFTDIR)
 	@$(MAKE) bonus -C $(LIBFTDIR)

@@ -6,11 +6,21 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:41:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/27 12:00:21 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:14:34 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int	ft_sstrcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
 
 void signal_manager(int signal)
 {
@@ -22,11 +32,6 @@ void signal_manager(int signal)
 		rl_on_new_line();
 		rl_replace_line("", 0);
 		rl_redisplay();
-		return ;
-	}
-	else if(signal == SIGQUIT)/*&& comando attivo quit del processo in esec*/ 
-	{
-		ft_ignore_signal(sa, SIGQUIT);//segnale CTRL+\" quando non fa niente
 	}
 }
 
@@ -37,10 +42,15 @@ int main(int argc, char **argv, char **envp)
 	if (argc != 1)
 		return (write(1,"Error: no arguments\n", 20), 1);
 	signal(SIGINT, signal_manager);
-	signal(SIGQUIT, signal_manager);	
+	signal(SIGQUIT, SIG_IGN);	
 	command = readline("minishell$ ");
 	while(command)
 	{
+		if (!ft_sstrcmp(command, "exit"))
+		{
+			command = NULL;
+			break ;
+		}
 		add_history(command);
 		free(command);
 		command = readline("minishell$ ");

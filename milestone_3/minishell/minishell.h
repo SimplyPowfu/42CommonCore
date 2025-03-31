@@ -6,16 +6,14 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:38:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/27 11:20:48 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/31 19:15:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# ifndef SIGNAL
-#  define SIGNAL//globale per gestire i segnali
-# endif
+int	g_signal_error = 0;//globale per gestire i segnali
 
 # include "libft/libft.h"
 # include <readline/readline.h>
