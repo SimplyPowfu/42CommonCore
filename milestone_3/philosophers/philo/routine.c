@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 16:36:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/27 18:04:39 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/03/31 17:21:26 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	eating(t_philo *philo)
 
 int	is_one(t_philo *philo)
 {
-	print_mess(philo, "is sleeping\n", philo->table->start, philo->id);
+	print_mess(philo, "has taken a fork\n", philo->table->start, philo->id);
 	usleep((philo->table->die_time + 1) * 1000);
 	is_dead(philo);
 	return (0);
