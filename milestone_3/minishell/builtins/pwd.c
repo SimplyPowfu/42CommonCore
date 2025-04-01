@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 16:25:24 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/04/01 16:18:10 by ecarbona         ###   ########.fr       */
+/*   Created: 2025/04/01 16:07:37 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/04/01 16:32:06 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int echo(int argc, char **argv)
+int	pwd()
 {
-	int	i;
+	char	cwd[PATH_MAX];
 
-	i = 0;
-	if(argc <= 1)
-		return(write(1, "\n", 1), 0);
-	if (argv[1][0] == '-' && argv[1][1] == 'n')
-		i++;
-	while(++i < argc)
-	{
-		if (argv[i][i] == '$' && argv[i][i + 1] == '?')
-			printf("%d", g_signal_error);
-		else
-		{
-			printf("%s", argv[i]);
-			if (i != argc - 1)
-				printf(" ");
-		}
-	}
-	if (argv[1][0] != '-' && argv[1][1] != 'n')
-		printf("\n");
+	if (getcwd(cwd, sizeof(cwd)) != NULL)
+		ft_putendl_fd(cwd, 1);
 	return (1);
 }

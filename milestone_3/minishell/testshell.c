@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   testshell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:41:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/03/31 19:14:34 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/04/01 15:57:13 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-int	ft_sstrcmp(const char *s1, const char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
 
 void signal_manager(int signal)
 {
@@ -38,15 +28,16 @@ void signal_manager(int signal)
 int main(int argc, char **argv, char **envp)
 {
 	char *command;
+	int	g_signal_error = 0;
 
 	if (argc != 1)
-		return (write(1,"Error: no arguments\n", 20), 1);
+		return (write(1,"Error\n", 6), 1);
 	signal(SIGINT, signal_manager);
 	signal(SIGQUIT, SIG_IGN);	
 	command = readline("minishell$ ");
 	while(command)
 	{
-		if (!ft_sstrcmp(command, "exit"))
+		if (!ft_strcmp(command, "exit"))
 		{
 			command = NULL;
 			break ;

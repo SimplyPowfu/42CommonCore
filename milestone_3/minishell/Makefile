@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+         #
+#    By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/23 16:39:41 by ecarbona          #+#    #+#              #
-#    Updated: 2025/03/31 16:13:36 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/04/01 15:12:00 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,10 @@ COLOR = \033[1;32m
 
 all : $(NAME)
 
-$(NAME): $(LIBFT) $(OBJ) 
-	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME) -lreadline
+$(NAME): $(LIBFT) $(OBJ)
+	@cp $(LIBFT) $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@$(CC) $(CFLAGS) $(SRC) $(LIBFT) -o $(NAME) -lreadline -g
 	@clear
 	@echo "$(COLOR) mandatory compilato: esegui ./minishell"
 
@@ -37,7 +39,7 @@ clean:
 	@clear
 
 fclean: clean
-	@rm -rf $(NAME) $(ANAME) $(BNAME)
+	@$(MAKE) fclean -C $(LIBFTDIR)
 	@rm -rf $(NAME) $(ANAME) $(BNAME)
 	@clear
 
