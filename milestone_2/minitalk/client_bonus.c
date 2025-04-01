@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:10:30 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/01/14 17:06:49 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/04/02 00:19:38 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	put_signal(int pid, char *str)
 				if (kill(pid, SIGUSR2) == -1)
 					return ((void)ft_printf("Unable to send Message"));
 			}
-			usleep(100);
+			usleep(200);
 		}
 		str++;
 		i = -1;
