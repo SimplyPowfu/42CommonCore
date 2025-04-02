@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:41:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/04/01 15:57:13 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/04/02 18:41:31 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ int main(int argc, char **argv, char **envp)
 {
 	char *command;
 	int	g_signal_error = 0;
+	t_shell shell;
 
 	if (argc != 1)
 		return (write(1,"Error\n", 6), 1);
 	signal(SIGINT, signal_manager);
 	signal(SIGQUIT, SIG_IGN);	
-	command = readline("minishell$ ");
+	//command = readline("minishell$ ");
+	command = malloc(4);
+	init(command, envp, &shell);
+	return (0);
 	while(command)
 	{
 		if (!ft_strcmp(command, "exit"))

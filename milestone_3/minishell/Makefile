@@ -6,7 +6,7 @@
 #    By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/23 16:39:41 by ecarbona          #+#    #+#              #
-#    Updated: 2025/04/01 15:12:00 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/04/02 18:39:28 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -g
 NAME = minishell
 LIBFT = libft/libft.a
 LIBFTDIR = libft/
-SRC = main.c testshell.c signal/signal.c
+SRC = main.c init.c testshell.c signal/signal.c 
 OBJ = ${SRC:.c=.o}
 COLOR = \033[1;32m
 
