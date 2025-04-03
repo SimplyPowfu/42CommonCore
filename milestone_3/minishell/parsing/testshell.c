@@ -6,11 +6,11 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 16:41:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/04/03 17:34:29 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:40:51 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 void	signal_manager(int signal)
 {

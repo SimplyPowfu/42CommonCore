@@ -6,11 +6,11 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 10:03:15 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/04/03 17:32:51 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:40:45 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 // int main(int argc, char **argv, char **envp)
 // {

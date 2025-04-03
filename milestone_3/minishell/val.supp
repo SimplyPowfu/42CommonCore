@@ -1,21 +1,35 @@
 {
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:*
-   obj:/usr/lib/x86_64-linux-gnu/libreadline.so.*
+    RL readline leaks
+    Memcheck:Leak
+    ...
+    fun:readline
 }
 {
-   <insert_a_suppression_name_here>
-   Memcheck:Leak
-   match-leak-kinds: reachable
-   fun:*
-   obj:/usr/lib/x86_64-linux-gnu/libtinfo.so.6.2
+    RL add_history leaks
+    Memcheck:Leak
+    ...
+    fun:add_history
 }
+
+# IGNORE OTHER EXECUTABLES' LEAKS
 {
-   <insert_a_suppression_name_here>
+   MALLOC FAILURE OF /usr/bin/*
    Memcheck:Leak
-   match-leak-kinds: reachable
    fun:malloc
-   fun:strdup
+   ...
+   obj:/usr/bin/*
+}
+{
+   CALLOC FAILURE of /usr/bin/*
+   Memcheck:Leak
+   fun:calloc
+   ...
+   obj:/usr/bin/*
+}
+{
+   REALLOC FAILURE of /usr/bin/*
+   Memcheck:Leak
+   fun:realloc
+   ...
+   obj:/usr/bin/*
 }

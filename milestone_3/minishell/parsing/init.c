@@ -6,12 +6,12 @@
 /*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 17:58:08 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/04/03 17:32:41 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:40:36 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "minishell.h"
+#include "../libft/libft.h"
+#include "../minishell.h"
 
 static void	take_env(char **envp, t_shell *shell)
 {
