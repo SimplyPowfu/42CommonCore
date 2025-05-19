@@ -4,4 +4,3 @@
 *.a
 .nfs*
 minishell
-../commonshell/

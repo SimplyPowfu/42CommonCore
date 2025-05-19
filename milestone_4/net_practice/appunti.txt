@@ -1,0 +1,35 @@
+==============
+|| CONCETTI ||
+==============
+📘Cos'è un indirizzo IP?
+	Un indirizzo IP (Internet Protocol) è un numero univoco
+	assegnato a ogni dispositivo connesso a una rete (come computer, router, stampanti).
+	È composto da 4 numeri separati da punti:
+	Esempio: 
+		192.168.10.1
+	Ogni numero (chiamato ottetto) può andare da 0 a 255,
+	perché 1 ottetto = 8 bit → 2^8 = 256 possibili valori.
+📘Cos'è una subnet mask?
+	La subnet mask serve per dividere l’indirizzo IP in due parti:
+	- Parte di rete (quale rete)
+	- Parte di host (quale dispositivo all’interno della rete)
+	Esempio:
+		255.255.255.0
+	- I primi 3 ottetti rappresentano la rete
+	- L'ultimo ottetto è l'host, cioè il dispositivo
+🔢Notazione CIDR
+	Invece di scrivere 255.255.255.0, puoi scrivere /24:
+	/24 significa che i primi 24 bit sono riservati alla rete, I restanti 8 bit sono per gli host
+🧮La formula
+	la formula ti aiuta a capire se un IP è valido o meno
+	Host = 2^(32 - subnet_bits) - 2
+	Host = 32 - 27, 5 bit per gli host, 2^5 = 32 per host validi 
+	Esempio:
+		/27: 2^(32 - 27) - 2 = 30 Host validi compresi tra 192 e 222,
+	i limiti si trovano facendo il multiplo di 32 che si avvicina all ultimo ottetto,
+	cioè 192 e da li i prossimi 32 sono host liberi.
+	ma il primo e l'ultimo vanno tolti perchè sono occupati da network e broadcast
+
+=================
+|| ESERCIZIO 0 ||
+=================
