@@ -3,41 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 17:58:08 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/04/05 18:38:18 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/05/17 19:20:26 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/minishell.h"//cartella parsing
+#include "../../include/minishell.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-static void	malloc_args(t_shell *shell, int *i, int *j)
+static void	malloc_args(t_shell *shell)
 {
-	while(shell->cmd && shell->cmd[(*i)])
-	{
-		while(shell->cmd[(*i)] == ' ')
-			(*i)++;
-		while(shell->cmd[(*i)] != ' ' && shell->cmd[(*i)] != '\0')
-			(*i)++;
-		shell->argc++;
-	}
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (shell->cmd && shell->cmd[i])
+		take_argc(shell, &i);
 	shell->argv = malloc(sizeof(char *) * (shell->argc + 1));
-	(*i) = 0;
+	i = 0;
 	shell->argc = 0;
-	while(shell->cmd && shell->cmd[(*i)])
+	while (shell->cmd && shell->cmd[i])
 	{
-		while(shell->cmd[(*i)] == ' ')
-			(*i)++;
-		while(shell->cmd[(*i)] != ' ' && shell->cmd[(*i)] != '\0')
-		{
-			(*i)++;
-			(*j)++;
-		}
-		shell->argv[shell->argc] = malloc((*j) + 1);
-		shell->argv[shell->argc][(*j)] = '\0';
-		shell->argc++;
-		(*j) = 0;
+		while (shell->cmd[i] == ' ')
+			i++;
+		if (shell->cmd[i] == 39)
+			take_argv_quotes(shell, 39, &i, &j);
+		else if (shell->cmd[i] == 34)
+			take_argv_quotes(shell, 34, &i, &j);
+		else if (shell->cmd[i])
+			take_argv(shell, &i, &j);
 	}
 }
 
@@ -45,75 +43,67 @@ static void	init_args(t_shell *shell)
 {
 	int	i;
 	int	j;
+	int	k;
 
 	i = 0;
 	j = 0;
-	malloc_args(shell, &i, &j);
+	malloc_args(shell);
 	shell->argv[shell->argc] = NULL;
 	i = 0;
-	shell->argc = 0;
-	while(shell->cmd && shell->cmd[i])
+	j = 0;
+	k = 0;
+	while (shell->cmd && shell->cmd[i])
 	{
-		while(shell->cmd[i] == ' ')
+		while (shell->cmd[i] == ' ')
 			i++;
-		while(shell->cmd[i] != ' ' && shell->cmd[i] != '\0')
-		{
-			shell->argv[shell->argc][j] = shell->cmd[i];
-			i++;
-			j++;
-		}
-		shell->argc++;
-		j = 0;
+		if (!shell->cmd[i])
+			return ;
+		if (shell->cmd[i] == 39)
+			check_argv_quote(shell, &i, &j, &k);
+		else if (shell->cmd[i] == 34)
+			check_argv_quotes(shell, &i, &j, &k);
+		else if (shell->cmd[i])
+			check_argv(shell, &i, &j, &k);
 	}
 }
 
-static void	take_env(char **envp, t_shell *shell)
+void	init_command(t_shell *shell, t_command *cmd)
 {
-	int	i;
-
-	i = -1;
-	while (envp[++i])
-		i++;
-	shell->envp = malloc(sizeof(char *) * (i + 1));
-	i = -1;
-	while (envp[++i])
-		shell->envp[i] = ft_strdup(envp[i]);
-	shell->envp[i] = NULL;
+	cmd->command = shell->argv[0];
+	cmd->args = shell->argv;
+	cmd->input_file = shell->input_file;
+	cmd->output_file = shell->output_file;
+	cmd->append = shell->append;
+	cmd->heredoc = shell->heredoc;
+	cmd->doc_count = shell->doc_count;
 }
 
-void	init(char *cmd, char **envp, t_shell *shell)
+void	init_shell(t_shell *shell)
 {
-	shell->cmd = cmd;//stringa di output di readline contenente i comandi da parsare
+	shell->cmd = NULL;
 	shell->argc = 0;
 	shell->argv = NULL;
-	shell->in_file = NULL;//redirection file input
-	shell->out_file = NULL;//redirection file output
-	shell->append = 0;//gestione pipe
-	shell->heredoc = NULL;//gestione pipe
-	shell->path = malloc(PATH_MAX);
-	getcwd(shell->path, sizeof(shell->path));//path iniziale da modificare su cd per avere il path nuovo
-	take_env(envp, shell);//copia dell'env
-	init_args(shell);//predo la stringa command e creo un argc/argv per ogni comando; argv[0] comando, argv[1]flag o contenuto
+	shell->path = NULL;
+	shell->input_file = NULL;
+	shell->output_file = NULL;
+	shell->heredoc = NULL;
+	shell->doc_count = 0;
+	shell->command = NULL;
+	shell->append = 0;
 }
 
-void	free_all(t_shell *shell)
+void	init(char *cmd, t_shell *shell)
 {
-	int	i;
+	char	pwd[PATH_MAX];
 
-	i = -1;
-	if (shell->envp)
-	{
-		while (shell->envp[++i])
-			free(shell->envp[i]);
-		free(shell->envp);
-	}
-	if (shell->path)
-		free(shell->path);
-	if (shell->argv)
-	{
-		i = -1;
-		while (shell->argv[++i])
-			free(shell->argv[i]);
-		free(shell->argv);
-	}
+	init_shell(shell);
+	if (cmd)
+		shell->cmd = space_redir(cmd);
+	else
+		shell->cmd = cmd;
+	shell->pipes_count = count_char(shell, '|');
+	getcwd(pwd, sizeof(pwd));
+	shell->path = ft_strdup(pwd);
+	init_args(shell);
+	count_heredoc(shell);
 }

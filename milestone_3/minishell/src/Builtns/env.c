@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: glancell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 16:36:04 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/04/07 16:26:03 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/05/20 12:30:58 by glancell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	env(char **envp)
 
 	i = -1;
 	while (envp[++i])
-		ft_putendl_fd(envp[i], 1);
+		if (strrchr(envp[i], '='))
+			ft_putendl_fd(envp[i], 1);
 	return (1);
 }

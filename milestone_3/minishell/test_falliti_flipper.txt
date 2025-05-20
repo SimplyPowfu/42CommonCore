@@ -1,0 +1,17 @@
+    Bug
+———————————— Bug
+if we have a file and we call that file we have leak
+and .
+
+    Exit_status
+———————————— exit_status
+cat vuoto, CTR+C o CTR+\
+
+    Syntax
+———————————— syntax
+
+    Built-in
+———————————— builtins
+
+    Pipes
+———————————— pipes

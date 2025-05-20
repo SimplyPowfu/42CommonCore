@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   pars_pip.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glancell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 16:07:37 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/05/10 21:51:12 by glancell         ###   ########.fr       */
+/*   Created: 2025/05/17 19:47:18 by glancell          #+#    #+#             */
+/*   Updated: 2025/05/18 23:24:33 by glancell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	pwd(void)
+int	pipes_init_command(t_shell *shell)
 {
-	char	cwd[PATH_MAX];
+	int	i;
+	int	arg;
 
-	if (getcwd(cwd, sizeof(cwd)) != NULL)
-		ft_putendl_fd(cwd, 1);
+	shell->command = ft_calloc(shell->pipes_count + 1,
+			sizeof(t_command *));
+	i = -1;
+	arg = 0;
+	while (++i <= shell->pipes_count)
+	{
+		shell->command[i] = malloc(sizeof(t_command));
+		if (!split_struct(shell, shell->command[i], &arg))
+			return (0);
+	}
 	return (1);
 }

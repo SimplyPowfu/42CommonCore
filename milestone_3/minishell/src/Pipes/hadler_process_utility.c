@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   hadler_process_utility.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glancell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/01 16:07:37 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/05/10 21:51:12 by glancell         ###   ########.fr       */
+/*   Created: 2025/05/15 14:21:02 by glancell          #+#    #+#             */
+/*   Updated: 2025/05/18 23:47:24 by glancell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.h"
 
-int	pwd(void)
+int	handle_parent_process(pid_t pid, char **paths)
 {
-	char	cwd[PATH_MAX];
+	int	status;
+	int	exit_status;
 
-	if (getcwd(cwd, sizeof(cwd)) != NULL)
-		ft_putendl_fd(cwd, 1);
-	return (1);
+	status = 0;
+	exit_status = 0;
+	waitpid(pid, &status, 0);
+	if (paths != NULL)
+		ft_free_split(paths);
+	if (WIFEXITED(status))
+		exit_status = WEXITSTATUS(status);
+	else
+		exit_status = 1;
+	return (exit_status);
 }
