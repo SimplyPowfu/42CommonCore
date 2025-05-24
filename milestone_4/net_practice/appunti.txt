@@ -30,6 +30,9 @@
 	cioè 192 e da li i prossimi 32 sono host liberi.
 	ma il primo e l'ultimo vanno tolti perchè sono occupati da network e broadcast
 
+
+git solved:
+https://github.com/viruskizz/42bangkok-netpractice/tree/main/solve
 =================
 || ESERCIZIO 0 ||
 =================
