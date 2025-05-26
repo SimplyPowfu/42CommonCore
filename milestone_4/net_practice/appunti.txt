@@ -61,3 +61,6 @@
 	  con la machine route e quindi conn il router
 	- la subnet mask deve essere la stessa tra host e ricevitore
 	- l'IP dell'host deve essere tra gli IP validi dell' IP messo nella Machine Routes
+
+	git solved:
+https://github.com/viruskizz/42bangkok-netpractice/tree/main/solve
