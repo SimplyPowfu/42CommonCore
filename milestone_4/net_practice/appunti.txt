@@ -1,7 +1,7 @@
 ==============
 || CONCETTI ||
 ==============
-📘Cos'è un indirizzo IP?
+🧠Cos'è un indirizzo IP?
 	Un indirizzo IP (Internet Protocol) è un numero univoco
 	assegnato a ogni dispositivo connesso a una rete (come computer, router, stampanti).
 	È composto da 4 numeri separati da punti:
@@ -9,6 +9,7 @@
 		192.168.10.1
 	Ogni numero (chiamato ottetto) può andare da 0 a 255,
 	perché 1 ottetto = 8 bit → 2^8 = 256 possibili valori.
+
 📘Cos'è una subnet mask?
 	La subnet mask serve per dividere l’indirizzo IP in due parti:
 	- Parte di rete (quale rete)
@@ -17,6 +18,7 @@
 		255.255.255.0
 	- I primi 3 ottetti rappresentano la rete
 	- L'ultimo ottetto è l'host, cioè il dispositivo
+
 🔢Notazione CIDR
 	Invece di scrivere 255.255.255.0, puoi scrivere /24:
 	/24 significa che i primi 24 bit sono riservati alla rete, I restanti 8 bit sono per gli host
@@ -30,9 +32,35 @@
 	cioè 192 e da li i prossimi 32 sono host liberi.
 	ma il primo e l'ultimo vanno tolti perchè sono occupati da network e broadcast
 
+🧠Cos'è uno Switch?
+	Uno switch è un dispositivo di rete
+	che collega tra loro più dispositivi (host) all’interno di una rete locale (LAN)
+	- deve avere IP validi
+	- Tutti gli IP collegati allo stesso switch devono appartenere alla stessa subnet
+	- Funziona usando gli indirizzi MAC e non collega reti diverse
+	- il terzo ottetto deve essere uguali per tutti
+	Esempio:
+		X.X.77.X
+🧠Cos'è un Router?
+	Un router è un dispositivo di rete che collega più reti distinte.
+	Ogni interfaccia del router è connessa a una rete diversa
+	e ha un indirizzo IP appartenente a quella rete.
+	- collega anche reti con diversi subnet Mask
+	- ogni interfaccia deve avere un indirizzo IP valido
+	  e una subnet mask coerente con la rete a cui è collegata.
 
-git solved:
+🧠Machine Routes
+	Le machine routes sono delle regole che un host usa per sapere dove inviare i pacchetti
+	- default significa che quando non sa dove mandarlo lo manda all'indirizzo di router
+	- 10.0.0.0/8 invia tutto a un indirizzo IP specifico
+
+📘Collegare una Machine Routes
+	- settare il primo parametro a default cosi da poter inviare i pacchetti a tutti gli IP	
+	- settare il secondo parametro con l'IP a qui vuoi mandare i pacchetti, di solito il router
+	- il secondo parametro deve avere i primi 2 ottetti uguali all host per comunicare
+	  con la machine route e quindi conn il router
+	- la subnet mask deve essere la stessa tra host e ricevitore
+	- l'IP dell'host deve essere tra gli IP validi dell' IP messo nella Machine Routes
+
+	git solved:
 https://github.com/viruskizz/42bangkok-netpractice/tree/main/solve
-=================
-|| ESERCIZIO 0 ||
-=================
