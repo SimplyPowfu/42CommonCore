@@ -64,3 +64,5 @@
 
 	git solved:
 https://github.com/viruskizz/42bangkok-netpractice/tree/main/solve
+	git guide:
+https://github.com/lpaube/NetPractice?tab=readme-ov-file
