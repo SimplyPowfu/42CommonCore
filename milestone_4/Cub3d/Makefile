@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+         #
+#    By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 23:20:38 by glancell          #+#    #+#              #
-#    Updated: 2025/06/14 13:02:12 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/06/16 15:53:04 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ MLX_DIR = minilibx-linux
 SRC      =	$(SRCDIR)main.c \
 			$(SRCDIR)Engine/Raycasting/Raycasting.c $(SRCDIR)Engine/Raycasting/calc.c \
 			$(SRCDIR)Engine/minimap_bonus.c $(SRCDIR)Engine/kick_and_hud.c $(SRCDIR)Engine/draw.c \
-			$(SRCDIR)Key_binding/key_press.c $(SRCDIR)Key_binding/movements_bonus.c $(SRCDIR)Key_binding/rotation.c $(SRCDIR)Key_binding/toggle_stuffs.c \
+			$(SRCDIR)Key_binding/key_press_bonus.c $(SRCDIR)Key_binding/movements_bonus.c $(SRCDIR)Key_binding/rotation_bonus.c $(SRCDIR)Key_binding/toggle_stuffs.c \
 			$(SRCDIR)Parsing/validating.c $(SRCDIR)Parsing/validating_data.c \
 			$(SRCDIR)Utils/free.c $(SRCDIR)Utils/utils_valid.c $(SRCDIR)Utils/utils.c $(SRCDIR)Utils/norm.c $(SRCDIR)Utils/norm2.c\
 

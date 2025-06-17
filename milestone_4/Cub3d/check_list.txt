@@ -1,0 +1,113 @@
+
+cub3D - Checklist e Comandi per lo sviluppo
+
+✅ MANDATORY PART: cub3D
+
+🎯 Obiettivo: Realizzare un motore di raycasting che mostra un labirinto in prospettiva 3D con controlli da FPS.
+
+## 🧩 Parsing della mappa `.cub`
+- [x] Leggere un file `.cub` passato come primo argomento
+- [x] Validare formato `.cub`:
+	- [x] Texture: `NO`, `SO`, `WE`, `EA` seguiti da un percorso valido
+	- [x] Colori: `F r,g,b` e `C r,g,b` (valori tra 0-255)
+	- [x] Mappa con solo: `0`, `1`, `N`, `S`, `E`, `W`, spazi
+	- [x] Mappa **chiusa** da muri (`1`)
+	- [x] Gestione spazi nel parsing e tra le sezioni
+	- [x] Un solo punto di spawn del giocatore
+
+## 🖼️ Rendering
+- [x] Inizializzare MiniLibX (`mlx_init`)
+- [x] Aprire finestra (`mlx_new_window`)
+- [x] Raycasting:
+	- [x] Calcolare intersezione dei raggi con muri
+	- [x] Disegnare linee verticali in base alla distanza
+	- [x] Applicare texture ai muri (4 lati diversi: NO, SO, WE, EA)
+- [x] Floor e ceiling colorati
+
+## ⌨️ Controlli
+- [x] Movimento:
+	- [x] `W` - avanti
+	- [x] `S` - indietro
+	- [x] `A` - sinistra
+	- [x] `D` - destra
+- [x] Rotazione con frecce:
+	- [x] `←` e `→` per girare
+- [x] `ESC` per uscire
+- [x] Click su croce per chiudere la finestra
+
+## 🧼 Norme di progetto
+- [x] Makefile con: `all`, `clean`, `fclean`, `re`, `bonus`
+- [ ] Nessun memory leak (test con `valgrind`)
+- [x] Conforme alla Norme (Norminette)
+- [x] Nessun crash in input errato, chiusura pulita con `Error\n` e messaggio
+- [x] Libft integrata nel progetto
+- [x] Nessuna funzione proibita (solo: open, close, read, write, malloc, free, etc.)
+
+---
+
+## 🧪 Comandi consigliati
+
+## 🔨 Compilazione:
+	make            # Compila tutto
+	make bonus      # Se hai i bonus
+	make re         # Ricompila tutto
+
+## 🧹 Pulizia:
+	make clean      # Rimuove solo gli oggetti
+	make fclean     # Rimuove anche l’eseguibile
+
+## ▶️ Esecuzione:
+	./cub3d maps/example.cub
+
+---
+
+## 🌟 BONUS PART (valutata solo se la parte mandatory è perfetta)
+
+## ✔️ Bonus possibili:
+- [x] Collisioni con muri (wall collision)
+- [x] Minimap che mostra player + mappa 2D
+- [x] Porte apribili/chiudibili
+- [x] Sprite animati (es. oggetti o nemici)
+- [x] Controllo con mouse per ruotare lo sguardo
+- [ ] Texture per floor/ceiling
+- [x] HUD (salute, munizioni, arma, ecc.)
+- [x] Ombre, effetti di luce
+
+---
+
+## ✅ Suggerimento di workflow
+1. ✅ Parsing e validazione `.cub`
+2. ✅ Movimenti base in 2D (senza raycasting)
+3. ✅ Raycasting con linee colorate
+4. ✅ Texture + gestione prospettiva
+5. ✅ Gestione eventi (tasti, ESC, chiusura)
+6. ✅ Floor/Ceiling colori
+7. ✅ Refactor e gestione errori
+8. 🔄 Test e pulizia
+9. ⭐ Bonus (una alla volta, integrati bene)
+
+---
+
+## ✅ Funzioni da usare per ciascuna parte
+
+## 📚 Librerie permesse
+
+- Standard/Unix: `open`, `close`, `read`, `write`, `perror`, `strerror`, `exit`, `malloc`, `free`, `printf`, `gettimeofday`
+- Math: `cos`, `sin`, `tan`, `sqrt`, ecc.
+- MiniLibX: tutte le funzioni `mlx_*`
+
+---
+
+## 🔧 Parsing e gestione file .cub
+
+/-----------------------------------------------------------------------------------------\
+| Obiettivo                         | Funzione consigliata          | Provenienza         |
+|-----------------------------------|-------------------------------|---------------------|
+| Aprire il file `.cub`             | `open()`                      | POSIX               |
+| Leggere il contenuto              | `read()`                      | POSIX               |
+| Gestire errori                    | `perror()` / `strerror()`     | POSIX               |
+| Uscire con errore                 | `exit()`                      | POSIX               |
+| Allocazione                       | `malloc()` / `free()`         | stdlib.h            |
+| Stampa                            | `printf()`                    | stdio.h             |
+\-----------------------------------------------------------------------------------------/
+...

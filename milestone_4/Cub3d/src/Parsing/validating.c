@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validating.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 13:46:10 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/14 00:24:55 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:58:27 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	take_env(t_root *root, char *path)
 			root->map->floor = ft_calloc(1, sizeof(t_env));
 		else
 			return (ft_putstr_fd("Error\nDouble initialization floor\n", 2), 0);
-		if (!validate_color(root->map->floor, path))
+		if (!count_comma(path) || !validate_color(root->map->floor, path))
 			return (ft_putstr_fd("Error\nFloor: invalid parameter\n", 2), 0);
 	}
 	else if (ft_strncmp("C", path, 1) == 0)
@@ -58,7 +58,7 @@ int	take_env(t_root *root, char *path)
 			root->map->sky = ft_calloc(1, sizeof(t_env));
 		else
 			return (ft_putstr_fd("Error\nDouble initialization sky\n", 2), 0);
-		if (!validate_color(root->map->sky, path))
+		if (!count_comma(path) || !validate_color(root->map->sky, path))
 			return (ft_putstr_fd("Error\nSky: invalid parameter\n", 2), 0);
 	}
 	return (1);
@@ -113,15 +113,17 @@ static int	take_map(t_root *root, char *argv)
 	}
 	if (!validate_header(root))
 		return (0);
-	if (!validate_texture(root))
+	if (!slash_n_map(root) || !validate_texture(root))
 		return (0);
 	return (padding_map(root), 1);
 }
 
-int	is_valid(t_root *root, char *argv)
+int	is_valid(t_root *root, int argc, char *argv)
 {
 	char	*type;
 
+	if (argc != 2)
+		return (ft_putstr_fd("Error\nInvalid Arguments\n", 2), 0);
 	type = ft_strrchr(argv, '.');
 	if (!type || ft_strcmp(type, ".cub") != 0)
 		return (ft_putstr_fd("Error\nInvalid type\n", 2), 0);

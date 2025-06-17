@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 15:52:26 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/13 23:20:45 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/16 16:50:02 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	is_first_char(char **map, int row, int direction)
 		while (map[row][i])
 			i++;
 		i--;
-		while (map[row][i] == ' ')
+		while (i >= 0 && map[row][i] == ' ')
 			i--;
 	}
 	return (i);

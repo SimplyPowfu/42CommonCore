@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validating_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/31 11:42:23 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/13 23:46:04 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:46:07 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	validate_texture(t_root *root)
 	dir[++j] = '\0';
 	if (!validate_text(dir))
 		return (ft_putstr_fd("Error\nDouble initialization texture\n", 2), 0);
-	return (1);
+	return (sort_texture(root), 1);
 }
 
 static int	no_hole_r(t_root *root, char **map)
@@ -67,9 +67,9 @@ static int	no_hole_r(t_root *root, char **map)
 		j = is_first_char(map, i, 0);
 		if (i > 0 && i < root->map->height - 1)
 		{
-			while (map[i][j] == '1' || map[i][j] == ' ')
+			while (j >= 0 && (map[i][j] == '1' || map[i][j] == ' '))
 				j--;
-			if (map[i][j])
+			if (j >= 0 && map[i][j])
 			{
 				if (map[i - 1][j] == ' ' || map[i - 1][j] == '\0')
 					return (0);

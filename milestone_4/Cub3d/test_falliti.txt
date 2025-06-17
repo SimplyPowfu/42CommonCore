@@ -1,0 +1,15 @@
+
+---PARSING---
+NO resource/texture/wall_1.xpm
+SO resource/texture/wall_2.xpm
+EA resource/texture/wall_3.xpm
+WE resource/texture/wall_4.xpm
+
+SO resource/texture/wall_2.xpm
+EA resource/texture/wall_3.xpm
+NO resource/texture/wall_1.xpm
+WE resource/texture/wall_4.xpm
+
+riordina l array di strutture N S E W, funione void nel return di take_map
+
+---ENGINE---

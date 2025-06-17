@@ -3,14 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   norm2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 13:02:16 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/14 13:11:58 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:58:44 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	sort_texture(t_root *root)
+{
+	t_texture	*temp[4];
+	int			i;
+	int			j;
+
+	i = -1;
+	j = 0;
+	while (root->texture[++i])
+	{
+		if (root->texture[i]->direction == 'N')
+			temp[0] = root->texture[i];
+		else if (root->texture[i]->direction == 'S')
+			temp[1] = root->texture[i];
+		else if (root->texture[i]->direction == 'E')
+			temp[2] = root->texture[i];
+		else if (root->texture[i]->direction == 'W')
+			temp[3] = root->texture[i];
+	}
+	i = -1;
+	while (++i < 4)
+		root->texture[i] = temp[i];
+}
 
 void	draw_kick_punch(t_root *root, int i)
 {

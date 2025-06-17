@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:36:21 by glancell          #+#    #+#             */
-/*   Updated: 2025/06/14 13:26:57 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:47:42 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ typedef struct s_keymap
 }	t_keymap;
 
 // Parsing
-int		is_valid(t_root *root, char *argv);
+int		is_valid(t_root *root, int argc, char *argv);
 int		take_texture(t_root *root, char *path);
 int		take_env(t_root *root, char *path);
 int		take_texture_path(t_root *root, char *path, int i, char dir);
@@ -181,10 +181,13 @@ int		is_wall(t_root *root, int i, int j);
 void	shift_arg(t_root *root, int i);
 int		is_first_char(char **map, int row, int direction);
 void	padding_map(t_root *root);
+void	sort_texture(t_root *root);
 void	draw_kick(t_root *root, int i);
 void	draw_kick_punch(t_root *root, int i);
 void	draw_in_offset(t_root *root, t_draw_anim *anim, int i);
 void	draw_hud_win(t_root *root);
+int		slash_n_map(t_root *root);
+int		count_comma(char *path);
 
 //HUD
 void	add_texture(t_root *root);

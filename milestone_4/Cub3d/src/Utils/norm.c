@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   norm.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 23:25:56 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/14 13:21:10 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:59:10 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	count_comma(char *path)
+{
+	int	comma;
+	int	i;
+
+	i = -1;
+	comma = 0;
+	while (path[++i])
+		if (path[i] == ',')
+			comma++;
+	if (comma != 2)
+		return (0);
+	return (1);
+}
 
 int	is_valid_texture(t_root *root, char *path, int *i)
 {
@@ -48,7 +63,8 @@ void	read_map(t_root *root, char *argv)
 	while (line)
 	{
 		root->map->map[i] = ft_strdup(line);
-		root->map->map[i][ft_strlen(line) - 1] = '\0';
+		if (root->map->map[i][ft_strlen(line) - 1] == '\n')
+			root->map->map[i][ft_strlen(line) - 1] = '\0';
 		i++;
 		root->map->height++;
 		if ((int)ft_strlen(line) > root->map->width)
@@ -69,5 +85,18 @@ int	is_wall(t_root *root, int i, int j)
 			(int)ft_strlen(root->map->map[i]) - 1))
 		if (root->map->map[i][j] != '1')
 			return (ft_putstr_fd("Error\nInvalid wall\n", 2), 0);
+	return (1);
+}
+
+int	slash_n_map(t_root *root)
+{
+	int	i;
+
+	i = -1;
+	while (root->map->map[++i])
+	{
+		if (!root->map->map[i][0])
+			return (ft_putstr_fd("Error\nInvalid Map\n", 2), 0);
+	}
 	return (1);
 }

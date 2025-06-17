@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:34:23 by glancell          #+#    #+#             */
-/*   Updated: 2025/06/14 12:54:14 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/16 17:21:02 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 	root.mlx_win = NULL;
 	if (!root.mlx)
 		return (ft_putstr_fd("Error\nMLX initialization failed\n", 2), 1);
-	if (argc != 2 || !is_valid(&root, argv[1]))
+	if (!is_valid(&root, argc, argv[1]))
 		return (free_all(&root), 1);
 	if (ft_mlx_window(&root))
 		return (free_all(&root), 1);
