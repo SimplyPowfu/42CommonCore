@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validating.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 13:46:10 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/17 17:58:27 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/17 21:35:44 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	take_texture_path(t_root *root, char *path, int i, char dir)
 		j++;
 	while (path[j] && path[j] == ' ')
 		j++;
-	if (!strrchr(&path[j], '.'))
+	if (!ft_strrchr(&path[j], '.'))
 		return (ft_putstr_fd("Error\nInvalid texture path\n", 2), 0);
-	if (strcmp(strrchr(&path[j], '.'), ".xpm"))
+	if (ft_strcmp(ft_strrchr(&path[j], '.'), ".xpm"))
 		return (ft_putstr_fd("Error\nInvalid texture path\n", 2), 0);
 	root->texture[i]->path = ft_strdup(&path[j]);
 	root->texture[i]->direction = dir;

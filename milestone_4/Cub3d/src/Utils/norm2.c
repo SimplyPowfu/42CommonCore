@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   norm2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 13:02:16 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/17 17:58:44 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/17 21:35:59 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	sort_texture(t_root *root)
 {
 	t_texture	*temp[4];
 	int			i;
-	int			j;
 
 	i = -1;
-	j = 0;
 	while (root->texture[++i])
 	{
 		if (root->texture[i]->direction == 'N')
