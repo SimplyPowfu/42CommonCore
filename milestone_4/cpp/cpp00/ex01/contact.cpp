@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/29 13:50:48 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/18 18:40:49 by ecarbona         ###   ########.fr       */
+/*   Created: 2025/06/18 19:06:05 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/06/18 20:09:04 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
-# include <cctype>
+#include "phonebook.hpp"
 
-int main(int argc, char **argv)
+void	Contact::setContact()
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-	else
+	std::cout << "First name: ";
+	std::getline(std::cin, firstName);
+	std::cout << "Last name: ";
+	std::getline(std::cin, lastName);
+	std::cout << "Phone number: ";
+	std::getline(std::cin, phoneNumber);
+	if ((firstName == "" || lastName == "" || phoneNumber == "") && !std::cin.eof())
 	{
-		for (int i = 1; argv[i]; i++)
-			for (int j = 0; argv[i][j]; j++)
-				std::cout << static_cast<char>(std::toupper((argv[i][j])));
+		std::cout << "all field must be filled!" << std::endl;
+		setContact();
 	}
-	std::cout << std::endl; //questo e' lo \n
-	return (0);
 }
