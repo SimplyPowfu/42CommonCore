@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   norm.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 23:25:56 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/17 17:59:10 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/18 13:59:53 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	read_map(t_root *root, char *argv)
 
 int	is_wall(t_root *root, int i, int j)
 {
-	if (j == is_first_char(root->map->map, i, 1)
+	if (j >= is_first_char(root->map->map, i, 1)
 		&& (i == 0 || i == root->map->height - 1))
 		if (root->map->map[i][j] != '1')
 			return (ft_putstr_fd("Error\nInvalid wall\n", 2), 0);

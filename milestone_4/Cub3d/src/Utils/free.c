@@ -6,7 +6,7 @@
 /*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:40:20 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/13 23:21:17 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:04:13 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,13 @@ void	padding_map(t_root *root)
 	while (root->map->map[++i])
 	{
 		pad_map[i] = ft_calloc(root->map->width + 1, sizeof(char));
+		ft_memset(pad_map[i], '1', root->map->width - 1);
 		j = -1;
 		while (root->map->map[i][++j])
-			pad_map[i][j] = root->map->map[i][j];
+			if (root->map->map[i][j] == ' ')
+				pad_map[i][j] = '1';
+			else
+				pad_map[i][j] = root->map->map[i][j];
 	}
 	i = -1;
 	while (root->map->map[++i])
