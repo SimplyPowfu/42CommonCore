@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 14:43:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/19 17:38:03 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/25 19:49:21 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	Phonebook::searchContact()
 		std::cout << "No contacts available." << std::endl;
 		return ;
 	}
-	std::cout << std::setw(10) << "Index" << "|"
+	std::cout	<< std::setw(10) << "Index" << "|"
 				<< std::setw(10) << "First Name" << "|"
 				<< std::setw(10) << "Last Name" << "|"
 				<< std::setw(10) << "Nickname" << std::endl;
@@ -41,8 +41,11 @@ void	Phonebook::searchContact()
 	std::cin.ignore();
 	if (std::cin.fail() || index <= 0 || index > size)
 	{
-		std::cin.clear();
-		std::cin.ignore(2147483647, '\n');
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(2147483647, '\n');
+		}
 		std::cout << "invalid number" << std::endl;
 	}
 	else

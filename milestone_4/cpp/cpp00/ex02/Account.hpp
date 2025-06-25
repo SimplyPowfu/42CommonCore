@@ -17,8 +17,6 @@
 // ************************************************************************** //
 
 class Account {
-
-
 public:
 
 	typedef Account		t;
@@ -53,7 +51,6 @@ private:
 	int				_nbWithdrawals;
 
 	Account( void );
-
 };
 
 
