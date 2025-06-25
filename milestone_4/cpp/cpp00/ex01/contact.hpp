@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 19:06:25 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/19 16:15:02 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:03:49 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
 	std::string nickname;
 	std::string phoneNumber;
 	std::string address;
+	std::string darkest_secret;
 public:
 	void	setContact();
 	void	checkContact(int i);

@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 19:06:05 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/19 16:40:36 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/25 16:05:36 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void	Contact::setContact()
 	std::getline(std::cin, phoneNumber);
 	std::cout << "Address: ";
 	std::getline(std::cin, address);
-	if ((firstName == "" || lastName == "" || phoneNumber == "" || address == "") && !std::cin.eof())
+	std::cout << "Darkest secret: ";
+	std::getline(std::cin, darkest_secret);
+	if ((firstName == "" || lastName == "" || phoneNumber == "" || address == "" || darkest_secret == "") && !std::cin.eof())
 	{
 		std::cout << "all field must be filled!" << std::endl;
 		setContact();
@@ -46,4 +48,5 @@ void	Contact::printContact()
 	std::cout << "Nickname: " << nickname << std::endl;
 	std::cout << "Phone number: " << phoneNumber << std::endl;
 	std::cout << "Address: " << address << std::endl;
+	std::cout << "Darkest secret: " << darkest_secret << std::endl;
 }
