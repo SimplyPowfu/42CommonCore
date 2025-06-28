@@ -46,6 +46,10 @@
 		"ostream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp"
+		"typeinfo": "cpp",
+		"optional": "cpp",
+		"fstream": "cpp",
+		"ranges": "cpp",
+		"span": "cpp"
 	}
 }

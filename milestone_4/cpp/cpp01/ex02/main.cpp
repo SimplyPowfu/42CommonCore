@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:55:40 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/27 19:05:27 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:03:51 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main()
 {
 	std::string string = "HI THIS IS BRAIN";
 	std::string* stringPTR = &string;
-	std::string stringREF = string;
+	std::string& stringREF = string;
 
 	std::cout	<< "address of the string variable: " << &string 
 				<< "\naddress stringPTR: " << stringPTR
