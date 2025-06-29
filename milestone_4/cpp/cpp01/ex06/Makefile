@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+         #
+#    By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 14:25:51 by ecarbona          #+#    #+#              #
-#    Updated: 2025/06/28 16:46:12 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/06/28 20:04:33 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
-NAME = sed
+NAME = harlFilter
 SRC = main.cpp harl.cpp
 OBJ = ${SRC:.cpp=.o}
 
