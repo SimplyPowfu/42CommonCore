@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:31:55 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/01 16:34:00 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:34:08 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "clapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 public:
 	ScavTrap();

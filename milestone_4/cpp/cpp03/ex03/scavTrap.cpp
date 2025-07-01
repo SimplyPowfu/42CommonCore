@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 20:01:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/01 16:33:52 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:38:51 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "created default ScavTrap" << std::endl;
-	this->name = "default";
+	this->_name = "default";
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 ScavTrap::ScavTrap(std::string name) : ClapTrap()
 {
 	std::cout << "ScavTrap " << name << " costructed" << std::endl;
-	this->name = name;
+	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
@@ -39,7 +39,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 {
 	if (this != &copy) 
     {
-		name = copy.name;
+		_name = copy._name;
 		_hitPoints = copy._hitPoints;
 		_energyPoints = copy._energyPoints;
 		_attackDamage = copy._attackDamage;
@@ -49,10 +49,10 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << name << " decostructed" << std::endl;
+	std::cout << "ScavTrap " << _name << " decostructed" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->name << " is now in Gate keeper mode." << std::endl;
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
 }
