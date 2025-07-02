@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 17:55:40 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/06/28 20:25:32 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:26:14 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int argc, char **argv)
 		i++;
 	switch (i)//switch the most useless thing in dev. if else is better
 	{
-		case 0: harl.complain(argv[1]);break;
-		case 1: harl.complain(argv[1]);break;
-		case 2: harl.complain(argv[1]);break;
+		case 0: harl.complain(argv[1]);
+		case 1: harl.complain(argv[1]);
+		case 2: harl.complain(argv[1]);
 		case 3: harl.complain(argv[1]);break;
 		default: std::cerr << "[ Probably complaining about insignificant problems ]" << std::endl;return (1);
 	}
