@@ -23,12 +23,12 @@ int	main(int argc, char **argv)
 	int i = 0;
 	while (i < 4 && argv[1] != levels[i])
 		i++;
-	switch (i)//switch the most useless thing in dev. if else is better
+		switch (i)//switch the most useless thing in dev. if else is better
 	{
-		case 0: harl.complain(argv[1]);
-		case 1: harl.complain(argv[1]);
-		case 2: harl.complain(argv[1]);
-		case 3: harl.complain(argv[1]);break;
+		case 0: harl.complain("DEBUG");
+		case 1: harl.complain("INFO");
+		case 2: harl.complain("WARNING");
+		case 3: harl.complain("ERROR");break;
 		default: std::cerr << "[ Probably complaining about insignificant problems ]" << std::endl;return (1);
 	}
 	return (0);
