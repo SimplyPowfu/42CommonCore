@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 17:00:07 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 18:18:51 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:09:15 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,65 +16,79 @@
 
 Character::Character() : index(0), name("default")
 {
-	std::cout << "Costruction Character" << std::endl;
+	// std::cout << "Costruction Character" << std::endl;
 	for (int i = 0; i < 4; i++)
 		invetory[i] = NULL;
 }
 
 Character::Character(std::string const& name) : index(0)
 {
-	std::cout << "Costruction "<< name <<" Character" << std::endl;
+	// std::cout << "Costruction "<< name <<" Character" << std::endl;
 	this->name = name;
 	for (int i = 0; i < 4; i++)
 		invetory[i] = NULL;
 }
 
-Character::Character(Character const& copy)
+Character::Character(Character const& copy): name(copy.name) 
 {
-	std::cout << "Copy Character" << std::endl;
-	*this = copy;
+    for (int i = 0; i < 4; ++i) 
+    {
+        if (copy.invetory[i]) 
+            invetory[i] = copy.invetory[i]->Add();
+        else 
+            invetory[i] = NULL;
+    }
 }
 
-Character&	Character::operator=(Character const& copy) 
+Character&	Character::operator=(Character const& copy)
 {
-	std::cout << "Copy operator Character" << std::endl;
-	if (&copy != this)
-		*this = copy;
-	return (*this);
+    if (this != &copy) 
+    {
+        name = copy.name;
+        for (int i = 0; i < 4; ++i) 
+        {
+            if (invetory[i]) 
+                delete invetory[i];
+            if (copy.invetory[i]) 
+                invetory[i] = copy.invetory[i]->Add();
+            else
+                invetory[i] = NULL;
+        }
+    }
+    return (*this);
 }
 
 Character::~Character()
 {
-	std::cout << "distruction Character" << std::endl;
+	for (int i = 0; i < 4; i++)
+		if (invetory[i]) 
+            delete invetory[i];
+	// std::cout << "distruction Character" << std::endl;
 }
 
 std::string const & Character::getName() const {return (this->name);}
 
 void	Character::equip(AMateria* m)
 {
-	if (m != NULL && this->index < 4)
-	{
-		this->invetory[this->index] = m;
-		this->index++;
-	}
+	for (int i = 0; i < 4; ++i) 
+    {
+        if (!invetory[i]) 
+        {
+            invetory[i] = m;
+            break;
+        }
+    }
 }
 
 void	Character::unequip(int index)
 {
-	if (index >= 0 && index < 4 && this->invetory[index] != NULL)
-	{
+	if (index >= 0 && index < 4)
 		this->invetory[index] = NULL;
-		this->index--;
-	}
 }
 
 void	Character::use(int index, ICharacter& target)
 {
 	
-	if (index >= 0 && index < 4 && this->invetory[index] != NULL)
-	{
+	if (index >= 0 && index < 4 && this->invetory[index])
 		this->invetory[index]->use(target);
-		this->invetory[index] = NULL;
-		this->index--;
-	}
 }

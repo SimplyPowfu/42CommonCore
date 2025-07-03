@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 17:22:45 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 17:29:42 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:01:37 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 
 Ice::Ice() : AMateria("ice") 
 {
-	std::cout << "Costruction Ice" << std::endl;
+	// std::cout << "Costruction Ice" << std::endl;
 }
 
 Ice::Ice(Ice const& copy) : AMateria(copy.type) 
 {
-	std::cout << "Copy Ice" << std::endl;
+	// std::cout << "Copy Ice" << std::endl;
 }
 
 Ice::~Ice()
 {
-	std::cout << "distruction Ice" << std::endl;
+	// std::cout << "distruction Ice" << std::endl;
 }
 
 Ice&	Ice::operator=(Ice const& copy) 
 {
-	std::cout << "Copy operator Ice" << std::endl;
+	// std::cout << "Copy operator Ice" << std::endl;
 	if (&copy != this)
 		this->type = copy.type;
 	return (*this);

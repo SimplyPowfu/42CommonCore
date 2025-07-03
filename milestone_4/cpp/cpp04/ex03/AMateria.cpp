@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 16:52:58 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 18:06:12 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/03 19:01:23 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 
 AMateria::AMateria() : type("AMateria") 
 {
-	std::cout << "Costruction AMateria" << std::endl;
+	// std::cout << "Costruction AMateria" << std::endl;
 }
 
 AMateria::AMateria(std::string const& type)
 {
-	std::cout << "Copy AMateria" << std::endl;
+	// std::cout << "Copy AMateria" << std::endl;
 	this->type = type;
 }
 
 AMateria::AMateria(AMateria const& copy) : type(copy.type) 
 {
-	std::cout << "Copy AMateria" << std::endl;
+	// std::cout << "Copy AMateria" << std::endl;
 }
 
 AMateria&	AMateria::operator=(AMateria const& copy) 
 {
-	std::cout << "Copy operator AMateria" << std::endl;
+	// std::cout << "Copy operator AMateria" << std::endl;
 	if (&copy != this)
 		this->type = copy.type;
 	return (*this);
@@ -39,7 +39,7 @@ AMateria&	AMateria::operator=(AMateria const& copy)
 
 AMateria::~AMateria()
 {
-	std::cout << "distruction AMateria" << std::endl;
+	// std::cout << "distruction AMateria" << std::endl;
 }
 
 std::string const& AMateria::getType() const {return (this->type);}
