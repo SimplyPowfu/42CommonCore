@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 19:14:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 15:49:35 by ecarbona         ###   ########.fr       */
+/*   Created: 2025/07/03 16:50:51 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/07/03 18:12:02 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
-#include "brain.hpp"
-#include "wrongAnimal.hpp"
-#include "wrongCat.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
 
-int main()
+# include "AMateria.hpp"
+
+class Cure : public AMateria
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+public:
+	Cure();
+	Cure(Cure const& copy);
+	~Cure();
+	Cure& operator=(Cure const& copy);
+	std::string const & getType() const;
+	Cure* Add() const;
+	void use(ICharacter& target);
+};
 
-	Dog dog;
-	dog.getBrain()->addIdea("buoni i croccantini");
-	dog.showIdea(0);
-
-	Cat cat;
-	cat.getBrain()->addIdea("meglio l'umido");
-	cat.showIdea(0);
-
-	delete j;
-	delete i;
-	return 0;
-}
+#endif

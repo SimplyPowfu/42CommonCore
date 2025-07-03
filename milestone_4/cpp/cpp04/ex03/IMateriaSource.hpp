@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 19:14:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 15:49:35 by ecarbona         ###   ########.fr       */
+/*   Created: 2025/07/03 16:21:33 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/07/03 16:50:02 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
-#include "brain.hpp"
-#include "wrongAnimal.hpp"
-#include "wrongCat.hpp"
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-int main()
+# include "AMateria.hpp"
+
+class IMateriaSource
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+public:
+	virtual ~IMateriaSource() {}
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
+};
 
-	Dog dog;
-	dog.getBrain()->addIdea("buoni i croccantini");
-	dog.showIdea(0);
-
-	Cat cat;
-	cat.getBrain()->addIdea("meglio l'umido");
-	cat.showIdea(0);
-
-	delete j;
-	delete i;
-	return 0;
-}
+#endif

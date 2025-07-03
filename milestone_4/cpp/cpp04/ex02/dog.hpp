@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 19:14:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 15:49:35 by ecarbona         ###   ########.fr       */
+/*   Created: 2025/06/27 17:31:55 by ecarbona          #+#    #+#             */
+/*   Updated: 2025/07/02 19:51:21 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
-#include "brain.hpp"
-#include "wrongAnimal.hpp"
-#include "wrongCat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int main()
+# include "animal.hpp"
+# include "brain.hpp"
+
+class Dog : public Animal
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+private:
+	Brain* brain;
+public:
+	Dog();
+	Dog(Dog const& copy);
+	Dog&	operator=(Dog const& copy);
+	~Dog();
 
-	Dog dog;
-	dog.getBrain()->addIdea("buoni i croccantini");
-	dog.showIdea(0);
+	void	makeSound(void) const;
+	void	addIdea(std::string idea);
+	void	showIdea(int i);
+	Brain*	getBrain() const;
+};
 
-	Cat cat;
-	cat.getBrain()->addIdea("meglio l'umido");
-	cat.showIdea(0);
 
-	delete j;
-	delete i;
-	return 0;
-}
+#endif

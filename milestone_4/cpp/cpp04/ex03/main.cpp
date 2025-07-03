@@ -6,31 +6,32 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:14:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 15:49:35 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/03 18:30:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
-#include "brain.hpp"
-#include "wrongAnimal.hpp"
-#include "wrongCat.hpp"
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main()
 {
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-
-	Dog dog;
-	dog.getBrain()->addIdea("buoni i croccantini");
-	dog.showIdea(0);
-
-	Cat cat;
-	cat.getBrain()->addIdea("meglio l'umido");
-	cat.showIdea(0);
-
-	delete j;
-	delete i;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("Mario");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("Luigi");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
 	return 0;
 }

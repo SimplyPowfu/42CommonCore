@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:14:54 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/03 15:49:35 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:45:03 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ int main()
 	Dog dog;
 	dog.getBrain()->addIdea("buoni i croccantini");
 	dog.showIdea(0);
+	dog.makeSound();
 
 	Cat cat;
 	cat.getBrain()->addIdea("meglio l'umido");
 	cat.showIdea(0);
+	cat.makeSound();
 
 	delete j;
 	delete i;
