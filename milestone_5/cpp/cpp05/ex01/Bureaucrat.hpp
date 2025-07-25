@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:07:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/25 13:39:30 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/25 19:11:13 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <cctype>
+# include "Form.hpp"
 
 class Form;
 

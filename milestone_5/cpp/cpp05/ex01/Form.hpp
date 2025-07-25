@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:07:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/25 13:44:38 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/25 19:19:22 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <iostream>
 # include <iomanip>
 # include <cctype>
-
 # include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {

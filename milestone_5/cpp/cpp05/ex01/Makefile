@@ -6,14 +6,14 @@
 #    By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 11:06:15 by ecarbona          #+#    #+#              #
-#    Updated: 2025/07/25 13:07:30 by ecarbona         ###   ########.fr        #
+#    Updated: 2025/07/25 19:19:53 by ecarbona         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -g
-NAME = bureaucrat
-SRC = main.cpp Bureaucrat.cpp
+NAME = form
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = ${SRC:.cpp=.o}
 
 all : $(NAME)
