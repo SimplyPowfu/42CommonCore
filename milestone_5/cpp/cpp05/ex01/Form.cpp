@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 13:30:36 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/25 17:57:14 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/25 19:57:09 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Form::Form() : _name("default"), _signGrade(1), _executeGrade(1), _sign(false)
 	std::cout << _name << " Costructor created" << std::endl;
 }
 
-Form::Form(const std::string _name, const int _signGrade, const int _executeGrade) : _name("default"), _signGrade(_signGrade), _executeGrade(_executeGrade), _sign(false) 
+Form::Form(const std::string _name, const int _signGrade, const int _executeGrade) : _name(_name), _signGrade(_signGrade), _executeGrade(_executeGrade), _sign(false) 
 {
 	if (_signGrade < 1 || _executeGrade < 1)
 		throw Bureaucrat::GradeTooHighException();
