@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:07:34 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/07/26 16:54:28 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/07/27 11:02:55 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <cctype>
+# include <climits>
 
 int		 	get_type(std::string const &str);
 void		charLiteral(std::string const &str);
