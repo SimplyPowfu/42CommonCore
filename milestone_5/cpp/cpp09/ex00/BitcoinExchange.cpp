@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
+/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 11:28:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/08/08 15:00:49 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/08/08 16:40:49 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ BitcoinExchange::BitcoinExchange()
 			}
 		}
 	}
-	std::cout << "Costructor created" << std::endl;
+	// std::cout << "Costructor created" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const& copy)
@@ -47,7 +47,7 @@ BitcoinExchange::BitcoinExchange(BitcoinExchange const& copy)
 
 BitcoinExchange::~BitcoinExchange()
 {
-	std::cout << "Distructor called" << std::endl;
+	// std::cout << "Distructor called" << std::endl;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
