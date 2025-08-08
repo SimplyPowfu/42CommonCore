@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 11:28:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/08/08 16:40:49 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/08/08 16:51:37 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,11 @@ BitcoinExchange::BitcoinExchange()
 			}
 		}
 	}
-	// std::cout << "Costructor created" << std::endl;
 }
 
-BitcoinExchange::BitcoinExchange(BitcoinExchange const& copy)
-{
-	std::cout << "Copy Costructor" << std::endl;
-	*this = copy;
-}
+BitcoinExchange::BitcoinExchange(BitcoinExchange const& copy) { *this = copy; }
 
-BitcoinExchange::~BitcoinExchange()
-{
-	// std::cout << "Distructor called" << std::endl;
-}
+BitcoinExchange::~BitcoinExchange() {}
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 {
@@ -58,10 +50,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy)
 	return (*this);
 }
 
-const char* BitcoinExchange::FileNotFound::what() const throw()
-{
-	return ("File Not Found");
-}
+const char* BitcoinExchange::FileNotFound::what() const throw() { return ("File Not Found"); }
 
 double BitcoinExchange::searchValue(std::string line)
 {
