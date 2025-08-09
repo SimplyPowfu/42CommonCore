@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 11:28:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/08/08 18:07:21 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/08/09 11:36:10 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,14 @@
 class RPN
 {
 private:
-	std::stack<int>	_number;
-	std::string		_string;
-	int				_result;
+	static std::stack<int>	_stack;
 public:
 	RPN();
 	RPN(RPN const& copy);
 	RPN& operator=(RPN const& copy);
 	~RPN();
 
-	void	calculate();
-	int 	getResult();
+	static void	calculate(char *input);
 };
 
 #endif
