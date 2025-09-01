@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"*.c": "c",
+		"deque": "cpp",
+		"string": "cpp",
+		"vector": "cpp"
+	}
+}

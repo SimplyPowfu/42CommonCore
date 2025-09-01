@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 11:28:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/08/09 16:46:09 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/09/01 20:22:16 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,37 +57,39 @@ void PmergeMe::fordJohnsonSortVect(std::vector<unsigned int> &data)
 {
 	if (data.size() < 2)
 		return;
-	std::vector<unsigned int> sorted;
-	std::vector<unsigned int> buffer_min;
 
-	if (data[0] < data[1]) {
-		sorted.push_back(data[0]);
-		sorted.push_back(data[1]);
-	} else {
-		sorted.push_back(data[1]);
-		sorted.push_back(data[0]);
-	}
-	for (size_t i = 2; i + 1 < data.size(); i += 2) {
-		int a = data[i];
-		int b = data[i + 1];
-		if (a < b) {
-			buffer_min.push_back(a);
-			sorted.insert(std::lower_bound(sorted.begin(), sorted.end(), b), b);
+	std::vector<unsigned int> minori;
+	std::vector<unsigned int> maggiori;
+
+	for (size_t i = 0; i + 1 < data.size(); i += 2)
+	{
+		unsigned int a = data[i];
+		unsigned int b = data[i + 1];
+		if (a < b)
+		{
+			minori.push_back(a);
+			maggiori.push_back(b);
 		}
-		else {
-			buffer_min.push_back(b);
-			sorted.insert(std::lower_bound(sorted.begin(), sorted.end(), a), a);
+		else
+		{
+			minori.push_back(b);
+			maggiori.push_back(a);
 		}
 	}
-	if (data.size() % 2 != 0) {
-		int last = data.back();
-		sorted.insert(std::lower_bound(sorted.begin(), sorted.end(), last), last);
-	}
-	for (int val : buffer_min) {
-		sorted.insert(std::lower_bound(sorted.begin(), sorted.end(), val), val);
+	if (data.size() % 2 != 0)
+		minori.push_back(data.back());
+
+	fordJohnsonSortVect(maggiori);
+
+	std::vector<unsigned int> sorted = maggiori;
+	for (unsigned int val : minori)
+	{
+		auto pos = std::lower_bound(sorted.begin(), sorted.end(), val);
+		sorted.insert(pos, val);
 	}
 	data = sorted;
 }
+
 
 void insertSorted(std::list<unsigned int> &lst, unsigned int value)
 {
@@ -102,40 +104,37 @@ void PmergeMe::fordJohnsonSortList(std::list<unsigned int> &data)
 {
 	if (data.size() < 2)
 		return;
-	std::list<unsigned int> sorted;
-	std::list<unsigned int> buffer_min;
 
-	std::list<unsigned int>::iterator it = data.begin();
-	unsigned int first = *it++;
-	unsigned int second = *it++;
+	std::list<unsigned int> minori;
+	std::list<unsigned int> maggiori;
 
-	if (first < second) {
-		sorted.push_back(first);
-		sorted.push_back(second);
-	} else {
-		sorted.push_back(second);
-		sorted.push_back(first);
-	}
-	while (it != data.end()) {
+	auto it = data.begin();
+	while (it != data.end())
+	{
 		unsigned int a = *it++;
-		if (it != data.end()) {
+		if (it != data.end())
+		{
 			unsigned int b = *it++;
-			if (a < b) {
-				buffer_min.push_back(a);
-				insertSorted(sorted, b);
+			if (a < b)
+			{
+				minori.push_back(a);
+				maggiori.push_back(b);
 			}
-			else {
-				buffer_min.push_back(b);
-				insertSorted(sorted, a);
+			else
+			{
+				minori.push_back(b);
+				maggiori.push_back(a);
 			}
 		}
-		else {
-			insertSorted(sorted, a);
-		}
+		else
+			minori.push_back(a);
 	}
-	for (unsigned int val : buffer_min) {
+
+	fordJohnsonSortList(maggiori);
+
+	std::list<unsigned int> sorted = maggiori;
+	for (unsigned int val : minori)
 		insertSorted(sorted, val);
-	}
 	data = sorted;
 }
 
