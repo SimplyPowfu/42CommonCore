@@ -6,7 +6,7 @@
 /*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 11:28:12 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/09/03 15:45:50 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/09/05 01:03:04 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,75 +55,75 @@ void	PmergeMe::store_numbers(int argc, char **argv)
 
 static std::vector<size_t> jacobsthal_sequence_up_to(size_t n)
 {
-    std::vector<size_t> seq = {1};
-    size_t a = 1, b = 1;
-    while (b < n) {
-        size_t next = b + 2 * a;
-        seq.push_back(next);
-        a = b;
-        b = next;
-    }
-    return seq;
+	std::vector<size_t> seq = {1};
+	size_t a = 1, b = 1;
+	while (b < n) {
+		size_t next = b + 2 * a;
+		seq.push_back(next);
+		a = b;
+		b = next;
+	}
+	return seq;
 }
 
 void PmergeMe::fordJohnsonSortVect(std::vector<unsigned int> &data)
 {
-    if (data.size() < 2) return;
+	if (data.size() < 2) return;
 
-    std::vector<unsigned int> minori;
-    std::vector<unsigned int> maggiori;
+	std::vector<unsigned int> minori;
+	std::vector<unsigned int> maggiori;
 
-    for (size_t i = 0; i + 1 < data.size(); i += 2) {
-        unsigned int a = data[i];
-        unsigned int b = data[i + 1];
-        if (a < b) {
-            minori.push_back(a);
-            maggiori.push_back(b);
-        } else {
-            minori.push_back(b);
-            maggiori.push_back(a);
-        }
-    }
-    if (data.size() % 2 != 0)
-        minori.push_back(data.back());
+	for (size_t i = 0; i + 1 < data.size(); i += 2) {
+		unsigned int a = data[i];
+		unsigned int b = data[i + 1];
+		if (a < b) {
+			minori.push_back(a);
+			maggiori.push_back(b);
+		} else {
+			minori.push_back(b);
+			maggiori.push_back(a);
+		}
+	}
+	if (data.size() % 2 != 0)
+		minori.push_back(data.back());
 
-    fordJohnsonSortVect(maggiori);
+	fordJohnsonSortVect(maggiori);
 
-    std::vector<unsigned int> sorted = maggiori;
-    std::vector<bool> inserted(minori.size(), false);
-    auto jac_seq = jacobsthal_sequence_up_to(minori.size());
+	std::vector<unsigned int> sorted = maggiori;
+	std::vector<bool> inserted(minori.size(), false);
+	auto jac_seq = jacobsthal_sequence_up_to(minori.size());
 
-    for (size_t k : jac_seq) {
-        if (k == 0 || k > minori.size()) continue;
-        size_t idx = k - 1;
-        if (!inserted[idx]) {
-            size_t left = 0, right = sorted.size();
-            while (left < right) {
-                size_t mid = left + (right - left) / 2;
-                if (minori[idx] < sorted[mid])
-                    right = mid;
-                else
-                    left = mid + 1;
-            }
-            sorted.insert(sorted.begin() + left, minori[idx]);
-            inserted[idx] = true;
-        }
-    }
+	for (size_t k : jac_seq) {
+		if (k == 0 || k > minori.size()) continue;
+		size_t idx = k - 1;
+		if (!inserted[idx]) {
+			size_t left = 0, right = sorted.size();
+			while (left < right) {
+				size_t mid = left + (right - left) / 2;
+				if (minori[idx] < sorted[mid])
+					right = mid;
+				else
+					left = mid + 1;
+			}
+			sorted.insert(sorted.begin() + left, minori[idx]);
+			inserted[idx] = true;
+		}
+	}
 
-    for (size_t i = 0; i < minori.size(); ++i) {
-        if (!inserted[i]) {
-            size_t left = 0, right = sorted.size();
-            while (left < right) {
-                size_t mid = left + (right - left) / 2;
-                if (minori[i] < sorted[mid])
-                    right = mid;
-                else
-                    left = mid + 1;
-            }
-            sorted.insert(sorted.begin() + left, minori[i]);
-        }
-    }
-    data = sorted;
+	for (size_t i = 0; i < minori.size(); ++i) {
+		if (!inserted[i]) {
+			size_t left = 0, right = sorted.size();
+			while (left < right) {
+				size_t mid = left + (right - left) / 2;
+				if (minori[i] < sorted[mid])
+					right = mid;
+				else
+					left = mid + 1;
+			}
+			sorted.insert(sorted.begin() + left, minori[i]);
+		}
+	}
+	data = sorted;
 }
 
 void insertSorted(std::list<unsigned int> &lst, unsigned int value)
@@ -137,51 +137,51 @@ void insertSorted(std::list<unsigned int> &lst, unsigned int value)
 
 void PmergeMe::fordJohnsonSortList(std::list<unsigned int> &data)
 {
-    if (data.size() < 2) return;
+	if (data.size() < 2) return;
 
-    std::list<unsigned int> minori;
-    std::list<unsigned int> maggiori;
+	std::list<unsigned int> minori;
+	std::list<unsigned int> maggiori;
 
-    auto it = data.begin();
-    while (it != data.end()) {
-        unsigned int a = *it++;
-        if (it != data.end()) {
-            unsigned int b = *it++;
-            if (a < b) {
-                minori.push_back(a);
-                maggiori.push_back(b);
-            } else {
-                minori.push_back(b);
-                maggiori.push_back(a);
-            }
-        } else {
-            minori.push_back(a);
-        }
-    }
+	auto it = data.begin();
+	while (it != data.end()) {
+		unsigned int a = *it++;
+		if (it != data.end()) {
+			unsigned int b = *it++;
+			if (a < b) {
+				minori.push_back(a);
+				maggiori.push_back(b);
+			} else {
+				minori.push_back(b);
+				maggiori.push_back(a);
+			}
+		} else {
+			minori.push_back(a);
+		}
+	}
 
-    fordJohnsonSortList(maggiori);
+	fordJohnsonSortList(maggiori);
 
-    std::list<unsigned int> sorted = maggiori;
-    std::vector<unsigned int> min_vec(minori.begin(), minori.end());
-    std::vector<bool> inserted(min_vec.size(), false);
-    auto jac_seq = jacobsthal_sequence_up_to(min_vec.size());
+	std::list<unsigned int> sorted = maggiori;
+	std::vector<unsigned int> min_vec(minori.begin(), minori.end());
+	std::vector<bool> inserted(min_vec.size(), false);
+	auto jac_seq = jacobsthal_sequence_up_to(min_vec.size());
 
-    for (size_t k : jac_seq) {
-        if (k == 0 || k > min_vec.size()) continue;
-        size_t idx = k - 1;
-        if (!inserted[idx]) {
-            insertSorted(sorted, min_vec[idx]);
-            inserted[idx] = true;
-        }
-    }
+	for (size_t k : jac_seq) {
+		if (k == 0 || k > min_vec.size()) continue;
+		size_t idx = k - 1;
+		if (!inserted[idx]) {
+			insertSorted(sorted, min_vec[idx]);
+			inserted[idx] = true;
+		}
+	}
 
-    for (size_t i = 0; i < min_vec.size(); ++i) {
-        if (!inserted[i]) {
-            insertSorted(sorted, min_vec[i]);
-            inserted[i] = true;
-        }
-    }
-    data = sorted;
+	for (size_t i = 0; i < min_vec.size(); ++i) {
+		if (!inserted[i]) {
+			insertSorted(sorted, min_vec[i]);
+			inserted[i] = true;
+		}
+	}
+	data = sorted;
 }
 
 void PmergeMe::sort_vector()
