@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ecarbona <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ecarbona <ecarbona@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:06:57 by ecarbona          #+#    #+#             */
-/*   Updated: 2025/08/08 17:11:55 by ecarbona         ###   ########.fr       */
+/*   Updated: 2025/09/08 10:43:38 by ecarbona         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int main(int argc, char **argv)
 		std::ifstream	file(argv[1]);
 		std::string		line, values[2];
 		double			ret;
+
+		if (!file.is_open())
+			return (std::cerr << "Error: could not open file" << std::endl, 1);
+		if (file.peek() == std::ifstream::traits_type::eof())
+			return (std::cerr << "Error: file is empty" << std::endl, 1);
 		while(std::getline(file, line))
 		{
 			if (line == "date | value")
