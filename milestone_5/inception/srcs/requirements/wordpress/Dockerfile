@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.21
 
 # Variabili di ambiente passate come ARG
 ARG PHP_VERSION=82

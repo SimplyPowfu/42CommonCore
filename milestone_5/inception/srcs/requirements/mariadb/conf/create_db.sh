@@ -1,4 +1,10 @@
-#!bin/sh
+#!/bin/sh
+
+if [ -z "$DB_ROOT" ] || [ -z "$DB_NAME" ] || [ -z "$DB_USER" ] || [ -z "$DB_PASS" ]; then
+    echo "Errore: una o più variabili richieste non sono state impostate."
+    echo "Assicurati che DB_ROOT, DB_NAME, DB_USER e DB_PASS siano definite."
+    exit 1
+fi
 
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 
